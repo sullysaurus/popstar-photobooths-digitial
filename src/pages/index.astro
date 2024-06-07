@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import CTA from "../components/CTA.astro";
+import Booths from "../components/Booths.astro";
+import Form from "../components/Form.astro";
+import Customize from "../components/Customize.astro";
+import About from "../components/About.astro";
+import Partners from "../components/Partners.astro";
+import ReviewsWidget from "../components/ReviewsWidget.astro";
+---
+
+<Layout title="Popstar Photo Booths">
+  <Header title="Raleigh Photo" subtitle="Booth Rentals" />
+  <main>
+    <CTA />
+    <Booths />
+    <Form emContent="Step 2:" title="Tell Us About Your Event" />
+    <Customize />
+    <About />
+    <Partners />
+    <ReviewsWidget />
+  </main>
+</Layout>
