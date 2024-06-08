@@ -78,6 +78,17 @@ const { title } = Astro.props;
         }
       });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const element = document.querySelector('#eapps-google-reviews-195d11b9-5a7c-406e-aeb6-0bc3cae6ea19 > div > div > div > div.WidgetBackground__ContentContainer-sc-1ho7q3r-1.jUKeJm > div > a');
+          if (element) {
+            element.remove();
+          }
+        }, 5000); // 5000 milliseconds = 5 seconds
+      });
+    </script>
+    
   </head>
   <body>
     <slot />
