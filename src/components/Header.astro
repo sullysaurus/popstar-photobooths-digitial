@@ -2,11 +2,12 @@
 export interface Props {
   title: string;
   subtitle: string;
+  backgroundImage: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, backgroundImage } = Astro.props;
 ---
-<div class="full-page-header">
+<div class="full-page-header" style={`background-image: url(${backgroundImage});`}>
   <div class="content">
     <h1 class="archivo-black-regular">{title} <br /> {subtitle}</h1>
   </div>

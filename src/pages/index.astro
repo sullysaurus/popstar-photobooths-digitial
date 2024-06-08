@@ -11,14 +11,18 @@ import ReviewsWidget from "../components/ReviewsWidget.astro";
 ---
 
 <Layout title="Popstar Photo Booths">
-  <Header title="Raleigh Photo" subtitle="Booth Rentals" />
+  <Header
+    title="Raleigh Photo"
+    subtitle="Booth Rentals"
+    backgroundImage="/images/branding/header.jpeg"
+  />
   <main>
     <CTA
-      title="Looking For a Photo Booth in Raleigh?" 
+      title="Looking For a Photo Booth in Raleigh?"
       description="If you are looking for a photo booth where the photos are actually awesome and the experience is just as fun, look no further. Reach out to Danny if you’re in the Triangle area to see how we can enhance your next event."
       imagePaths={[
         { src: "/images/branding/theknot.png", alt: "The Knot" },
-        { src: "/images/branding/weddingwire.png", alt: "WeddingWire" }
+        { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
       ]}
     />
     <Booths />
