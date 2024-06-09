@@ -6,14 +6,6 @@ const navbarItems = [
   { text: 'About', href: '/about' },
   { text: 'Inquiry', href: '/inquiry' },
   { text: 'Backdrops', href: '/backdrops' },
-//   {
-//     text: 'Services',
-//     subItems: [
-//       { text: 'Service 1', href: '#' },
-//       { text: 'Service 2', href: '#' },
-//       { text: 'Service 3', href: '#' },
-//     ],
-//   },
 ];
 ---
 <nav class="navbar navbar-expand-lg navbar-custom">
@@ -30,15 +22,6 @@ const navbarItems = [
         {navbarItems.map((item) => (
           <li class="nav-item">
             <a class="nav-link" href={item.href}>{item.text}</a>
-            {item.subItems && (
-              <ul class="dropdown-menu">
-                {item.subItems.map((subItem) => (
-                  <li>
-                    <a class="dropdown-item" href={subItem.href}>{subItem.text}</a>
-                  </li>
-                ))}
-              </ul>
-            )}
           </li>
         ))}
       </ul>
