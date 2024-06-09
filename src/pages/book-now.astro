@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import CTA from "../components/CTA.astro";
+import Booths from "../components/Booths.astro";
+import Form from "../components/Form.astro";
+import Customize from "../components/Customize.astro";
+import About from "../components/About.astro";
+import Partners from "../components/Partners.astro";
+import ReviewsWidget from "../components/ReviewsWidget.astro";
+---
+
+<Layout title="Popstar Photo Booths">
+  <Header
+    title="Book Now"
+    subtitle=""
+    backgroundImage="/images/branding/header.jpeg"
+  />
+  <main>
+    <CTA
+      title="Fill Out the Form to Get Started"
+      description="If you are looking for a photo booth where the photos are actually awesome and the experience is just as fun, look no further. Reach out to Danny if you’re in the Triangle area to see how we can enhance your next event."
+      imagePaths={[
+        { src: "/images/branding/theknot.png", alt: "The Knot" },
+        { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
+      ]}
+    />
+    <Booths />
+    <Form emContent="Book Now" title="Tell Us About Your Event" />
+    <Customize />
+    <About />
+    <Partners />
+    <ReviewsWidget />
+  </main>
+</Layout>
