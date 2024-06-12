@@ -8,6 +8,33 @@ import Customize from "../components/Customize.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
+
+const booths = [
+  {
+    mediaType: "video",
+    mediaSrc: "/images/booths/popstar.mp4",
+    alt: "Popstar Booth",
+    title: "Popstar Booth",
+    description: "Digital Booth. Fun and Affordable.",
+    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
+  },
+  {
+    mediaType: "video",
+    mediaSrc: "/images/booths/rockstar.mp4",
+    alt: "Rockstar Booth",
+    title: "Rockstar Booth",
+    description: "Professional lighting. Color or black & white prints.",
+    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
+  },
+  {
+    mediaType: "video",
+    mediaSrc: "/images/booths/tortilla.mp4",
+    alt: "360 Booth",
+    title: "360 Booth",
+    description: "Experience immersive 360° videos.",
+    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
+  }
+];
 ---
 
 <Layout title="Popstar Photo Booths">
@@ -25,7 +52,7 @@ import ReviewsWidget from "../components/ReviewsWidget.astro";
         { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
       ]}
     />
-    <Booths />
+     <Booths booths={booths} />
     <Form emContent="Step 2:" title="Tell Us About Your Event" />
     <Customize />
     <About />

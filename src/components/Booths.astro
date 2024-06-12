@@ -1,49 +1,30 @@
+---
+const { booths = [] } = Astro.props;
+---
 <section class="py-5">
   <h1 class="section-title text-center p-4"><em>Step 1:</em> Choose Your Booth</h1>
   <div class="container pb-3">
     <div class="row row-cols-1 row-cols-md-3 g-3">
-      <div class="col pb-3">
-        <div class="card shadow-sm">
-          <video src="/images/booths/popstar.mp4" class="card-img-top" autoplay muted loop playsinline alt="Popstar Booth"></video>
-          <div class="card-body p-4">
-            <h2 class="card-title">Popstar Booth</h2>
-            <p class="card-text">Digital Booth. Fun and Affordable.</p>
-            <div class="d-flex justify-content-center align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-primary" onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });">Get Prices</button>
+      {booths.map((booth) => (
+        <div class="col pb-3">
+          <div class="card shadow-sm">
+            {booth.mediaType === 'video' ? (
+              <video src={booth.mediaSrc} class="card-img-top" autoplay muted loop playsinline alt={booth.alt}></video>
+            ) : (
+              <img src={booth.mediaSrc} class="card-img-top" alt={booth.alt} />
+            )}
+            <div class="card-body p-4">
+              <h2 class="card-title">{booth.title}</h2>
+              <p class="card-text">{booth.description}</p>
+              <div class="d-flex justify-content-center align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-lg btn-primary" onclick={booth.buttonAction}>Get Prices</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col pb-3">
-        <div class="card shadow-sm">
-          <video src="/images/booths/rockstar.mp4" class="card-img-top" autoplay muted loop playsinline alt="Rockstar Booth"></video>
-          <div class="card-body p-4">
-            <h2 class="card-title">Rockstar Booth</h2>
-            <p class="card-text">Professional lighting. Color or black & white prints.</p>
-            <div class="d-flex justify-content-center align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-primary" onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });">Get Prices</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col pb-3">
-        <div class="card shadow-sm">
-          <video src="/images/booths/tortilla.mp4" class="card-img-top" autoplay muted loop playsinline alt="360 Booth"></video>
-          <div class="card-body p-4">
-            <h2 class="card-title">360 Booth</h2>
-            <p class="card-text">Experience immersive 360° videos.</p>
-            <div class="d-flex justify-content-center align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-primary" onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });">Get Prices</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
