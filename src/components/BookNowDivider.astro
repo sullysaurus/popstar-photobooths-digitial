@@ -1,9 +1,11 @@
 ---
-const { headerText = "READY TO BOOK?", buttonText = "BOOK NOW" } = Astro.props;
+const { headerText = "READY TO BOOK?", descriptionText = "", buttonText = "BOOK NOW", linkUrl = "#" } = Astro.props;
 ---
+
 <section class="divider-block">
   <h1>{headerText}</h1>
-  <button class="book-now">{buttonText} &#9660;</button>
+  <p>{descriptionText}</p>
+  <a href={linkUrl} class="custom-button">{buttonText}</a>
 </section>
 
 <style>
@@ -18,16 +20,25 @@ const { headerText = "READY TO BOOK?", buttonText = "BOOK NOW" } = Astro.props;
     font-weight: bold;
     margin-bottom: 30px;
   }
-  .book-now {
+  .divider-block p {
+    font-size: 1.25rem;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .custom-button {
     background-color: white;
     color: black;
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
-    font-weight: bold;
+    text-decoration: none; /* Remove underline from link */
+    display: inline-block; /* Make link behave like a button */
   }
-  .book-now:hover {
+  .custom-button:hover {
     background-color: #f0f0f0;
   }
 </style>

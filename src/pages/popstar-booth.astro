@@ -3,11 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import FullWidthSplit from "../components/FullWidthSplit.astro";
 import DividerBlock from "../components/DividerBlock.astro";
-import FullWidthGallery from "../components/FullWidthGallery.astro";
-import FullWidthClassics from "../components/FullWidthClassics.astro";
-import FullWidthPrints from "../components/FullWidthPrints.astro";
-import BoothFeatures from "../components/BoothFeatures.astro"
-import BookNowDivider from "../components/BookNowDivider.astro"
+import Gallery4 from "../components/Gallery4.astro";
+import BoothFeatures from "../components/BoothFeatures.astro";
+import BookNowDivider from "../components/BookNowDivider.astro";
 
 const booths = [
   {
@@ -15,44 +13,44 @@ const booths = [
     mediaSrc: "https://via.placeholder.com/700x500",
     alt: "Booth Image",
     title: "Popstar Booth",
-    description: "Affordable and Fun",
-    buttonAction: () => alert("Get Prices for Popstar Booth"),
+    description: "Classy and Timeless",
+    buttonAction: () => alert("Get Prices for Rockstar Booth"),
   },
 ];
 
 const photos = [
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 1" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 2" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 3" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 4" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 5" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 6" },
+  { src: "/images/booths/popstar/getlit.jpeg", alt: "Photo 1" },
+  { src: "/images/booths/popstar/high.jpeg", alt: "Photo 2" },
+  { src: "/images/booths/popstar/briercreek.jpeg", alt: "Photo 3" },
+  { src: "/images/booths/popstar/lacey.jpeg", alt: "Photo 4" },
 ];
 
 const cards = [
   {
-    iconSrc: '/images/booths/prints.png',
-    iconAlt: 'Custom Prints',
-    title: 'CUSTOM PRINTS',
-    description: 'Unlimited 4x6 prints designed custom to your taste',
+    iconSrc: "/images/booths/prints.png",
+    iconAlt: "Custom Photo Overlay",
+    title: "CUSTOM OVERLAY",
+    description: "Special messages, event dates or branding",
   },
   {
-    iconSrc: '/images/booths/gallery.png',
-    iconAlt: 'Online Gallery',
-    title: 'ONLINE GALLERY',
-    description: 'A personalized gallery for guests to download free digital copies',
+    iconSrc: "/images/booths/gallery.png",
+    iconAlt: "Online Gallery",
+    title: "ONLINE GALLERY",
+    description:
+      "A personalized gallery for guests to download free digital copies",
   },
   {
-    iconSrc: '/images/booths/backdrops-props.png',
-    iconAlt: 'Backdrops / Props',
-    title: 'BACKDROPS / PROPS',
-    description: 'We have a large selection ready on-hand for you to choose from',
+    iconSrc: "/images/booths/backdrops-props.png",
+    iconAlt: "Backdrops / Props",
+    title: "BACKDROPS / PROPS",
+    description:
+      "We have a large selection ready on-hand for you to choose from",
   },
   {
-    iconSrc: '/images/booths/attendant.png',
-    iconAlt: 'SL Attendant',
-    title: 'SL ATTENDANT',
-    description: 'To set-up, breakdown + entertain the hell out of your guests',
+    iconSrc: "/images/booths/attendant.png",
+    iconAlt: "Welcome Screen",
+    title: "CUSTOM TAP TO START SCREEN",
+    description: "Supports photos, videos and custom artwork",
   },
 ];
 ---
@@ -62,33 +60,26 @@ const cards = [
     <Header
       title="Popstar Booth"
       subtitle=""
-      backgroundImage="https://via.placeholder.com/1920x1080"
+      backgroundImage="/images/booths/popstar/header.jpg"
     />
     <FullWidthSplit
-      imageSrc="https://via.placeholder.com/1920x1080"
-      headerText="Features"
-      paragraphText="Stuff"
+      imageSrc="/images/booths/popstar/girls-group.jpg"
+      headerText="Simple and Fun"
+      paragraphText="The Popstar Booth is a fan favorite for it's simplicity and affordability."
     />
     <DividerBlock
-      headerText="Simplicity Is The New Black"
-      descriptionText="Gorgeous Insta worthy images require two things; sensational lighting (we got you) and YOU. Made popular by the Kardashians, the Beauty Booth is perfect for those of you who prefer simplicity and elegance. So ditch the props and busy backdrop and let your charisma shine through!"
+      headerText="The Popstar Booth"
+      descriptionText="The Popstar Booth is our go anywhere, super fun party elevator! It's so easy to use, it shares photos instantly, and you get insta ready images in a few taps."
       buttonText="BOOK POPSTAR BOOTH"
+      linkUrl="/inquiry"
     />
-    <FullWidthGallery photos={photos} />
-    <FullWidthClassics
-      imageSrc="https://via.placeholder.com/1920x1080"
-      headerText="Feature"
-      paragraphText="Stuff"
+    <Gallery4 photos={photos} />
+    <BoothFeatures headerText="The Popstar Booth Includes" cards={cards} />
+    <BookNowDivider
+      headerText="READY TO BOOK?"
+      descriptionText="Get ready for an unforgettable experience. Book your session now and let the fun begin!"
+      buttonText="BOOK NOW"
+      linkUrl="/inquiry"
     />
-    <FullWidthPrints
-      imageSrc="https://via.placeholder.com/1920x1080"
-      headerText="Feature"
-      paragraphText="Stuff"
-    />
-    <BoothFeatures
-      headerText="The Popstar Booth Includes"
-      cards={cards}
-    />
-    <BookNowDivider />
   </main>
 </Layout>

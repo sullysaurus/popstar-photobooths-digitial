@@ -1,12 +1,13 @@
 ---
 const { imageSrc, headerText, paragraphText } = Astro.props;
 ---
+
 <section class="full-width-component">
-  <div class="image-side" style={`background-image: url(${imageSrc});`}></div>
   <div class="text-side">
     <h1>{headerText}</h1>
     <p>{paragraphText}</p>
   </div>
+  <div class="image-side" style={`background-image: url(${imageSrc});`}></div>
 </section>
 
 <style>
@@ -37,5 +38,19 @@ const { imageSrc, headerText, paragraphText } = Astro.props;
   }
   .text-side p {
     font-size: 1.5rem;
+    color: white;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    .full-width-component {
+      flex-direction: column;
+    }
+    .image-side {
+      height: 50vh;
+    }
+    .text-side {
+      height: 50vh;
+    }
   }
 </style>

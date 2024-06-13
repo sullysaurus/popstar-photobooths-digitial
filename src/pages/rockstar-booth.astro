@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import FullWidthSplit from "../components/FullWidthSplit.astro";
+import DividerBlock from "../components/DividerBlock.astro";
+import FullWidthGallery from "../components/FullWidthGallery.astro";
+import BoothFeatures from "../components/BoothFeatures.astro";
+import BookNowDivider from "../components/BookNowDivider.astro";
+
+const photos = [
+  { src: "/images/booths/rockstar/booth.jpeg", alt: "Photo 1" },
+  { src: "/images/booths/rockstar/gallery.jpeg", alt: "Photo 2" },
+  { src: "/images/booths/rockstar/group.jpeg", alt: "Photo 3" },
+  { src: "/images/booths/rockstar/side.jpeg", alt: "Photo 4" },
+  { src: "/images/booths/rockstar/photos.jpeg", alt: "Photo 5" },
+  { src: "/images/booths/rockstar/printer.jpeg", alt: "Photo 6" },
+];
+
+const cards = [
+  {
+    iconSrc: "/images/booths/prints.png",
+    iconAlt: "Custom Prints",
+    title: "CUSTOM PRINTS",
+    description: "Unlimited 4x6 prints designed custom to your taste",
+  },
+  {
+    iconSrc: "/images/booths/gallery.png",
+    iconAlt: "Online Gallery",
+    title: "ONLINE GALLERY",
+    description:
+      "A personalized gallery for guests to download free digital copies",
+  },
+  {
+    iconSrc: "/images/booths/backdrops-props.png",
+    iconAlt: "Backdrops / Props",
+    title: "BACKDROPS / PROPS",
+    description:
+      "We have a large selection ready on-hand for you to choose from",
+  },
+  {
+    iconSrc: "/images/booths/attendant.png",
+    iconAlt: "SL Attendant",
+    title: "SL ATTENDANT",
+    description: "To set-up, breakdown + entertain the hell out of your guests",
+  },
+];
+---
+
+<Layout title="Popstar Photo Booths">
+  <main>
+    <Header
+      title="Rockstar Booth"
+      subtitle=""
+      backgroundImage="/images/branding/header.jpeg"
+    />
+    <FullWidthSplit
+      imageSrc="/images/booths/rockstar/banner.webp"
+      headerText="Glamorous Lighting"
+      paragraphText="Pristine Backdrops. Say hello to the Rockstar Booth. Your guests will love it!"
+    />
+    <DividerBlock
+      headerText="The Rockstar Booth"
+      descriptionText="Gorgeous Insta worthy images require two things; professional lighting (we got you) and YOU. The Rockstar Booth is perfect for those of you who prefer simplicity and elegance."
+      buttonText="BOOK ROCKSTAR BOOTH"
+      linkUrl="/inquiry"
+    />
+
+    <FullWidthGallery photos={photos} />
+    <BoothFeatures headerText="The Rockstar Booth Includes" cards={cards} />
+    <BookNowDivider
+      headerText="READY TO BOOK?"
+      descriptionText="Get ready for an unforgettable experience. Book your session now and let the fun begin!"
+      buttonText="BOOK NOW"
+      linkUrl="/inquiry"
+    />
+  </main>
+</Layout>
