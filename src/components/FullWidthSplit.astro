@@ -1,0 +1,41 @@
+---
+const { imageSrc, headerText, paragraphText } = Astro.props;
+---
+<section class="full-width-component">
+  <div class="image-side" style={`background-image: url(${imageSrc});`}></div>
+  <div class="text-side">
+    <h1>{headerText}</h1>
+    <p>{paragraphText}</p>
+  </div>
+</section>
+
+<style>
+  .full-width-component {
+    display: flex;
+    height: 100vh;
+  }
+  .image-side {
+    flex: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .text-side {
+    flex: 1;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .text-side h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .text-side p {
+    font-size: 1.5rem;
+  }
+</style>

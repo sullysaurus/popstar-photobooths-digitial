@@ -1,0 +1,28 @@
+---
+const { imageSrc = 'https://via.placeholder.com/1600x1200', headerText, paragraphText } = Astro.props;
+---
+<section class="d-flex flex-column flex-lg-row full-width-component">
+  <div class="flex-lg-grow-2 flex-grow-2 bg-white text-black d-flex align-items-center p-5">
+    <div class="text-content">
+      <h1 class="display-3 mb-3">{headerText}</h1>
+      <p class="lead">{paragraphText}</p>
+    </div>
+  </div>
+  <div class="flex-lg-grow-1 flex-grow-1 image-side" style={`background-image: url(${imageSrc});`}></div>
+</section>
+
+<style>
+  .full-width-component {
+    height: 100vh;
+  }
+  .text-content {
+    max-width: 600px;
+  }
+  .image-side {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh; /* Ensure it covers full height */
+    width: 100%; /* Ensure it covers full width */
+  }
+</style>

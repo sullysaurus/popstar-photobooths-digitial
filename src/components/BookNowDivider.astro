@@ -1,0 +1,33 @@
+---
+const { headerText = "READY TO BOOK?", buttonText = "BOOK NOW" } = Astro.props;
+---
+<section class="divider-block">
+  <h1>{headerText}</h1>
+  <button class="book-now">{buttonText} &#9660;</button>
+</section>
+
+<style>
+  .divider-block {
+    background-color: black;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+  }
+  .divider-block h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .book-now {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .book-now:hover {
+    background-color: #f0f0f0;
+  }
+</style>
