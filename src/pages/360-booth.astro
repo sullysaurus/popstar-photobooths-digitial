@@ -3,54 +3,54 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import FullWidthSplit from "../components/FullWidthSplit.astro";
 import DividerBlock from "../components/DividerBlock.astro";
-import FullWidthGallery from "../components/FullWidthGallery.astro";
-import BoothFeatures from "../components/BoothFeatures.astro"
-import BookNowDivider from "../components/BookNowDivider.astro"
+import Gallery4 from "../components/Gallery4.astro";
+import BoothFeatures from "../components/BoothFeatures.astro";
+import BookNowDivider from "../components/BookNowDivider.astro";
 
 const booths = [
   {
     mediaType: "image",
     mediaSrc: "https://via.placeholder.com/700x500",
     alt: "Booth Image",
-    title: "Popstar Booth",
-    description: "Affordable and Fun",
-    buttonAction: () => alert("Get Prices for Popstar Booth"),
+    title: "360 Booth",
+    description: "Capture Every Angle",
+    buttonAction: () => alert("Get Prices for 360 Booth"),
   },
 ];
 
 const photos = [
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 1" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 2" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 3" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 4" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 5" },
-  { src: "https://via.placeholder.com/600x400", alt: "Photo 6" },
+  { src: "/images/booths/360/couple.jpeg", alt: "Photo 1" },
+  { src: "/images/booths/360/glitter.jpeg", alt: "Photo 2" },
+  { src: "/images/booths/360/purple.jpeg", alt: "Photo 3" },
+  { src: "/images/booths/360/silver.jpeg", alt: "Photo 4" },
 ];
 
 const cards = [
   {
-    iconSrc: '/images/booths/prints.png',
-    iconAlt: 'Custom Prints',
-    title: 'CUSTOM PRINTS',
-    description: 'Unlimited 4x6 prints designed custom to your taste',
+    iconSrc: "/images/booths/prints.png",
+    iconAlt: "Custom Photo Overlay",
+    title: "CUSTOM OVERLAY",
+    description: "Special messages, event dates or branding",
   },
   {
-    iconSrc: '/images/booths/gallery.png',
-    iconAlt: 'Online Gallery',
-    title: 'ONLINE GALLERY',
-    description: 'A personalized gallery for guests to download free digital copies',
+    iconSrc: "/images/booths/gallery.png",
+    iconAlt: "Online Gallery",
+    title: "ONLINE GALLERY",
+    description:
+      "A personalized gallery for guests to download free digital copies",
   },
   {
-    iconSrc: '/images/booths/backdrops-props.png',
-    iconAlt: 'Backdrops / Props',
-    title: 'BACKDROPS / PROPS',
-    description: 'We have a large selection ready on-hand for you to choose from',
+    iconSrc: "/images/booths/backdrops-props.png",
+    iconAlt: "Props",
+    title: "PROPS",
+    description:
+      "We have a large selection ready on-hand for you to choose from",
   },
   {
-    iconSrc: '/images/booths/attendant.png',
-    iconAlt: 'SL Attendant',
-    title: 'SL ATTENDANT',
-    description: 'To set-up, breakdown + entertain the hell out of your guests',
+    iconSrc: "/images/booths/screen.png",
+    iconAlt: "Welcome Screen",
+    title: "CUSTOM TAP TO START SCREEN",
+    description: "Supports photos, videos and custom artwork",
   },
 ];
 ---
@@ -58,25 +58,28 @@ const cards = [
 <Layout title="Popstar Photo Booths">
   <main>
     <Header
-      title="Popstar Booth"
+      title="360 Booth"
       subtitle=""
-      backgroundImage="https://via.placeholder.com/1920x1080"
+      backgroundImage="/images/booths/360/gold.webp"
     />
     <FullWidthSplit
-      imageSrc="https://via.placeholder.com/1920x1080"
-      headerText="Features"
-      paragraphText="Stuff"
+      imageSrc="/images/booths/360/silver-room.webp"
+      headerText="Dynamic and Immersive"
+      paragraphText="Experience the thrill of 360° photography with our cutting-edge booth. Perfect for any event, it creates unforgettable, all-around memories."
     />
     <DividerBlock
-      headerText="Simplicity Is The New Black"
-      descriptionText="Gorgeous Insta worthy images require two things; sensational lighting (we got you) and YOU. Made popular by the Kardashians, the Beauty Booth is perfect for those of you who prefer simplicity and elegance. So ditch the props and busy backdrop and let your charisma shine through!"
-      buttonText="BOOK POPSTAR BOOTH"
+      headerText="The 360 Booth"
+      descriptionText="Step into the future of photography with our 360 Booth. It's easy to use, instantly shares your photos, and delivers immersive, social media-ready images in seconds."
+      buttonText="BOOK 360 BOOTH"
+      linkUrl="/inquiry"
     />
-    <FullWidthGallery photos={photos} />
-    <BoothFeatures
-      headerText="The Popstar Booth Includes"
-      cards={cards}
+    <Gallery4 photos={photos} />
+    <BoothFeatures headerText="The 360 Booth Includes" cards={cards} />
+    <BookNowDivider
+      headerText="READY TO BOOK?"
+      descriptionText="Elevate your event with our 360 Booth. Book now and capture every moment from every angle!"
+      buttonText="BOOK NOW"
+      linkUrl="/inquiry"
     />
-    <BookNowDivider />
   </main>
 </Layout>

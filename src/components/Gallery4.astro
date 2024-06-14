@@ -2,16 +2,24 @@
 const { photos = [] } = Astro.props;
 ---
 <section class="photo-grid">
-  <div class="container-fluid px-0">
-    <div class="row gx-0">
-      {photos.slice(0, 4).map((photo, index) => (
-        <div class="col-12 col-md-6 col-lg-6" key={index}>
-          <img src={photo.src} alt={photo.alt} class="img-fluid" />
+  <div class="container-fluid h-100 px-0">
+    <div class="row h-50 gx-0">
+      {photos.slice(0, 2).map((photo, index) => (
+        <div class="col-6 p-0" key={index}>
+          <img src={photo.src} alt={photo.alt} class="img-fluid full-screen" />
+        </div>
+      ))}
+    </div>
+    <div class="row h-50 gx-0">
+      {photos.slice(2, 4).map((photo, index) => (
+        <div class="col-6 p-0" key={index}>
+          <img src={photo.src} alt={photo.alt} class="img-fluid full-screen" />
         </div>
       ))}
     </div>
   </div>
 </section>
+
 
 <style>
   .photo-grid img {
