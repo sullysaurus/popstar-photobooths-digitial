@@ -66,62 +66,6 @@ em {
   height: 50px !important;
 }
 
-/* Full Page Header */
-.full-page-header {
-  height: 100vh;
-  background: url("../images/branding/header.jpeg") no-repeat center center;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: flex-start; /* Aligns content to the left */
-  align-items: flex-end; /* Aligns content to the bottom */
-  color: white;
-  padding: 0 20px;
-}
-
-.full-page-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1); /* Overlay to make text readable */
-}
-
-.full-page-header .content {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 20px; /* Adds space from the bottom */
-}
-
-.full-page-header h1 {
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 100px;
-  letter-spacing: 0em;
-  line-height: 1.1em;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .full-page-header h1 {
-    font-size: 4rem;
-  }
-
-  .full-page-header {
-    height: 70vh; /* Reduce height for mobile screens */
-    padding: 1em 0; /* Adjust padding for mobile screens */
-  }
-
-  .full-page-header .content {
-    margin-bottom: 1em; /* Adjust margin-bottom for mobile screens */
-    padding: 0 1em; /* Add padding to the sides for mobile screens */
-  }
-}
-
 /* Section Title */
 .section-title {
   font-family: Archivo Black;
