@@ -6,6 +6,8 @@ import DividerBlock from "../components/DividerBlock.astro";
 import Gallery4 from "../components/Gallery4.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
+import About from "../components/About.astro";
+import ReviewsWidget from "../components/ReviewsWidget.astro";
 
 const booths = [
   {
@@ -70,13 +72,15 @@ const cards = [
     <DividerBlock
       headerText="The Popstar Booth"
       descriptionText="The Popstar Booth is our go anywhere, super fun party elevator! It's so easy to use, it shares photos instantly, and you get insta ready images in a few taps."
-      buttonText="BOOK POPSTAR BOOTH"
+      buttonText="GET PRICES"
       linkUrl="/inquiry"
     />
     <Gallery4 photos={photos} />
     <BoothFeatures headerText="The Popstar Booth Includes" cards={cards} />
+    <About />
+    <ReviewsWidget />
     <BookNowDivider
-      headerText="READY TO BOOK?"
+      headerText="LEARN MORE"
       descriptionText="Get ready for an unforgettable experience. Book your session now and let the fun begin!"
       buttonText="Get Prices"
       linkUrl="/inquiry"
