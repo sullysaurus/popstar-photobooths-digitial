@@ -6,6 +6,8 @@ import DividerBlock from "../components/DividerBlock.astro";
 import Gallery4 from "../components/Gallery4.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
+import About from "../components/About.astro"
+import ReviewsWidget from "../components/ReviewsWidget.astro";
 
 const booths = [
   {
@@ -75,6 +77,8 @@ const cards = [
     />
     <Gallery4 photos={photos} />
     <BoothFeatures headerText="The 360 Booth Includes" cards={cards} />
+    <About />
+    <ReviewsWidget />
     <BookNowDivider
       headerText="LEARN MORE"
       descriptionText="Elevate your event with our 360 Booth."
