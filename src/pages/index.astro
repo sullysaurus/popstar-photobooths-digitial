@@ -10,46 +10,9 @@ import Partners from "../components/Partners.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
-
-const booths = [
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/popstar.mp4",
-    alt: "Popstar Booth",
-    title: "Popstar Booth",
-    description:
-      "Digital iPad Booth. Shares instantly to private gallery. Printing add on available.",
-    buttonAction:
-      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
-  },
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/rockstar.mp4",
-    alt: "Rockstar Booth",
-    title: "Rockstar Booth",
-    description:
-      "Professional camera and lighting. Color or black & white prints.",
-    buttonAction:
-      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
-  },
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/tortilla.mp4",
-    alt: "360 Booth",
-    title: "360 Booth",
-    description:
-      "Experience immersive 360° videos. Instantly share your videos.",
-    buttonAction:
-      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
-  },
-];
-
-const photos = [
-  { src: "/images/branding/look-7.jpg", alt: "Photo 1" },
-  { src: "/images/branding/look-8.jpg", alt: "Photo 2" },
-  { src: "/images/branding/look-3.jpg", alt: "Photo 3" },
-  { src: "/images/branding/look-9.jpg", alt: "Photo 4" },
-];
+import DividerBlock from "../components/DividerBlock.astro";
+import FullWidthSplit from "../components/FullWidthSplit.astro";
+import Gallery4 from "../components/Gallery4.astro";
 
 const cards = [
   {
@@ -79,13 +42,20 @@ const cards = [
     description: "Supports photos, videos and custom artwork",
   },
 ];
+
+const photos = [
+  { src: "/images/booths/popstar/getlit.jpeg", alt: "Photo 1" },
+  { src: "/images/booths/popstar/high.jpeg", alt: "Photo 2" },
+  { src: "/images/booths/popstar/briercreek.jpeg", alt: "Photo 3" },
+  { src: "/images/booths/popstar/lacey.jpeg", alt: "Photo 4" },
+];
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <Header
     title="Raleigh Photo"
     subtitle="Booth Rentals"
-    backgroundImage="/images/branding/header.jpeg"
+    backgroundImage="/images/homepage/header.jpeg"
   />
   <main>
     <CTA
@@ -96,16 +66,26 @@ const cards = [
         { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
       ]}
     />
-    <Booths booths={booths} />
-    <Form emContent="Step 2:" title="Tell Us About Your Event!" />
-    <Customize />
-    <BoothFeatures headerText="All Booths Include" cards={cards} />
-    <BookNowDivider
-      headerText="CHECK DATE"
-      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
-      buttonText="Check Availability"
-      linkUrl="/inquiry"
+    <Booths />
+    <FullWidthSplit
+      imageSrc="/images/booths/popstar/girls-group.jpg"
+      headerText="Search No Further"
+      paragraphText="We Create Professional Photos That Look Really Good & An Experience That Your Guest Will Remember!"
     />
+    <DividerBlock
+      headerText="With Popstar Photo Booths"
+      descriptionText="You're Always Guaranteed Premium Backdrops, Fun Props, Custom Prints and Attention to Detail."
+      buttonText="GET PRICES"
+      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
+    />
+    <Gallery4 photos={photos} />
+    <BookNowDivider
+      headerText="GET PRICES"
+      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
+      buttonText="GET PRICES"
+      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
+    />
+    <BoothFeatures headerText="All Booths Include" cards={cards} />
     <About />
     <Partners />
     <ReviewsWidget />

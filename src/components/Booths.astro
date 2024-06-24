@@ -1,11 +1,64 @@
 ---
 const { booths = [] } = Astro.props;
+
+const boothOptions = [
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/party.jpg',
+    alt: 'Booth 1 Image',
+    title: 'Party Booth',
+    description: 'Enjoy the traditional photo booth experience with a touch of style! Fun props, chic backdrops, and instant colorful or black & white stripe prints.',
+    buttonAction: () => { /* action for booth 1 */ }
+  },
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/classy.jpg',
+    alt: 'Class Booth Image',
+    title: 'Classy Booth',
+    description: "Step into elegance with our Classy Black & White Photo Booth. Featuring a glam skin smooth filter, everyone in your photos will look like a million bucks.",
+    buttonAction: () => { /* action for booth 2 */ }
+  },
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/neon.jpg',
+    alt: 'Neon Booth Image',
+    title: 'Neon Booth',
+    description: 'Add a vibrant touch to your event with our Neon Booth! Complete with a custom neon sign and hedge wall, all photos are printed on premium 4x6 portraits.',
+    buttonAction: () => { /* action for booth 3 */ }
+  },
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/glam.jpg',
+    alt: 'Glam Booth Image',
+    title: 'Glam Booth',
+    description: 'Experience the celebrity treatment with our Glam Booth! Featuring a branded backdrop, 4x6 prints, red carpet, and red velvet stanchion posts.',
+    buttonAction: () => { /* action for booth 4 */ }
+  },
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/popstar.jpg',
+    alt: 'Popstar Booth Image',
+    title: 'Popstar Booth',
+    description: 'Embrace your inner popstar with our digital booth experience! Includes a premium backdrop, props, and optional printing for a complete package.',
+    buttonAction: () => { /* action for booth 5 */ }
+  },
+  {
+    mediaType: 'image',
+    mediaSrc: '/images/homepage/360.webp',
+    alt: '360 Booth Image',
+    title: '360 Booth',
+    description: "Discover the latest in event technology with our 360 Video Booth. It offers a unique and immersive experience that will make your event unforgettable.",
+    buttonAction: () => { /* action for booth 6 */ }
+  }
+];
+
 ---
+
 <section class="py-5">
-  <h1 class="section-title text-center p-4"><em>Step 1:</em> Choose Your Booth</h1>
+  <h1 class="section-title text-center p-4">Choose Your Experience</h1>
   <div class="container pb-3">
     <div class="row row-cols-1 row-cols-md-3 g-3">
-      {booths.map((booth) => (
+      {boothOptions.map((booth) => (
         <div class="col pb-3">
           <div class="card shadow-sm">
             {booth.mediaType === 'video' ? (
@@ -18,7 +71,7 @@ const { booths = [] } = Astro.props;
               <p class="card-text">{booth.description}</p>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-primary" onclick={booth.buttonAction}>Check Availability</button>
+                  <a href="https://popstar-photo-booths.checkcherry.com/reservation/start" class="btn btn-lg btn-primary" role="button">Check Availability</a>
                 </div>
               </div>
             </div>
