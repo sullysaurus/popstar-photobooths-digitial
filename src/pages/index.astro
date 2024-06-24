@@ -8,10 +8,7 @@ import Customize from "../components/Customize.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
-import Gallery4 from "../components/Gallery4.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
-import FullWidthSplit from "../components/FullWidthSplit.astro";
-import DividerBlock from "../components/DividerBlock.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
 
 const booths = [
@@ -20,25 +17,31 @@ const booths = [
     mediaSrc: "/images/booths/popstar.mp4",
     alt: "Popstar Booth",
     title: "Popstar Booth",
-    description: "Digital iPad Booth. Shares instantly to private gallery. Printing add on available.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
+    description:
+      "Digital iPad Booth. Shares instantly to private gallery. Printing add on available.",
+    buttonAction:
+      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
   },
   {
     mediaType: "video",
     mediaSrc: "/images/booths/rockstar.mp4",
     alt: "Rockstar Booth",
     title: "Rockstar Booth",
-    description: "Professional camera and lighting. Color or black & white prints.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
+    description:
+      "Professional camera and lighting. Color or black & white prints.",
+    buttonAction:
+      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
   },
   {
     mediaType: "video",
     mediaSrc: "/images/booths/tortilla.mp4",
     alt: "360 Booth",
     title: "360 Booth",
-    description: "Experience immersive 360° videos. Instantly share your videos.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
-  }
+    description:
+      "Experience immersive 360° videos. Instantly share your videos.",
+    buttonAction:
+      "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });",
+  },
 ];
 
 const photos = [
@@ -80,8 +83,8 @@ const cards = [
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <Header
-    title="We Make You"
-    subtitle="Look Good"
+    title="Raleigh Photo"
+    subtitle="Booth Rentals"
     backgroundImage="/images/branding/header.jpeg"
   />
   <main>
@@ -96,25 +99,13 @@ const cards = [
     <Booths booths={booths} />
     <Form emContent="Step 2:" title="Tell Us About Your Event!" />
     <Customize />
-    <FullWidthSplit
-    imageSrc="/images/branding/best-image.jpg"
-    headerText="Why Choose Us?"
-    paragraphText="Popstar Photo Booths Was Built To Offer The Absolute Best Image Quality."
-  />
-  <DividerBlock
-    headerText="Search No Further..."
-    descriptionText="We Create Professional Photos That Look Really Good & An Experience That Your Guest Will Remember!"
-    buttonText="CHECK AVAILABILITY"
-    linkUrl="/inquiry"
-  />
-  <Gallery4 photos={photos} />
-  <BoothFeatures headerText="All Booths Include" cards={cards} />
-  <BookNowDivider
-    headerText="CHECK DATE"
-    descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
-    buttonText="Check Availability"
-    linkUrl="/inquiry"
-  />
+    <BoothFeatures headerText="All Booths Include" cards={cards} />
+    <BookNowDivider
+      headerText="CHECK DATE"
+      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
+      buttonText="Check Availability"
+      linkUrl="/inquiry"
+    />
     <About />
     <Partners />
     <ReviewsWidget />
