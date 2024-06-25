@@ -11,8 +11,9 @@ import ReviewsWidget from "../components/ReviewsWidget.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
 import DividerBlock from "../components/DividerBlock.astro";
-import FullWidthSplit from "../components/FullWidthSplit.astro";
+import BestEventEver from "../components/BestEventEver.astro";
 import Gallery4 from "../components/Gallery4.astro";
+import SearchNoFurther from "../components/SearchNoFurther.astro";
 
 const cards = [
   {
@@ -58,24 +59,22 @@ const photos = [
     backgroundImage="/images/homepage/header.jpeg"
   />
   <main>
-    <FullWidthSplit/>
-    <Booths />
+    <BestEventEver/>
+    <ReviewsWidget />
+    <SearchNoFurther />
     <DividerBlock
-      headerText="With Popstar Photo Booths"
-      descriptionText="You're Always Guaranteed Premium Backdrops, Fun Props, Custom Prints and Attention to Detail."
-      buttonText="GET PRICES"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
-    />
-    <Gallery4 photos={photos} />
-    <BookNowDivider
-      headerText="GET PRICES"
-      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
-      buttonText="GET PRICES"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
-    />
+    headerText="Chose Your Photo Booth Experience"
+    descriptionText="We’re not your regular run-of-the-mill photo booth; think of us more like the ultimate party wingman, capturing professional studio-quality photography and making your guests feel like they have their own personal photographer all night long!"
+  />
+    <Booths />
     <BoothFeatures headerText="All Booths Include" cards={cards} />
+    <BookNowDivider
+      headerText="CHECK AVAILABILITY"
+      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
+      buttonText="CHECK AVAILABILITY"
+      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
+    />
     <About />
     <Partners />
-    <ReviewsWidget />
   </main>
 </Layout>

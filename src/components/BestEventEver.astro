@@ -1,0 +1,91 @@
+---
+const {
+  mainImage1 = "/images/homepage/couple-1.jpg",
+  mainImage2 = "/images/homepage/couple-2.jpg",
+  iconImage = "/images/homepage/camera.svg",
+  highlightText = "Popstar Photo Booths",
+  descriptionText = "Was Built To Help You Throw The Best Event Ever.",
+  hashtag = "#POPSTAR",
+} = Astro.props;
+---
+
+<div class="container my-5">
+  <div class="row staggered-images">
+    <div class="col-md-5 d-flex justify-content-end">
+      <div class="image-container">
+        <img src={mainImage1} alt="Image 1" class="img-fluid img-one" />
+        <img src={mainImage2} alt="Image 2" class="img-fluid img-two" />
+      </div>
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center quality">
+      <div class="icon-text">
+        <img src={iconImage} alt="Icon" class="icon-img img-fluid mb-3" />
+        <h2 class="h1 fw-bold mb-0">
+          <span class="highlight-text">{highlightText}</span>
+          {descriptionText}
+        </h2>
+      </div>
+      <p class="mt-2" style="font-family: 'Cursive', sans-serif;">{hashtag}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .staggered-images .image-container {
+    position: relative;
+    width: 80%; /* Adjust this value as needed to make the images smaller */
+  }
+  .staggered-images img {
+    width: 100%;
+    height: auto;
+  }
+  .staggered-images .img-one {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 60px; /* Increased spacing */
+    margin-left: -15%; /* Offset to the left */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow for pop-out effect */
+  }
+  .staggered-images .img-two {
+    position: relative;
+    z-index: 1;
+    margin-right: -15%; /* Offset to the right */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow for pop-out effect */
+  }
+  .highlight-text {
+    background-color: #ffd700; /* Gold background color */
+    padding: 0 0.2rem;
+  }
+  .icon-img {
+    max-height: 40px; /* Adjust this value as needed */
+  }
+  .fw-bold {
+    font-weight: 700 !important;
+  }
+
+  .quality {
+    margin-left: 40px;
+  }
+
+  @media (max-width: 767.98px) {
+    .staggered-images {
+      flex-direction: column;
+    }
+    .staggered-images .image-container {
+      width: 100%;
+    }
+    .staggered-images .img-one,
+    .staggered-images .img-two {
+      margin: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow for mobile */
+      margin-bottom: 1em;
+    }
+    .staggered-images .icon-text {
+      margin-top: 20px;
+    }
+    .quality {
+      margin-left: 0px;
+    }
+    
+  }
+</style>
