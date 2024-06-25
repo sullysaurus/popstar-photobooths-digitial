@@ -1,14 +1,127 @@
 ---
-export interface Props {
-  title: string;
-  subtitle: string;
-  backgroundImage: string;
-}
-
-const { title, subtitle, backgroundImage } = Astro.props;
+const {
+  headerText = "North Carolina's Hottest Photo Booth",
+  descriptionText = "LIMITED SPOTS AVAILABLE FOR BUSY DATES IN 2024. CHECK AVAILABILITY!",
+  buttonText = "CHECK AVAILABILITY!",
+  linkUrl = "https://popstar-photo-booths.checkcherry.com/reservation/start",
+  reviewText = "Read Reviews →",
+  featureText = "FEATURED ON",
+  featureImages = [
+    { src: "/images/branding/theknot.png", alt: "theknot" },
+    { src: "/images/branding/weddingwire.png", alt: "weddingwire" },
+  ],
+} = Astro.props;
 ---
-<div class="full-page-header" style={`background-image: url(${backgroundImage});`}>
-  <div class="content">
-    <h1 class="archivo-black-regular">{title} <br /> {subtitle}</h1>
+
+<section class="divider-block container-fluid">
+  <div class="row align-items-center">
+    <div class="col-lg-3 offset-lg-1 text-content">
+      <p class="text-uppercase fw-bold text-custom">
+        We make you look really good!
+      </p>
+      <h1 class="display-4 fw-bold">
+        {headerText.split(" ")[0]}
+        {headerText.split(" ")[1]}
+        <span class="text-highlight">{headerText.split(" ")[2]}</span>
+        {headerText.split(" ").slice(3).join(" ")}
+      </h1>
+
+      <p class="lead text-muted">{descriptionText}</p>
+      <div class="d-flex align-items-center mb-3">
+        <span class="text-warning me-2">★★★★★</span>
+        <a href="#" class="text-decoration-none">{reviewText}</a>
+      </div>
+      <a href={linkUrl} class="btn btn-lg btn-primary">{buttonText}</a>
+      <div class="mt-3">
+        <span>{featureText}</span>
+        {
+          featureImages.map((image) => (
+            <img src={image.src} alt={image.alt} class="ms-2 feature-image" />
+          ))
+        }
+      </div>
+    </div>
+    <div class="col-lg-8 image-container position-relative">
+      <img
+        src="/images/homepage/header.jpeg"
+        alt="Photo Booth"
+        class="img-fluid main-image"
+      />
+      <div class="image-fade"></div>
+    </div>
   </div>
-</div>
+</section>
+
+<style>
+  .divider-block {
+    background-color: white;
+    margin-top: 6em;
+  }
+  .divider-block .text-content {
+    padding-right: 1rem;
+  }
+  .divider-block .main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .divider-block .image-fade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        to right,
+        white 0%,
+        transparent 20%,
+        transparent 80%,
+        white 100%
+      )
+  }
+  .feature-image {
+    max-width: 100px;
+    height: auto;
+  }
+
+  .text-custom {
+    letter-spacing: 0.3em;
+    color: black;
+    font-weight: 100; /* Thinner font weight */
+    font-size: 0.7rem; /* Smaller font size */
+    position: relative;
+  }
+  .text-custom::after {
+    content: "";
+    display: block;
+    width: 10%; /* Adjust width as needed */
+    height: 1px; /* Adjust height as needed */
+    background: black;
+    position: absolute;
+    left: 0; /* Position under the start of the text */
+    bottom: -0.2rem; /* Adjust this value to move the underline up or down */
+  }
+  .text-highlight {
+    font-family: "Vujahday Script", cursive; /* Fun, classy party font */
+    font-weight: 500;
+    color: black; /* Ensure text is black */
+  }
+  .lead,
+  .text-muted,
+  .text-decoration-none,
+  .fw-bold {
+    color: black !important; /* Ensure all text is black */
+  }
+
+  @media (max-width: 767.98px) {
+    .divider-block .image-container {
+      order: -1;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0 !important;
+    }
+    .divider-block .image-fade {
+      display: none;
+    }
+  }
+</style>

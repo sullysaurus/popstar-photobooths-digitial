@@ -6,11 +6,72 @@ export interface Props {
 
 const { emContent, title } = Astro.props;
 ---
+
 <section id="form-section" class="py-5 bg-light text-center p-5">
   <div class="form-container">
     <h1 class="section-title mb-4 p-4"><em>{emContent}</em>{title}</h1>
-    <script src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets" type="text/javascript" charset="utf-8"></script>
-    <div class="checkcherry__widget__contact-form" data-props='{"apiKey":"TCN-R4JQ-W4A","contactFormId":10776,"iframe":false,"host":"https://popstar-photo-booths.checkcherry.com"}'></div>
+    <script
+      src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets"
+      type="text/javascript"
+      charset="utf-8"></script>
+    <div
+      class="checkcherry__widget__contact-form"
+      data-props='{"apiKey":"TCN-R4JQ-W4A","contactFormId":10776,"iframe":false,"host":"https://popstar-photo-booths.checkcherry.com"}'
+    >
+    </div>
   </div>
 </section>
 
+<style>
+  /* Form Styles */
+  .form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .form-label {
+    font-weight: lighter;
+    font-size: small;
+    text-align: left;
+    display: block;
+    padding-left: 5px;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+  }
+
+  .form-row .col-md-6 {
+    margin-bottom: 15px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .row .col-12 {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+
+  @media (max-width: 768px) {
+    .row .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .text-left-mobile {
+    text-align: left;
+  }
+
+  @media (min-width: 768px) {
+    .text-left-mobile {
+      text-align: center;
+    }
+  }
+</style>

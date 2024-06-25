@@ -1,30 +1,75 @@
 ---
-import 'bootstrap/dist/css/bootstrap.css';
-
 const navbarItems = [
-  { text: 'Home', href: '/' },
-  { text: 'About', href: '/about' },
-  { text: 'Inquiry', href: '/inquiry' },
-  { text: 'Backdrops', href: '/backdrops' },
+  { text: "Home", href: "/" },
+  { text: "About", href: "/about" },
+  { text: "Inquiry", href: "/inquiry" },
+  { text: "Backdrops", href: "/backdrops" },
 ];
 ---
-<nav class="navbar navbar-expand-lg navbar-custom">
+
+<nav class="navbar navbar-expand-lg navbar-custom navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img src="/images/branding/logo-white.png" alt="Logo"> 
+      <img src="/images/branding/logo-black.png" alt="Logo" />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ms-auto">
         {navbarItems.map((item) => (
-          <li class="nav-item">
-            <a class="nav-link" href={item.href}>{item.text}</a>
+          <li class="nav-item" key={item.text}>
+            <a class="nav-link" href={item.href}>
+              {item.text}
+            </a>
           </li>
         ))}
       </ul>
+      <a href="https://popstar-photo-booths.checkcherry.com/reservation/start" class="btn btn-lg btn-primary ms-3">Check Availability</a>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Navbar Styles */
+  .navbar {
+    background-color: white !important;
+    transition: background-color 0.5s ease !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    padding: 1rem 2rem !important;
+  }
+
+  .navbar-brand,
+  .nav-link {
+    color: #000 !important;
+    font-family: Lato, sans-serif !important;
+    font-weight: 400 !important; /* Thinner font weight */
+    font-style: normal !important;
+    font-size: 15px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+  }
+
+  .navbar-toggler-icon {
+    display: block !important; /* Ensure the hamburger icon is visible */
+  }
+
+  .navbar-light .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .navbar .navbar-brand img {
+    height: 50px !important;
+  }
+</style>

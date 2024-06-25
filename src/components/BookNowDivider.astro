@@ -2,43 +2,25 @@
 const { headerText = "LEARN MORE", descriptionText = "", buttonText = "CHECK AVAILABILITY", linkUrl = "#" } = Astro.props;
 ---
 
-<section class="divider-block">
-  <h1>{headerText}</h1>
-  <p>{descriptionText}</p>
-  <a href={linkUrl} class="custom-button">{buttonText}</a>
+<section class="divider-block text-center text-white">
+  <div class="container">
+    <h1 class="display-1 fw-bold">{headerText}</h1>
+    <p class="lead">{descriptionText}</p>
+    <a href={linkUrl} class="btn btn-lg btn-primary">{buttonText}</a>
+  </div>
 </section>
 
 <style>
   .divider-block {
     background-color: black;
-    text-align: center;
     padding: 100px 20px;
-    color: white;
   }
-  .divider-block h1 {
-    font-size: 6rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  .divider-block p {
-    font-size: 1.25rem;
+  .divider-block p{
     color: #ccc;
+    font-size: 1.25rem;
     margin-bottom: 30px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-  }
-  .custom-button {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline from link */
-    display: inline-block; /* Make link behave like a button */
-  }
-  .custom-button:hover {
-    background-color: #f0f0f0;
   }
 </style>
