@@ -3,58 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import CTA from "../components/CTA.astro";
 import Booths from "../components/Booths.astro";
-import Form from "../components/Form.astro";
-import Customize from "../components/Customize.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
-
-const booths = [
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/popstar.mp4",
-    alt: "Popstar Booth",
-    title: "Popstar Booth",
-    description: "Digital iPad Booth. Shares instantly to private gallery.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
-  },
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/rockstar.mp4",
-    alt: "Rockstar Booth",
-    title: "Rockstar Booth",
-    description: "Professional camera and lighting. Color or black & white prints.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
-  },
-  {
-    mediaType: "video",
-    mediaSrc: "/images/booths/tortilla.mp4",
-    alt: "360 Booth",
-    title: "360 Booth",
-    description: "Experience immersive 360° videos. Instantly share your videos.",
-    buttonAction: "document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });"
-  }
-];
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
-  <Header
-    title="Winston Salem Photo"
-    subtitle="Booth Rentals"
-    backgroundImage="/images/branding/header.jpeg"
-  />
+  <Header />
   <main>
     <CTA
-      title="Looking For a Photo Booth in Winston Salem?"
-      description="If you are looking for a photo booth where the photos are actually awesome and the experience is just as fun, look no further. Reach out to Danny to see how we can enhance your next event."
-      imagePaths={[
-        { src: "/images/branding/theknot.png", alt: "The Knot" },
-        { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
-      ]}
+      title="Looking for a Photo Booth Rental in Winston-Salem?"
+      description="Make Your Event in Winston-Salem Unforgettable with Our Chic Photo Booths! Say Goodbye to Tacky Photo Booths and Cheesy Props. Say Hi to Stylish Backdrops and Classy Prints. Reach out to Danny to see how we can enhance your next event in Winston-Salem."
     />
-    <Booths booths={booths} />
-    <Form emContent="Step 2:" title="Instant Prices to Your Email" />
-    <Customize />
+    <Booths />
     <About />
     <Partners />
     <ReviewsWidget />
