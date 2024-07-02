@@ -1,36 +1,30 @@
----
-export interface Props {
-  title: string;
-}
-const { title } = Astro.props;
----
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <!-- Google Tag Manager -->
   <script>
-    (function (w, d, s, l, i) {
+    (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
       var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != "dataLayer" ? "&l=" + l : "";
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
       j.async = true;
       j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-NCN2WPGM");
   </script>
   <!-- End Google Tag Manager -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M24GRXHZVN"></script>
   <script>
-    // Configure cross-domain tracking for Google Analytics
-    window.addEventListener('load', function() {
-      gtag('config', 'G-M24GRXHZVN', {
-        'linker': {
-          'domains': ['popstarphotobooths.com', 'popstar-photo-booths.checkcherry.com']
-        }
-      });
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M24GRXHZVN');
   </script>
+  <!-- End Global site tag (gtag.js) - Google Analytics -->
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,9 +56,9 @@ const { title } = Astro.props;
   <link href="/css/styles.css" rel="stylesheet" />
   <!-- Meta Pixel Code -->
   <script>
-    !(function (f, b, e, v, n, t, s) {
+    !(function(f, b, e, v, n, t, s) {
       if (f.fbq) return;
-      n = f.fbq = function () {
+      n = f.fbq = function() {
         n.callMethod
           ? n.callMethod.apply(n, arguments)
           : n.queue.push(arguments);
@@ -88,14 +82,14 @@ const { title } = Astro.props;
     fbq("init", "805701137739928");
     fbq("track", "PageView");
   </script>
-  <noscript
-    ><img
+  <noscript>
+    <img
       height="1"
       width="1"
       style="display:none"
       src="https://www.facebook.com/tr?id=805701137739928&ev=PageView&noscript=1"
-    /></noscript
-  >
+    />
+  </noscript>
   <!-- End Meta Pixel Code -->
   <noscript>
     <img
@@ -112,7 +106,7 @@ const { title } = Astro.props;
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script>
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
       var navbar = document.querySelector(".navbar-custom");
       if (window.scrollY > 50) {
         navbar.classList.add("scrolled");
@@ -121,30 +115,18 @@ const { title } = Astro.props;
       }
     });
   </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      setTimeout(function () {
-        const element = document.querySelector(
-          "#eapps-google-reviews-195d11b9-5a7c-406e-aeb6-0bc3cae6ea19 > div > div > div > div.WidgetBackground__ContentContainer-sc-1ho7q3r-1.jUKeJm > div > a"
-        );
-        if (element) {
-          element.remove();
-        }
-      }, 5000); // 5000 milliseconds = 5 seconds
-    });
-  </script>
+</head>
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NCN2WPGM"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
-    <!-- End Google Tag Manager (noscript) -->
-    <slot />
-  </body>
-
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-NCN2WPGM"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <slot />
+</body>
 </html>
