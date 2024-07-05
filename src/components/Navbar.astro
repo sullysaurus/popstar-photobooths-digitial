@@ -34,6 +34,7 @@ const navbarItems = [
       </ul>
       <a href="https://popstar-photo-booths.checkcherry.com/reservation/start" class="btn btn-lg btn-primary ms-3">Get Prices</a>
     </div>
+    <a href="https://popstar-photo-booths.checkcherry.com/reservation/start" class="btn btn-lg btn-primary get-prices-mobile">Get Prices</a>
   </div>
 </nav>
 
@@ -70,5 +71,23 @@ const navbarItems = [
 
   .navbar .navbar-brand img {
     height: 50px !important;
+  }
+
+  /* Get Prices button for mobile */
+  .get-prices-mobile {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    .navbar-toggler {
+      display: none !important;
+    }
+    .collapse.navbar-collapse {
+      display: none !important;
+    }
+    .get-prices-mobile {
+      display: inline-block !important;
+      margin-left: auto !important;
+    }
   }
 </style>
