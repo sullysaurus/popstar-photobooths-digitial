@@ -1,0 +1,27 @@
+---
+const { headerText = "CHECK YOUR DATE", descriptionText = "Popular dates go fast, check yours now.", buttonText = "Get Prices", linkUrl = "#" } = Astro.props;
+---
+
+<section class="divider-block text-center text-white py-5">
+  <div class="container">
+    <h1 class="display-1 fw-bold position-relative d-inline-block mb-4 pb-3">{headerText}</h1>
+    <p class="lead mx-auto mb-4" style="max-width: 600px;">{descriptionText}</p>
+    <script src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets" type="text/javascript" charset="utf-8"></script><div class="checkcherry__widget__availability-calendar" data-props='{"apiKey":"TCN-R4JQ-W4A","iframe":false,"host":"https://popstar-photo-booths.checkcherry.com","showBookNowButton":true,"bookNowButtonText":"Book Now","showCustomBookingUrl":false,"customBookingUrl":"","availableMessage":"Congratulations, we are currently available for this day and package.  Just click &#39;Book Now&#39; to reserve your date now.","unavailableMessage":"Sorry, but we are not able to take automated bookings for this date or package.  Please contact us directly to check for available options.","theme":"normal"}'></div>
+  </div>
+</section>
+
+<style>
+  .divider-block {
+    background-color: black;
+  }
+  .divider-block h1::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 5px;
+    background-color: yellow;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>

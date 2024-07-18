@@ -6,11 +6,11 @@ import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
-import BookNowDivider from "../components/BookNowDivider.astro";
 import DividerBlock from "../components/DividerBlock.astro";
 import BestEventEver from "../components/BestEventEver.astro";
 import SearchNoFurther from "../components/SearchNoFurther.astro";
 import Faq from "../components/Faq.astro";
+import CheckDateWidget from "../components/CheckDateWidget.astro";
 
 const cards = [
   {
@@ -65,12 +65,7 @@ const photos = [
   />
     <Booths />
     <BoothFeatures headerText="All Booths Include" cards={cards} />
-    <BookNowDivider
-      headerText="Check Availability"
-      descriptionText="Popular Dates Get Snatched Up Quickly. Act Now To Secure Your Date!"
-      buttonText="Check Availability"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
-    />
+    <CheckDateWidget />
     <About />
     <Partners />
     <Faq />
