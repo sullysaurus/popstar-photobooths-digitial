@@ -11,6 +11,10 @@
   color: #ffffff !important; /* Text color on hover */
 }
 
+.bg-black {
+  background-color: #111111;
+}
+
 /* Card Styles */
 .card {
   border: none;
