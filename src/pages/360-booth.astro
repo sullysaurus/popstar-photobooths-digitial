@@ -1,4 +1,19 @@
 ---
+
+const {
+  headerText = "Nort Carolina's Hottest Photo Booth",
+  descriptionText = "LIMITED SPOTS AVAILABLE FOR BUSY DATES IN 2024. Check Availability!",
+  buttonText = "Check Availability!",
+  linkUrl = "https://popstar-photo-booths.checkcherry.com/reservation/start",
+  reviewText = "Read Reviews →",
+  featureText = "FEATURED ON",
+  featureImages = [
+    { src: "/images/branding/theknot.png", alt: "theknot" },
+    { src: "/images/branding/weddingwire.png", alt: "weddingwire" },
+  ],
+  backgroundImage = "/images/booths/360/silver-room.webp"
+} = Astro.props;
+
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import FullWidthSplit from "../components/FullWidthSplit.astro";
@@ -6,20 +21,9 @@ import DividerBlock from "../components/DividerBlock.astro";
 import Gallery4 from "../components/Gallery4.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
-import About from "../components/About.astro"
+import About from "../components/About.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
-import ThreeSixtyWidget from "../components/ThreeSixtyWidget.astro";
-
-const booths = [
-  {
-    mediaType: "image",
-    mediaSrc: "https://via.placeholder.com/700x500",
-    alt: "Booth Image",
-    title: "360 Booth",
-    description: "Capture Every Angle",
-    buttonAction: () => alert("Get Prices for 360 Booth"),
-  },
-];
+import ThreeSixtyBooths from "../components/ThreeSixtyBooths.astro";
 
 const photos = [
   { src: "/images/booths/360/couple.jpeg", alt: "Photo 1" },
@@ -46,8 +50,7 @@ const cards = [
     iconSrc: "/images/booths/attendant.png",
     iconAlt: "Popstar Attendant",
     title: "ATTENDANT",
-    description:
-      "To set-up, breakdown and make sure things runs smoothly",
+    description: "To set-up, breakdown and make sure things runs smoothly",
   },
   {
     iconSrc: "/images/booths/screen.png",
@@ -61,16 +64,16 @@ const cards = [
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <main>
     <Header
-      title="360 Booth"
-      subtitle=""
-      backgroundImage="/images/booths/360/gold.webp"
-    />
-    <FullWidthSplit
-      imageSrc="/images/booths/360/silver-room.webp"
-      headerText="Dynamic and Immersive"
-      paragraphText="Experience the thrill of 360° photography with our cutting-edge booth. Perfect for any event, it creates unforgettable, all-around memories."
-    />
-    <ThreeSixtyWidget />
+    title={headerText}
+    subtitle={descriptionText}
+    buttonText={buttonText}
+    linkUrl={linkUrl}
+    reviewText={reviewText}
+    featureText={featureText}
+    featureImages={featureImages}
+    backgroundImage={backgroundImage}
+  />
+    <ThreeSixtyBooths />
     <DividerBlock
       headerText="The 360 Booth"
       descriptionText="Step into the future of photography with our 360 Booth. It's easy to use, instantly shares your photos, and delivers immersive, social media-ready images in seconds."

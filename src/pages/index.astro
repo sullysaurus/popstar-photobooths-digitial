@@ -13,35 +13,6 @@ import Faq from "../components/Faq.astro";
 import CheckDateWidget from "../components/CheckDateWidget.astro";
 import FormShort from "../components/FormShort.astro"
 
-const cards = [
-  {
-    iconSrc: "/images/booths/prints.png",
-    iconAlt: "Custom Photo Overlay",
-    title: "CUSTOM OVERLAY",
-    description: "Special messages, event dates or branding",
-  },
-  {
-    iconSrc: "/images/booths/gallery.png",
-    iconAlt: "Online Gallery",
-    title: "ONLINE GALLERY",
-    description:
-      "A personalized gallery for guests to download free digital copies",
-  },
-  {
-    iconSrc: "/images/booths/backdrops-props.png",
-    iconAlt: "Backdrops / Props",
-    title: "BACKDROPS / PROPS",
-    description:
-      "We have a large selection ready on-hand for you to choose from",
-  },
-  {
-    iconSrc: "/images/booths/screen.png",
-    iconAlt: "Welcome Screen",
-    title: "CUSTOM TAP TO START SCREEN",
-    description: "Supports photos, videos and custom artwork",
-  },
-];
-
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
@@ -59,7 +30,7 @@ const cards = [
     descriptionText="We’re not your regular run-of-the-mill photo booth; think of us more like the ultimate party wingman, capturing professional studio-quality photography and making your guests feel like they have their own personal photographer all night long!"
   />
     <Booths />
-    <BoothFeatures headerText="All Booths Include" cards={cards} />
+    <BoothFeatures headerText="All Booths Include"/>
     <CheckDateWidget />
     <About />
     <Partners />
