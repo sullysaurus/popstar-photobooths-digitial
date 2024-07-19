@@ -1,7 +1,6 @@
 ---
-
 const {
-  headerText = "Nort Carolina's Hottest Photo Booth",
+  headerText = "North Carolina's Hottest 360 Booth",
   descriptionText = "LIMITED SPOTS AVAILABLE FOR BUSY DATES IN 2024. Check Availability!",
   buttonText = "Check Availability!",
   linkUrl = "https://popstar-photo-booths.checkcherry.com/reservation/start",
@@ -16,7 +15,6 @@ const {
 
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import FullWidthSplit from "../components/FullWidthSplit.astro";
 import DividerBlock from "../components/DividerBlock.astro";
 import Gallery4 from "../components/Gallery4.astro";
 import BoothFeatures from "../components/BoothFeatures.astro";
@@ -64,21 +62,21 @@ const cards = [
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <main>
     <Header
-    title={headerText}
-    subtitle={descriptionText}
-    buttonText={buttonText}
-    linkUrl={linkUrl}
-    reviewText={reviewText}
-    featureText={featureText}
-    featureImages={featureImages}
-    backgroundImage={backgroundImage}
-  />
+      headerText={headerText}
+      descriptionText={descriptionText}
+      buttonText={buttonText}
+      linkUrl={linkUrl}
+      reviewText={reviewText}
+      featureText={featureText}
+      featureImages={featureImages}
+      backgroundImage={backgroundImage}
+    />
     <ThreeSixtyBooths />
     <DividerBlock
       headerText="The 360 Booth"
       descriptionText="Step into the future of photography with our 360 Booth. It's easy to use, instantly shares your photos, and delivers immersive, social media-ready images in seconds."
-      buttonText="Get Prices"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
+      buttonText="Check Availability"
+      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
     />
     <Gallery4 photos={photos} />
     <BoothFeatures headerText="The 360 Booth Includes" cards={cards} />
@@ -87,8 +85,8 @@ const cards = [
     <BookNowDivider
       headerText="LEARN MORE"
       descriptionText="Elevate your event with our 360 Booth."
-      buttonText="Get Prices"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/start"
+      buttonText="Check Availability"
+      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
     />
   </main>
 </Layout>
