@@ -63,3 +63,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+main{
+  margin-top: 6em;
+}

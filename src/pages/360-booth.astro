@@ -7,10 +7,10 @@ const {
   reviewText = "Read Reviews →",
   featureText = "FEATURED ON",
   featureImages = [
-    { src: "/images/branding/theknot.png", alt: "theknot" },
-    { src: "/images/branding/weddingwire.png", alt: "weddingwire" },
+    { src: "/images/theknot.png", alt: "theknot" },
+    { src: "/images/weddingwire.png", alt: "weddingwire" },
   ],
-  backgroundImage = "/images/booths/360/silver-room.webp"
+  backgroundImage = "/images/360/silver-room.webp"
 } = Astro.props;
 
 import Layout from "../layouts/Layout.astro";
@@ -23,35 +23,29 @@ import About from "../components/About.astro";
 import ReviewsWidget from "../components/ReviewsWidget.astro";
 import ThreeSixtyBooths from "../components/ThreeSixtyBooths.astro";
 
-const photos = [
-  { src: "/images/booths/360/couple.jpeg", alt: "Photo 1" },
-  { src: "/images/booths/360/glitter.jpeg", alt: "Photo 2" },
-  { src: "/images/booths/360/purple.jpeg", alt: "Photo 3" },
-  { src: "/images/booths/360/silver.jpeg", alt: "Photo 4" },
-];
 
 const cards = [
   {
-    iconSrc: "/images/booths/prints.png",
+    iconSrc: "/images/prints.png",
     iconAlt: "Custom Photo Overlay",
     title: "CUSTOM OVERLAY",
     description: "Special messages, event dates or branding",
   },
   {
-    iconSrc: "/images/booths/gallery.png",
+    iconSrc: "/images/gallery.png",
     iconAlt: "Online Gallery",
     title: "ONLINE GALLERY",
     description:
       "A personalized gallery for guests to download free digital copies",
   },
   {
-    iconSrc: "/images/booths/attendant.png",
+    iconSrc: "/images/attendant.png",
     iconAlt: "Popstar Attendant",
     title: "ATTENDANT",
     description: "To set-up, breakdown and make sure things runs smoothly",
   },
   {
-    iconSrc: "/images/booths/screen.png",
+    iconSrc: "/images/screen.png",
     iconAlt: "Welcome Screen",
     title: "CUSTOM TAP TO START SCREEN",
     description: "Supports photos, videos and custom artwork",
@@ -61,32 +55,12 @@ const cards = [
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <main>
-    <Header
-      headerText={headerText}
-      descriptionText={descriptionText}
-      buttonText={buttonText}
-      linkUrl={linkUrl}
-      reviewText={reviewText}
-      featureText={featureText}
-      featureImages={featureImages}
-      backgroundImage={backgroundImage}
-    />
     <ThreeSixtyBooths />
-    <DividerBlock
-      headerText="The 360 Booth"
-      descriptionText="Step into the future of photography with our 360 Booth. It's easy to use, instantly shares your photos, and delivers immersive, social media-ready images in seconds."
-      buttonText="Check Availability"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
-    />
-    <Gallery4 photos={photos} />
-    <BoothFeatures headerText="The 360 Booth Includes" cards={cards} />
-    <About />
-    <ReviewsWidget />
     <BookNowDivider
-      headerText="LEARN MORE"
-      descriptionText="Elevate your event with our 360 Booth."
-      buttonText="Check Availability"
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
-    />
+    headerText="CHECK AVAILABILITY"
+    descriptionText="Popular dates get snatched up quickly."
+    buttonText="Check Availability"
+    linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
+  />
   </main>
 </Layout>

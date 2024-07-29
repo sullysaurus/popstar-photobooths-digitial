@@ -12,7 +12,7 @@ import ReviewsWidget from "../components/ReviewsWidget.astro";
 const booths = [
   {
     mediaType: "video",
-    mediaSrc: "/images/booths/popstar.mp4",
+    mediaSrc: "/images/popstar.mp4",
     alt: "Popstar Booth",
     title: "Popstar Booth",
     description: "Digital iPad Booth. Shares instantly to private gallery.",
@@ -20,7 +20,7 @@ const booths = [
   },
   {
     mediaType: "video",
-    mediaSrc: "/images/booths/rockstar.mp4",
+    mediaSrc: "/images/rockstar.mp4",
     alt: "Rockstar Booth",
     title: "Rockstar Booth",
     description: "Professional camera and lighting. Color or black & white prints.",
@@ -28,7 +28,7 @@ const booths = [
   },
   {
     mediaType: "video",
-    mediaSrc: "/images/booths/tortilla.mp4",
+    mediaSrc: "/images/tortilla.mp4",
     alt: "360 Booth",
     title: "360 Booth",
     description: "Experience immersive 360° videos. Instantly share your videos.",
@@ -41,15 +41,15 @@ const booths = [
   <Header
     title="Greensboro Photo"
     subtitle="Booth Rentals"
-    backgroundImage="/images/branding/header.jpeg"
+    backgroundImage="/images/header.jpeg"
   />
   <main>
     <CTA
       title="Looking For a Photo Booth in Greensboro?"
       description="If you are looking for a photo booth where the photos are actually awesome and the experience is just as fun, look no further. Reach out to Danny to see how we can enhance your next event."
       imagePaths={[
-        { src: "/images/branding/theknot.png", alt: "The Knot" },
-        { src: "/images/branding/weddingwire.png", alt: "WeddingWire" },
+        { src: "/images/theknot.png", alt: "The Knot" },
+        { src: "/images/weddingwire.png", alt: "WeddingWire" },
       ]}
     />
     <Booths booths={booths} />
