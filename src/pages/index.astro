@@ -13,6 +13,36 @@ import Faq from "../components/Faq.astro";
 import CheckDateWidget from "../components/CheckDateWidget.astro";
 import BookNowDivider from "../components/BookNowDivider.astro";
 
+const cards = [
+  {
+    iconSrc: "/images/prints.png",
+    iconAlt: "Custom Photo Overlay",
+    title: "CUSTOM OVERLAY",
+    description: "Special messages, event dates or branding",
+  },
+  {
+    iconSrc: "/images/gallery.png",
+    iconAlt: "Online Gallery",
+    title: "ONLINE GALLERY",
+    description:
+      "A personalized gallery for guests to download free digital copies",
+  },
+  {
+    iconSrc: "/images/backdrops-props.png",
+    iconAlt: "Backdrops / Props",
+    title: "BACKDROPS / PROPS",
+    description:
+      "We have a large selection ready on-hand for you to choose from",
+  },
+  {
+    iconSrc: "/images/screen.png",
+    iconAlt: "Welcome Screen",
+    title: "CUSTOM TAP TO START SCREEN",
+    description: "Supports photos, videos and custom artwork",
+  },
+];
+---
+
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
@@ -20,13 +50,15 @@ import BookNowDivider from "../components/BookNowDivider.astro";
   />
   <main>
     <BestEventEver/>
+    <ReviewsWidget />
+    <SearchNoFurther />
     <DividerBlock
-    headerText="Choose Your Experience"
-    descriptionText="Are Your Ready To Make The Best Decision Ever For Your Event?"
+    headerText="Choose Your Photo Booth Experience"
+    descriptionText="We’re not your regular run-of-the-mill photo booth; think of us more like the ultimate party wingman, capturing professional studio-quality photography and making your guests feel like they have their own personal photographer all night long!"
   />
     <Booths />
-    <ReviewsWidget />
     <Partners />
+    <BoothFeatures headerText="All Our Booths Include" cards={cards} />
     <About />
     <Faq />
   </main>
