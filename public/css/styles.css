@@ -1,13 +1,13 @@
 /* Button Styles */
 .btn-primary {
-  background-color: #ffd700 !important; /* Bright yellow color */
-  border-color: #ffd700 !important; /* Bright yellow color */
+  background-color: #ffd700 !important; /* Bright #FFD601 color */
+  border-color: #ffd700 !important; /* Bright #FFD601 color */
   color: #ffffff !important; /* Text color */
 }
 
 .btn-primary:hover {
-  background-color: #ffc107 !important; /* Slightly darker yellow on hover */
-  border-color: #ffc107 !important; /* Slightly darker yellow on hover */
+  background-color: #ffc107 !important; /* Slightly darker #FFD601 on hover */
+  border-color: #ffc107 !important; /* Slightly darker #FFD601 on hover */
   color: #ffffff !important; /* Text color on hover */
 }
 

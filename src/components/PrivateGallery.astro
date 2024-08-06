@@ -1,0 +1,61 @@
+---
+const {
+  mainImage = "/images/gallery.png",
+  headerText = "Your Private Gallery",
+  descriptionText = "On top of the instant sharing options at the event you will also receive the following day a private gallery with all photos! YES, all of them! Meaning not only the overlay prints but every single photo taken during the night."
+} = Astro.props;
+---
+
+<section>
+  <div class="container col-xxl-8 px-4">
+    <div class="row align-items-center g-5">
+      <div class="col-12 d-lg-none">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+      <div class="col-12 col-sm-8 col-lg-6 order-lg-2 text-lg-end">
+        <img src={mainImage} class="d-block mx-auto img-fluid rounded" alt="Photo Booth" loading="lazy" />
+      </div>
+      <div class="col-lg-6 d-none d-lg-block order-lg-1">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .fw-bold {
+    font-weight: 700 !important;
+  }
+  .display-5 {
+    font-size: 2.5rem;
+  }
+  .h3 {
+    font-size: 1.75rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 767.98px) {
+    .row {
+      flex-direction: column;
+    }
+    .col-12,
+    .col-sm-8,
+    .col-lg-6 {
+      width: 100%;
+    }
+    .img-fluid {
+      margin-bottom: 20px;
+    }
+    .text-center {
+      text-align: center !important;
+    }
+  }
+</style>

@@ -1,36 +1,20 @@
 ---
 const {
-  mainVideo1 = "/videos/wine-gif.mp4",
-  mainImage2 = "/images/hold.png",
+  mainImage1 = "/images/best-event-1.jpg",
+  mainImage2 = "/images/best-event-2.jpg",
   iconImage = "/images/camera.svg",
   highlightText = "POPSTAR PHOTO BOOTHS",
   descriptionText = "Was Built To Help You Throw The Best Event Ever!",
   hashtag = "#POSTARPHOTOBOOTHS",
 } = Astro.props;
-
-const isVideo = (src) => {
-  return src.match(/\.(mp4|webm|ogg)$/i);
-};
 ---
 
 <div class="container my-5">
   <div class="row staggered-images">
     <div class="col-md-5 d-flex justify-content-end">
       <div class="media-container">
-        {isVideo(mainVideo1) ? (
-          <video src={mainVideo1} class="media-fluid media-one" autoplay loop muted playsinline>
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <img src={mainVideo1} alt="Media 1" class="media-fluid media-one" />
-        )}
-        {isVideo(mainImage2) ? (
-          <video src={mainImage2} class="media-fluid media-two" autoplay loop muted playsinline>
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <img src={mainImage2} alt="Media 2" class="media-fluid media-two" />
-        )}
+        <img src={mainImage1} alt="Media 1" class="media-fluid media-one" />
+        <img src={mainImage2} alt="Media 2" class="media-fluid media-two" />
       </div>
     </div>
     <div class="col-md-6 d-flex flex-column justify-content-center quality">
@@ -51,7 +35,7 @@ const isVideo = (src) => {
     position: relative;
     width: 80%;
   }
-  .staggered-images img, .staggered-images video {
+  .staggered-images img {
     width: 100%;
     height: auto;
   }

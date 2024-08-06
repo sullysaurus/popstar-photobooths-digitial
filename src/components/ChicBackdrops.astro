@@ -1,0 +1,54 @@
+---
+const {
+  mainImage = "/images/backdrops.jpg",
+  headerText = "Chic Backdrops",
+  descriptionText = "Chic modern backdrops included in all of our photo booth packages. Preview our collection, or let us create a custom decor to impeccably match your theme."
+} = Astro.props;
+---
+
+<section>
+  <div class="container col-xxl-8 px-4">
+    <div class="row align-items-center g-5 py-5">
+      <div class="col-12 d-lg-none">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+      <div class="col-12 col-sm-8 col-lg-6">
+        <img src={mainImage} class="d-block mx-lg-auto img-fluid rounded" alt="Photo Booth" width="700" height="500" loading="lazy" />
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .fw-bold {
+    font-weight: 700 !important;
+  }
+  .display-5 {
+    font-size: 2.5rem;
+  }
+  .h3 {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 767.98px) {
+    .row {
+      flex-direction: column;
+    }
+    .col-12,
+    .col-sm-8,
+    .col-lg-6 {
+      width: 100%;
+    }
+    .img-fluid {
+      margin-bottom: 20px;
+    }
+  }
+</style>

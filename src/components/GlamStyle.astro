@@ -1,0 +1,80 @@
+---
+const {
+  mainImage1 = "/images/glam-1.jpg",
+  mainImage2 = "/images/glam-2.jpg",
+  headerText = "Glam Style",
+  descriptionText = "Enhance your booth experience with our signature GLAM Skin Smoothing Filter. It will make everyone in the photo look simply fabulous 🤩 You may have seen striking photo booth pictures of celebrities, featuring flawless skin and pristine white backdrops. The secret to obtaining this look lies in the quality of our equipment."
+} = Astro.props;
+---
+
+<section class="pb-5">
+  <div class="container col-xxl-8 px-4">
+    <div class="row align-items-center g-5 staggered-images">
+      <div class="col-12 d-lg-none">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+      <div class="col-12 col-sm-8 col-lg-6 d-flex justify-content-end">
+        <div class="media-container">
+          <img src={mainImage1} class="media-fluid media-one" alt="Couple 1" width="700" height="500" loading="lazy" />
+          <img src={mainImage2} class="media-fluid media-two" alt="Couple 2" width="700" height="500" loading="lazy" />
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{headerText}</h1>
+        <p class="lead">{descriptionText}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .staggered-images .media-container {
+    position: relative;
+    width: 80%;
+  }
+  .staggered-images img {
+    width: 100%;
+    height: auto;
+  }
+  .staggered-images .media-one {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 60px;
+    margin-left: -15%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .staggered-images .media-two {
+    position: relative;
+    z-index: 1;
+    margin-right: -15%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .fw-bold {
+    font-weight: 700 !important;
+  }
+  .display-5 {
+    font-size: 2.5rem;
+  }
+  .h3 {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 767.98px) {
+    .staggered-images {
+      flex-direction: column;
+    }
+    .staggered-images .media-container {
+      width: 100%;
+    }
+    .staggered-images .media-one,
+    .staggered-images .media-two {
+      margin: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1em;
+    }
+  }
+</style>

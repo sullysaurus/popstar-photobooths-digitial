@@ -1,25 +1,30 @@
 ---
 const {
   headerText = "LEARN MORE",
+  headerTextColor = "white",
+  headerFontSize = "2.5rem",
   descriptionText = "",
+  descriptionTextColor = "#ccc",
+  descriptionFontSize = "1.25rem",
   buttonText = "Get Prices",
-  linkUrl = "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_category_id=17207"
+  buttonTextColor = "white",
+  buttonFontSize = "1rem",
+  linkUrl = "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_category_id=17207",
+  bgColor = "black",
+  topMargin = "100px",
+  bottomMargin = "100px"
 } = Astro.props;
 ---
 
-<section class="divider-block text-center text-white">
+<section class="divider-block text-center" style={`background-color: ${bgColor}; padding: ${topMargin} 20px ${bottomMargin}`}>
   <div class="container">
-    <h1 class="display-1 fw-bold header-underline">{headerText}</h1>
-    <p class="lead">{descriptionText}</p>
-    <a href={linkUrl} class="btn btn-lg btn-primary">{buttonText}</a>
+    <h1 class="fw-bold header-underline" style={`color: ${headerTextColor}; font-size: ${headerFontSize};`}>{headerText}</h1>
+    {descriptionText && <p class="lead" style={`color: ${descriptionTextColor}; font-size: ${descriptionFontSize};`}>{descriptionText}</p>}
+    {buttonText && <a href={linkUrl} class="btn btn-lg btn-primary" style={`color: ${buttonTextColor}; font-size: ${buttonFontSize};`}>{buttonText}</a>}
   </div>
 </section>
 
 <style>
-  .divider-block {
-    background-color: black;
-    padding: 100px 20px;
-  }
   .divider-block .header-underline {
     position: relative;
     display: inline-block;
@@ -30,14 +35,12 @@ const {
     position: absolute;
     width: 60px; /* Adjust width as needed */
     height: 5px; /* Adjust height as needed */
-    background-color: yellow;
+    background-color: #FFD601;
     bottom: -10px; /* Position the underline */
     left: 50%;
     transform: translateX(-50%);
   }
   .divider-block p {
-    color: #ccc;
-    font-size: 1.25rem;
     margin-bottom: 30px;
     max-width: 600px; /* Narrower paragraph */
     margin-left: auto;
