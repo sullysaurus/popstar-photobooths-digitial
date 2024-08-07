@@ -4,20 +4,30 @@ const {
   mainImage2 = "/images/best-event-2.jpg",
   iconImage = "/images/camera.svg",
   highlightText = "POPSTAR PHOTO BOOTHS",
-  descriptionText = "Was Built To Help You Throw The Best Event Ever!",
+  descriptionText = "Was Built To Help You Turn Up The Fun!",
   hashtag = "#POSTARPHOTOBOOTHS",
 } = Astro.props;
 ---
 
 <div class="container my-5">
   <div class="row staggered-images">
+    <div class="col-12 d-md-none text-center mb-3">
+      <div class="icon-text">
+        <img src={iconImage} alt="Icon" class="icon-img img-fluid mb-3" />
+        <h2 class="h1 fw-bold mb-0">
+          <span class="highlight-text">{highlightText}</span>
+          {descriptionText}
+        </h2>
+      </div>
+      <p class="mt-2" style="font-family: 'Cursive', sans-serif;">{hashtag}</p>
+    </div>
     <div class="col-md-5 d-flex justify-content-end">
       <div class="media-container">
         <img src={mainImage1} alt="Media 1" class="media-fluid media-one" />
         <img src={mainImage2} alt="Media 2" class="media-fluid media-two" />
       </div>
     </div>
-    <div class="col-md-6 d-flex flex-column justify-content-center quality">
+    <div class="col-md-6 d-none d-md-flex flex-column justify-content-center quality">
       <div class="icon-text">
         <img src={iconImage} alt="Icon" class="icon-img img-fluid mb-3" />
         <h2 class="h1 fw-bold mb-0">
