@@ -15,6 +15,7 @@
     "astro": "^4.13.1",
     "astro-bootstrap": "^0.6.2",
     "bootstrap": "^5.3.3",
+    "swiper": "^11.1.9",
     "vite": "^5.3.5"
   }
 }

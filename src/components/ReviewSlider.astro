@@ -1,0 +1,141 @@
+---
+const reviews = [
+  { name: "Barbara Capone", review: "Awesome! We made some great memories!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
+  { name: "Lachandra Blue", review: "We had a wonderful time using this Photo Booth. We didn't have to worry about setting it up or taking it down! I highly recommend Danny!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
+  { name: "Stephanie Horton", review: "Dan was amazing to work with! He made everything super easy! The Photo Booth was a huge hit!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
+  { name: "Frank Mahoney", review: "Great service! The Photo Booth added so much fun to our event!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
+  { name: "Ashley McIlwain", review: "Loved working with Danny at Popstar for our nonprofit ministry's Second Chance Prom! Everyone LOVED the photo booth!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
+  // Add the rest of the reviews here
+];
+---
+
+<div class="review-section">
+  <h2>Happy Customers</h2>
+  <div class="review-slider">
+    <div class="slider-container" id="slider-container">
+      {reviews.map(review => (
+        <a class="review-link" href={review.link} target="_blank" rel="noopener noreferrer">
+          <div class="review-slide">
+            <p class="reviewer">{review.name}</p>
+            <p>{review.review}</p>
+            <p class="rating">{"★".repeat(review.rating)}</p>
+            <a href="#" title="google icons">
+              <img src="images/google.png" alt="Google Icon" class="google-icon"/>
+            </a>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="navigation">
+      <button class="prev" id="prev">&#10094;</button>
+      <button class="next" id="next">&#10095;</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .review-section {
+    padding: 40px 0;
+    background-color: #f8f8f8; /* Match the site's background color */
+    text-align: center;
+  }
+  .review-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333; /* Match the site's font color */
+  }
+  .review-slider {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 1200px; /* Max width to match the site's container */
+  }
+  .slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .review-slide {
+    flex: 0 0 300px; /* Set a fixed width for each card */
+    box-sizing: border-box;
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Make sure all cards have the same height */
+    width: calc(100% / 3 - 20px); /* Adjust width for 3 slides per view with margin */
+  }
+  .reviewer {
+    font-weight: bold;
+    color: #555; /* Match the site's font color */
+  }
+  .rating {
+    color: #FFD700; /* Gold color for stars */
+    margin-top: auto; /* Push the rating to the bottom */
+  }
+  .google-icon {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+  }
+  .navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .prev, .next {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .review-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .review-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  const sliderContainer = document.getElementById('slider-container');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  let currentIndex = 0;
+  const slidesPerView = 3; // Number of slides to show at once
+
+  function updateSliderPosition() {
+    const slideWidth = sliderContainer.children[0].offsetWidth + 20; // Adjust for margin
+    sliderContainer.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = Math.ceil(sliderContainer.children.length / slidesPerView) - 1;
+    }
+    updateSliderPosition();
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < Math.ceil(sliderContainer.children.length / slidesPerView) - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateSliderPosition();
+  });
+
+  window.addEventListener('resize', updateSliderPosition);
+</script>
