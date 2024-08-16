@@ -1,12 +1,13 @@
 ---
 const reviews = [
-  { name: "Barbara Capone", review: "Awesome! We made some great memories!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
-  { name: "Lachandra Blue", review: "We had a wonderful time using this Photo Booth. We didn't have to worry about setting it up or taking it down! I highly recommend Danny!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
-  { name: "Stephanie Horton", review: "Dan was amazing to work with! He made everything super easy! The Photo Booth was a huge hit!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
-  { name: "Frank Mahoney", review: "Great service! The Photo Booth added so much fun to our event!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
-  { name: "Ashley McIlwain", review: "Loved working with Danny at Popstar for our nonprofit ministry's Second Chance Prom! Everyone LOVED the photo booth!", rating: 5, link: "https://goo.gl/maps/j7vnr4hvMZQ2" },
-  // Add the rest of the reviews here
+  { name: "Amy Karam", review: "We have had the pleasure of working with Dan on multiple school functions. I believe he has also done photobooths for country club events and feedback was all positive. I can't say enough about his kind nature, professionalism, and patience (important with young students...but adults too haha). Their equipment and service is extraordinary and we plan to use him again in the future.", rating: 5 },
+  { name: "Caitlyn Chason", review: "Danny was great to work with and very patient! Everyone at our event enjoyed the photobooth so much. We are looking forward to another event with him tomorrow!", rating: 5 },
+  { name: "Teneisha Towe", review: "This vendor was so easy to use!  He came to set up the booth and returned to take it down without me and my fitness having to figure anything out.  The booth had some fun features and very very user friendly.  Plus, when I chose to have my pictures sent to my cell phone, I received them within 15 mins!  That was a bonus for me because I've used other vendors and had to wait over 48hrs to receive my pictures.  I can't wait to use this vendor again!", rating: 5 },
+  { name: "Madison Viviano", review: "We had popstar photo booths at our wedding and everyone absolutely loved it! We have tons of fun pictures from that night!", rating: 5 },
+  { name: "Ashley McIlwain", review: "Loved working with Danny at Popstar for our nonprofit ministry's Second Chance Prom! Everyone LOVED the photo booth, and it really was just what the event needed! I am so grateful for every step of the journey and what a blessing working with Danny and having Popstar there was!", rating: 5 },
+  { name: "Micah Brown", review: "Dan and his team are amazing at ensuring your guests have fun creating memories with his various photobooths! You will not be disappointed!", rating: 5 },
 ];
+
 ---
 
 <div class="review-section">
@@ -14,16 +15,14 @@ const reviews = [
   <div class="review-slider">
     <div class="slider-container" id="slider-container">
       {reviews.map(review => (
-        <a class="review-link" href={review.link} target="_blank" rel="noopener noreferrer">
-          <div class="review-slide">
-            <p class="reviewer">{review.name}</p>
-            <p>{review.review}</p>
-            <p class="rating">{"★".repeat(review.rating)}</p>
-            <a href="#" title="google icons">
-              <img src="images/google.png" alt="Google Icon" class="google-icon"/>
-            </a>
-          </div>
-        </a>
+        <div class="review-slide">
+          <p class="reviewer">{review.name}</p>
+          <p>{review.review}</p>
+          <p class="rating">{"★".repeat(review.rating)}</p>
+          <a href="https://maps.app.goo.gl/ecT8MNruYyfUNs5b8" title="google icons">
+            <img src="images/google.png" alt="Google Icon" class="google-icon"/>
+          </a>
+        </div>
       ))}
     </div>
     <div class="navigation">
@@ -32,6 +31,7 @@ const reviews = [
     </div>
   </div>
 </div>
+
 
 <style>
   .review-section {
