@@ -1,8 +1,8 @@
 ---
 const boothOptions = [
   {
-    mediaType: 'image',
-    mediaSrc: '/images/party-booth-1.jpeg',
+    mediaType: 'video',
+    mediaSrc: '/images/party.mp4',
     alt: 'Party Booth Image',
     title: 'Party Booth',
     description: 'Our PARTY Booth is a super fun, drop-off selfie station that includes an iPad Pro, LED ring light, custom design overlay, and unlimited digital images and boomerangs.',
@@ -10,26 +10,19 @@ const boothOptions = [
   },
   {
     mediaType: 'image',
-    mediaSrc: '/images/bw-guys.jpg',
+    mediaSrc: '/images/prim.webp',
     alt: 'Popstar Booth Image',
     title: 'Popstar Booth',
     description: 'Our flagship POPSTAR booth features a DSLR camera, professional studio lighting, unlimited prints, texting, emailing, GIFs, and a friendly booth host.',
     buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=84825"
-  },
-  {
-    mediaType: 'image',
-    mediaSrc: '/images/360-gold.jpg',
-    alt: '360 Booth Image',
-    title: '360 Booth',
-    description: "Like a record baby round, round. Our 360 booth is super trendy and fun. Trust me, you need it. These go fast so click through to book your spot today.",
-    buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=99889"
-  },
+  }
 ];
 ---
 
 <section class="py-5">
   <div class="container pb-3">
-    <div class="row row-cols-1 row-cols-md-3 g-3">
+    <h1 class="fw-bold display-5 py-5 text-center">Choose Your Photo Booth Experience</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-3">
       {boothOptions.map((booth) => (
         <div class="col pb-3">
           <div class="card shadow-sm">
