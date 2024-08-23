@@ -1,23 +1,50 @@
 ---
-const { imgSrc, imgAlt, title, subtitle, header, description } = Astro.props;
+const {
+  imgSrc = '/default/path/to/image.jpg',
+  imgAlt = 'Default alt text',
+  title = 'Default Title',
+  subtitle = 'Default Subtitle',
+  description = 'Default description text.',
+  highlightColor = '#FFD700',
+  customClasses = '',
+  backgroundColor = 'transparent', // Customizable background color
+  titleColor = '#000', // New prop for title color customization
+  subtitleColor = '#fff', // New prop for subtitle color customization
+  descriptionColor = '#fff',
+  titleFontSize = '3.5rem', // New prop for title font size
+  subtitleFontSize = '2.5rem', // New prop for subtitle font size
+} = Astro.props;
 ---
-<section class="py-5">
+
+<section class={`py-5 ${customClasses}`} style={`background-color: ${backgroundColor};`}>
   <div class="container col-xxl-8 px-4">
     <div class="row align-items-center g-5 py-5">
-      <div class="col-lg-6 order-lg-2">
-        <img src={imgSrc} class="d-block mx-lg-auto img-fluid rounded mb-3" alt={imgAlt} width="700" height="500" loading="lazy" />
-      </div>
-      <div class="col-lg-6 order-lg-1">
+      <div class="col-lg-6">
         <div class="text-center text-lg-start">
-          <h2 class="display-6 fw-bold lh-1 mb-3">{header}</h2>
-          <h1 class="display-5 fw-bold lh-1 mb-3">
-            <span class="highlight">Popstar Photo Booths</span> {subtitle}
+          <h1
+            class="display-5 fw-bold lh-1 mb-3"
+            style={`color: ${titleColor}; font-size: ${titleFontSize};`}
+          >
+            <span class="highlight" style={`background-color: ${highlightColor}`}>{title}</span>
           </h1>
-          <p class="lead mb-4">{description}</p>
-          <div class="mt-3 hashtag">
-            <span class="fw-bold">#POPSTARPHOTOBOOTHS</span>
-          </div>
+          <h2
+            class="subtitle mb-3"
+            style={`color: ${subtitleColor}; font-size: ${subtitleFontSize};`}
+          >
+            {subtitle}
+          </h2>
+          <p class="lead mb-4" style={`color: ${descriptionColor};`}>{description}</p>
         </div>
+      </div>
+      <div class="col-12 col-sm-8 col-lg-6">
+        <img
+          src={imgSrc}
+          class="d-block mx-lg-auto img-fluid rounded mb-3"
+          alt={imgAlt}
+          width="700"
+          height="500"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
@@ -25,12 +52,9 @@ const { imgSrc, imgAlt, title, subtitle, header, description } = Astro.props;
 
 <style>
   .highlight {
-    background-color: #FFD700;
     padding: 0 5px;
   }
-  .hashtag {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.5rem;
-    color: #000;
+  .subtitle {
+    font-weight: 400; /* Adjust based on preference */
   }
 </style>

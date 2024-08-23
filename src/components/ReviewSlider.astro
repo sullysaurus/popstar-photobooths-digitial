@@ -1,11 +1,12 @@
 ---
 const reviews = [
-  { name: "Amy Karam", review: "We have had the pleasure of working with Dan on multiple school functions. I believe he has also done photobooths for country club events and feedback was all positive. I can't say enough about his kind nature, professionalism, and patience (important with young students...but adults too haha). Their equipment and service is extraordinary and we plan to use him again in the future.", rating: 5 },
+  { name: "Hannah Garbus", review: "Danny did a photo booth at a corporate event for us and it was such a hit! From beginning to end the setup was smooth and seamless. He was very accommodating and welcomed any and all customizations for our Photo Booth. You NEED PopStar Photobooths at your next event!!!", rating: 5 },
   { name: "Caitlyn Chason", review: "Danny was great to work with and very patient! Everyone at our event enjoyed the photobooth so much. We are looking forward to another event with him tomorrow!", rating: 5 },
   { name: "Teneisha Towe", review: "This vendor was so easy to use!  He came to set up the booth and returned to take it down without me and my fitness having to figure anything out.  The booth had some fun features and very very user friendly.  Plus, when I chose to have my pictures sent to my cell phone, I received them within 15 mins!  That was a bonus for me because I've used other vendors and had to wait over 48hrs to receive my pictures.  I can't wait to use this vendor again!", rating: 5 },
   { name: "Madison Viviano", review: "We had popstar photo booths at our wedding and everyone absolutely loved it! We have tons of fun pictures from that night!", rating: 5 },
   { name: "Ashley McIlwain", review: "Loved working with Danny at Popstar for our nonprofit ministry's Second Chance Prom! Everyone LOVED the photo booth, and it really was just what the event needed! I am so grateful for every step of the journey and what a blessing working with Danny and having Popstar there was!", rating: 5 },
   { name: "Micah Brown", review: "Dan and his team are amazing at ensuring your guests have fun creating memories with his various photobooths! You will not be disappointed!", rating: 5 },
+  { name: "Stephanie Horton", review: "Dan was amazing to work with! He made everything super easy! The Photo Booth was a huge hit!", rating: 5 },
 ];
 
 ---
@@ -31,7 +32,6 @@ const reviews = [
     </div>
   </div>
 </div>
-
 
 <style>
   .review-section {
@@ -98,13 +98,6 @@ const reviews = [
     padding: 10px;
     border-radius: 50%;
   }
-  .review-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  .review-link:hover {
-    text-decoration: underline;
-  }
 </style>
 
 <script>
@@ -113,6 +106,7 @@ const reviews = [
   const nextButton = document.getElementById('next');
   let currentIndex = 0;
   const slidesPerView = 3; // Number of slides to show at once
+  const totalSlides = sliderContainer.children.length;
 
   function updateSliderPosition() {
     const slideWidth = sliderContainer.children[0].offsetWidth + 20; // Adjust for margin
@@ -123,13 +117,13 @@ const reviews = [
     if (currentIndex > 0) {
       currentIndex--;
     } else {
-      currentIndex = Math.ceil(sliderContainer.children.length / slidesPerView) - 1;
+      currentIndex = totalSlides - slidesPerView;
     }
     updateSliderPosition();
   });
 
   nextButton.addEventListener('click', () => {
-    if (currentIndex < Math.ceil(sliderContainer.children.length / slidesPerView) - 1) {
+    if (currentIndex < totalSlides - slidesPerView) {
       currentIndex++;
     } else {
       currentIndex = 0;

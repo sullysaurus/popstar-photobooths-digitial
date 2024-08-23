@@ -5,9 +5,7 @@ import Booths from "../components/Booths.astro";
 import ChicBackdrops from "../components/ChicBackdrops.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
-import ReviewsWidget from "../components/ReviewsWidget.astro";
 import InstantPrints from "../components/InstantPrints.astro";
-import BoothFeatures from "../components/BoothFeatures.astro";
 import DividerBlock from "../components/DividerBlock.astro";
 import BestEventEver from "../components/BestEventEver.astro";
 import SearchNoFurther from "../components/SearchNoFurther.astro";
@@ -17,42 +15,22 @@ import PrivateGallery from "../components/PrivateGallery.astro";
 import BetterImageQuality from "../components/BetterImageQuality.astro";
 import GlamStyle from "../components/GlamStyle.astro";
 import ReviewSlider from "../components/ReviewSlider.astro";
-
-
-const cards = [
-  {
-    iconSrc: "/images/prints.png",
-    iconAlt: "Custom Photo Overlay",
-    title: "CUSTOM OVERLAY",
-    description: "Special messages, event dates or branding",
-  },
-  {
-    iconSrc: "/images/gallery.png",
-    iconAlt: "Online Gallery",
-    title: "ONLINE GALLERY",
-    description:
-      "A personalized gallery for guests to download free digital copies",
-  },
-  {
-    iconSrc: "/images/backdrops-props.png",
-    iconAlt: "Backdrops / Props",
-    title: "BACKDROPS / PROPS",
-    description:
-      "We have a large selection ready on-hand for you to choose from",
-  },
-  {
-    iconSrc: "/images/screen.png",
-    iconAlt: "Welcome Screen",
-    title: "CUSTOM TAP TO START SCREEN",
-    description: "Supports photos, videos and custom artwork",
-  },
-];
+import ImageTextLeft from "../components/ImageTextLeft.astro";
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <Header />
   <main>
     <BestEventEver />
+    <ImageTextLeft
+    imgSrc="/images/apple-review.png"
+    imgAlt="A testimonial from Apple"
+    title="Client Testimonial"
+    subtitle="AppleCare Awards Lawn Party"
+    description="Another happy client!"
+    highlightColor="#FFD601"
+    backgroundColor = 'black',
+  />
     <ReviewSlider />
     <SearchNoFurther />
     <Partners />

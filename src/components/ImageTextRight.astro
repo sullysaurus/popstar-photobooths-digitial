@@ -1,16 +1,32 @@
 ---
-const { imgSrc, imgAlt, header, title, subtitle, description } = Astro.props;
+const {
+  imgSrc = '/default/path/to/image.jpg',
+  imgAlt = 'Default alt text',
+  title = 'Default Title',
+  subtitle = 'Default Subtitle',
+  description = 'Default description text.',
+  highlightColor = '#FFD700',
+  customClasses = '',
+} = Astro.props;
 ---
-<section class="py-5">
+
+<section class={`py-5 ${customClasses}`}>
   <div class="container col-xxl-8 px-4">
     <div class="row align-items-center g-5 py-5">
       <div class="col-12 col-sm-8 col-lg-6">
-        <img src={imgSrc} class="d-block mx-lg-auto img-fluid rounded mb-3" alt={imgAlt} width="700" height="500" loading="lazy" />
+        <img
+          src={imgSrc}
+          class="d-block mx-lg-auto img-fluid rounded mb-3"
+          alt={imgAlt}
+          width="700"
+          height="500"
+          loading="lazy"
+        />
       </div>
       <div class="col-lg-6">
         <div class="text-center text-lg-start">
           <h1 class="display-5 fw-bold lh-1 mb-3">
-            <span class="highlight">{title}</span> {subtitle}
+            <span class="highlight" style={`background-color: ${highlightColor}`}>{title}</span> {subtitle}
           </h1>
           <p class="lead mb-4">{description}</p>
         </div>
@@ -21,7 +37,6 @@ const { imgSrc, imgAlt, header, title, subtitle, description } = Astro.props;
 
 <style>
   .highlight {
-    background-color: #FFD700;
     padding: 0 5px;
   }
   .hashtag {
