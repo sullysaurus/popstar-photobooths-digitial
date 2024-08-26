@@ -30,7 +30,7 @@ const reviews = [
       <button class="prev" id="prev">&#10094;</button>
       <button class="next" id="next">&#10095;</button>
     </div>
-  </div>
+  </div>  
 </div>
 
 <style>
@@ -101,35 +101,53 @@ const reviews = [
 </style>
 
 <script>
-  const sliderContainer = document.getElementById('slider-container');
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  let currentIndex = 0;
-  const slidesPerView = 3; // Number of slides to show at once
-  const totalSlides = sliderContainer.children.length;
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliderContainer = document.getElementById('slider-container');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const slidesPerView = 3;
+    let currentIndex = 0;
 
-  function updateSliderPosition() {
-    const slideWidth = sliderContainer.children[0].offsetWidth + 20; // Adjust for margin
-    sliderContainer.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
-  }
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = totalSlides - slidesPerView;
+    function updateSliderPosition() {
+      const slideWidth = sliderContainer.children[0].offsetWidth + 20; // Adjust for margin
+      sliderContainer.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
     }
-    updateSliderPosition();
-  });
 
-  nextButton.addEventListener('click', () => {
-    if (currentIndex < totalSlides - slidesPerView) {
-      currentIndex++;
-    } else {
+    function moveSlider(direction) {
+      const totalSlides = sliderContainer.children.length;
+      if (direction === 'next') {
+        currentIndex = (currentIndex + 1) % (totalSlides - slidesPerView + 1);
+      } else {
+        currentIndex = (currentIndex - 1 + totalSlides - slidesPerView + 1) % (totalSlides - slidesPerView + 1);
+      }
+      updateSliderPosition();
+    }
+
+    prevButton.addEventListener('click', () => moveSlider('prev'));
+    nextButton.addEventListener('click', () => moveSlider('next'));
+
+    // Debounce function for resize event
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Update slider on window resize
+    const debouncedUpdateSlider = debounce(() => {
       currentIndex = 0;
-    }
+      updateSliderPosition();
+    }, 250);
+
+    window.addEventListener('resize', debouncedUpdateSlider);
+
+    // Initialize slider position
     updateSliderPosition();
   });
-
-  window.addEventListener('resize', updateSliderPosition);
 </script>
