@@ -1,19 +1,21 @@
 ---
-const boothOptions = [
+export const boothOptions = [
   {
-    mediaType: 'video',
-    mediaSrc: '/images/party.mp4',
+    images: [
+      '/images/party1.jpeg'
+    ],
     alt: 'The Party Booth',
-    title: 'The Party Booth',
-    description: 'Our Social Booth is a super fun, drop-off selfie station that includes unlimited text sharing, images, gifs and boomerangs.',
+    title: '$549 The Party Booth',
+    description: 'Our Party Booth is a super fun, drop-off selfie station that includes unlimited text sharing, images, gifs and boomerangs.',
     buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=100635"
   },
   {
-    mediaType: 'image',
-    mediaSrc: '/images/prints.jpeg',
+    images: [
+      '/images/popstar1.jpeg'
+    ],
     alt: 'The Popstar Booth',
-    title: 'The Popstar Booth',
-    description: 'Our Print Booth offers studio lighting, unlimited prints, texting, GIFs, and a friendly booth host.',
+    title: '$949 The Popstar Booth',
+    description: 'Our Popstar Booth offers studio lighting, unlimited prints, texting, GIFs, snapchat filters, props and a friendly booth host.',
     buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=84825"
   }
 ];
@@ -23,14 +25,16 @@ const boothOptions = [
   <div class="container pb-3">
     <h1 class="fw-bold display-5 py-5 text-center">Choose Your Photo Booth Experience</h1>
     <div class="row row-cols-1 row-cols-md-2 g-3">
-      {boothOptions.map((booth) => (
-        <div class="col pb-3">
+      {boothOptions.map((booth, boothIdx) => (
+        <div class="col pb-3" key={boothIdx}>
           <div class="card shadow-sm">
-            {booth.mediaType === 'video' ? (
-              <video src={booth.mediaSrc} class="card-img-top" autoplay muted loop playsinline alt={booth.alt}></video>
-            ) : (
-              <img src={booth.mediaSrc} class="card-img-top" alt={booth.alt} />
-            )}
+            <div class="image-container">
+              <img
+                src={booth.images[0]}
+                alt={booth.alt}
+                class="image"
+              />
+            </div>
             <div class="card-body p-4">
               <h2 class="card-title">{booth.title}</h2>
               <p class="card-text">{booth.description}</p>
@@ -46,3 +50,43 @@ const boothOptions = [
     </div>
   </div>
 </section>
+
+<style>
+  .image-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Optional: adds a background for images with transparency */
+  }
+
+  .image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain; /* Ensures the entire image fits without cropping */
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    margin-bottom: 1rem;
+  }
+
+  .btn-group .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-group .btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>
