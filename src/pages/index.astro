@@ -2,71 +2,28 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Booths from "../components/Booths.astro";
-import ChicBackdrops from "../components/ChicBackdrops.astro";
 import FormShort from "../components/FormShort.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
-import InstantPrints from "../components/InstantPrints.astro";
-import DividerBlock from "../components/DividerBlock.astro";
 import BestEventEver from "../components/BestEventEver.astro";
 import SearchNoFurther from "../components/SearchNoFurther.astro";
-import FunProps from "../components/FunProps.astro";
 import Faq from "../components/Faq.astro";
-import PrivateGallery from "../components/PrivateGallery.astro";
-import BetterImageQuality from "../components/BetterImageQuality.astro";
-import GlamStyle from "../components/GlamStyle.astro";
 import ReviewSlider from "../components/ReviewSlider.astro";
-import ImageTextLeft from "../components/ImageTextLeft.astro";
+import AppleReview from "../components/AppleReview.astro";
+import Features from "../components/Features.astro";
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <Header />
   <main>
     <BestEventEver />
-    <ImageTextLeft
-    imgSrc="/images/apple-review.png"
-    imgAlt="A testimonial from Apple"
-    title="Client Testimonial"
-    subtitle="AppleCare Awards Party"
-    description="Another happy client!"
-    highlightColor="#FFD601"
-    backgroundColor = 'black',
-  />
+    <AppleReview/>
     <ReviewSlider />
     <SearchNoFurther />
     <Partners />
     <Booths />
     <FormShort emContent="" title="Check Availability" />
-    <DividerBlock
-      headerText="With Our Photo Booth Packages You Are Always Guaranteed"
-      headerTextColor=""
-      descriptionText=""
-      descriptionTextColor=""
-      buttonText=""
-      buttonTextColor=""
-      linkUrl=""
-      bgColor="white"
-      topMargin="50px"
-      bottomMargin="50px"
-    />
-    <ChicBackdrops />
-    <BetterImageQuality />
-    <GlamStyle />
-    <InstantPrints />
-    <FunProps />
-    <PrivateGallery />
-    <DividerBlock
-      headerText="Secure Your Date"
-      headerTextColor="white"
-      descriptionText="Popular dates fill up quickly, secure your date with a deposit today!"
-      descriptionTextColor="white"
-      buttonText="Let's Go!"
-      buttonTextColor=""
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_category_id=17207"
-      bgColor="black"
-      topMargin="100px"
-      bottomMargin="100px"
-    />
+    <Features />
     <About />
     <Faq />
   </main>
