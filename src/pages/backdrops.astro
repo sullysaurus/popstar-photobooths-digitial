@@ -2,27 +2,57 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import About from "../components/About.astro";
-import DividerBlock from "../components/DividerBlock.astro";
 import Faq from "../components/Faq.astro";
 import BackdropsWidget from "../components/BackdropsWidget.astro";
 ---
+
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
   <Header />
   <main>
-    <DividerBlock
-      headerText="Backdrops"
-      headerTextColor="white"
-      descriptionText="Explore our wide selection of popular backdrops, expertly crafted with professional pillow-tight quality to make your photos truly pop. Looking for something unique? We can custom design and order a backdrop tailored just for your event!"
-      descriptionTextColor="white"
-      buttonText=""
-      buttonTextColor=""
-      linkUrl="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_category_id=17207"
-      bgColor="black"
-      topMargin="100px"
-      bottomMargin="100px"
-    />
+    <section class="divider-block" style="margin-top: 100px; margin-bottom: 100px;">
+      <div class="content">
+        <h2 style="color: white;">Backdrops</h2>
+        <p style="color: white;">
+          Explore our wide selection of popular backdrops, expertly crafted with professional pillow-tight quality to make your photos truly pop. Looking for something unique? We can custom design and order a backdrop tailored just for your event!
+        </p>
+        <a 
+          href="https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_category_id=17207" 
+          class="button"
+          style="display: inline-block; padding: 0.75rem 1.5rem; font-size: 1rem; color: black; background-color: white; text-decoration: none; border-radius: 0.25rem; margin-top: 1rem;"
+        >
+          Learn More
+        </a>
+      </div>
+    </section>
     <BackdropsWidget />
     <About />
     <Faq />
   </main>
 </Layout>
+
+<style>
+  .divider-block {
+    background-color: black;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .divider-block .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .divider-block h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .divider-block p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .divider-block a.button:hover {
+    background-color: #f1f1f1;
+  }
+</style>
