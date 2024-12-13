@@ -2,45 +2,120 @@
 export const boothOptions = [
   {
     images: [
-      '/images/party1.jpeg'
+      '/images/popstar1.jpeg',
+      '/images/popstar2.jpeg',
+      '/images/popstar3.jpeg',
+      '/images/popstar4.jpeg',
+      '/images/popstar5.jpeg'
     ],
-    alt: 'The Party Booth',
-    title: '$549 The Party Booth',
-    description: 'Our Party Booth is a super fun, drop-off selfie station that includes unlimited text sharing, images, gifs and boomerangs.',
+    alt: 'The Popstar Booth',
+    title: 'The Popstar Booth',
+    description: 'Our Popstar Booth is a super fun, drop-off selfie station that includes unlimited text sharing, images, gifs, and boomerangs.',
     buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=100635"
   },
   {
     images: [
-      '/images/popstar1.jpeg'
+      '/images/rockstar1.jpeg',
+      '/images/rockstar2.jpeg',
+      '/images/rockstar3.jpeg',
+      '/images/rockstar4.jpeg',
+      '/images/rockstar5.jpeg'
     ],
-    alt: 'The Popstar Booth',
-    title: '$949 The Popstar Booth',
-    description: 'Our Popstar Booth offers a professional camera, studio lighting, unlimited prints, texting, GIFs, and a friendly booth host.',
+    alt: 'The Rockstar Booth',
+    title: 'The Rockstar Booth',
+    description: 'Our Rockstar Booth offers a professional camera, studio lighting, unlimited prints, texting, GIFs, and a friendly booth host.',
     buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=84825"
+  },
+  {
+    images: [
+      '/images/hedge.jpg'
+    ],
+    alt: 'The VIP Booth',
+    title: 'The VIP Booth',
+    description: 'The VIP Booth is a showstopper with its premium hedge wall backdrop and custom neon sign. Perfect for making a bold statement, it transforms any event into a high-end experience.',
+    buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=12345"
+  },
+  {
+    images: [
+      '/images/glam1.jpg'
+    ],
+    alt: 'The Glam Booth',
+    title: 'The Glam Booth',
+    description: 'The Glam Booth exudes sophistication with its beauty filters, sleek modern design, and luxurious aesthetic. Perfect for weddings, galas, and upscale celebrations.',
+    buttonAction: "https://popstar-photo-booths.checkcherry.com/reservation/set_event?event_type_id=67890"
   }
 ];
+
 ---
 
 <section class="py-5">
   <div class="container pb-3">
     <h1 class="fw-bold display-5 py-5 text-center">Choose Your Photo Booth Experience</h1>
-    <div class="row row-cols-1 row-cols-md-2 g-3">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
       {boothOptions.map((booth, boothIdx) => (
-        <div class="col pb-3" key={boothIdx}>
+        <div class="col" key={boothIdx}>
           <div class="card shadow-sm">
-            <div class="image-container">
-              <img
-                src={booth.images[0]}
-                alt={booth.alt}
-                class="image"
-              />
+            <div
+              id={`carousel-${boothIdx}`}
+              class="carousel slide"
+              data-bs-ride="carousel"
+              data-bs-interval="false"
+            >
+              <div class="carousel-inner">
+                {booth.images.map((image, imageIdx) => (
+                  <div
+                    class={`carousel-item ${imageIdx === 0 ? 'active' : ''}`}
+                    key={imageIdx}
+                  >
+                    <img
+                      src={image}
+                      class="d-block w-100 carousel-image"
+                      alt={booth.alt}
+                    />
+                  </div>
+                ))}
+              </div>
+              {booth.images.length > 1 && (
+                <>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target={`#carousel-${boothIdx}`}
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target={`#carousel-${boothIdx}`}
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </>
+              )}
             </div>
             <div class="card-body p-4">
               <h2 class="card-title">{booth.title}</h2>
               <p class="card-text">{booth.description}</p>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="btn-group">
-                  <a href={booth.buttonAction} class="btn btn-lg btn-primary" role="button">Book Now</a>
+                  <a
+                    href={booth.buttonAction}
+                    class="btn btn-lg btn-primary"
+                    role="button"
+                  >
+                    Learn More
+                  </a>
                 </div>
               </div>
             </div>
@@ -52,19 +127,10 @@ export const boothOptions = [
 </section>
 
 <style>
-  .image-container {
+  .carousel-image {
     width: 100%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff; /* Optional: adds a background for images with transparency */
-  }
-
-  .image {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain; /* Ensures the entire image fits without cropping */
+    object-fit: cover;
   }
 
   .card-title {
