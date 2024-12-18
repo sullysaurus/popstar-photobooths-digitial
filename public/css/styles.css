@@ -65,3 +65,7 @@ html {
 main{
   margin-top: 6em;
 }
+
+.bg-black {
+  background-color: #111111;
+}
