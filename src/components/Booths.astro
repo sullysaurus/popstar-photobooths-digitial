@@ -41,15 +41,12 @@ export const boothOptions = [
 
 ---
 
-<section id="packages" class="py-5">
-  <div class="container text-center py-5">
+<section id="packages" class="pb-3">
+  <div class="container text-center pb-5">
     <h1 class="fw-bold display-5 mb-4" style="position: relative;">
       Choose Your Photo Booth Experience
       <span style="display: block; height: 4px; width: 100px; background-color: #ffc107; margin: 10px auto 0; position: absolute; left: 50%; transform: translateX(-50%);"></span>
     </h1>
-    <p class="lead mx-auto" style="max-width: 800px;">
-      We’re not your regular run-of-the-mill photo booth; think of us more like the ultimate party wingman, capturing professional studio-quality photography and making your guests feel like they have their own personal photographer all night long!
-    </p>
     <div class="row row-cols-1 row-cols-md-2 g-4 pt-5">
       {boothOptions.map((booth, boothIdx) => (
         <div class="col" key={boothIdx}>
