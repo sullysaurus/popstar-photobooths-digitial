@@ -1,139 +1,17 @@
----
-export const boothOptions = [
-  {
-    images: [
-      '/images/popstar1.jpeg',
-      '/images/popstar2.jpeg',
-      '/images/popstar3.jpeg',
-      '/images/popstar4.jpeg',
-      '/images/popstar5.jpeg'
-    ],
-    alt: 'The Party Booth',
-    title: 'The Party Booth',
-    description: 'Our Party Booth is a super fun, drop-off selfie station that includes unlimited text sharing, images, gifs, and boomerangs.'
-  },
-  {
-    images: [
-      '/images/popstar10.jpeg'
-    ],
-    alt: 'The Popstar Booth',
-    title: 'The Popstar Booth',
-    description: 'Our Popstar Booth offers a professional camera, studio lighting, unlimited prints, texting, GIFs, and a friendly booth host.'
-  },
-  {
-    images: [
-      '/images/hedge.jpg'
-    ],
-    alt: 'The VIP Booth',
-    title: 'The VIP Booth',
-    description: 'The VIP Booth is a showstopper with its premium hedge wall backdrop and custom neon sign. Perfect for making a bold statement, it transforms any event into a high-end experience.'
-  },
-  {
-    images: [
-      '/images/glam10.jpg',
-       '/images/glam11.jpg'
-    ],
-    alt: 'The Glam Booth',
-    title: 'The Glam Booth',
-    description: 'The Glam Booth exudes sophistication with its beauty filters, sleek modern design, and luxurious aesthetic. Perfect for weddings, galas, and upscale celebrations.'
-  }
-];
-
----
-
-<section id="packages" class="pb-3">
-  <div class="container text-center pb-5">
-    <h1 class="fw-bold display-5 mb-4" style="position: relative;">
+<div class="container my-5">
+  <div class="row">
+    <h3 class="fw-bold display-5 mb-4 text-center mt-5 pb-5">
       Choose Your Photo Booth Experience
-      <span style="display: block; height: 4px; width: 100px; background-color: #ffc107; margin: 10px auto 0; position: absolute; left: 50%; transform: translateX(-50%);"></span>
-    </h1>
-    <div class="row row-cols-1 row-cols-md-2 g-4 pt-5">
-      {boothOptions.map((booth, boothIdx) => (
-        <div class="col" key={boothIdx}>
-          <div class="card shadow-sm">
-            <div
-              id={`carousel-${boothIdx}`}
-              class="carousel slide"
-              data-bs-ride="carousel"
-              data-bs-interval="false"
-            >
-              <div class="carousel-inner">
-                {booth.images.map((image, imageIdx) => (
-                  <div
-                    class={`carousel-item ${imageIdx === 0 ? 'active' : ''}`}
-                    key={imageIdx}
-                  >
-                    <img
-                      src={image}
-                      class="d-block w-100 carousel-image"
-                      alt={booth.alt}
-                    />
-                  </div>
-                ))}
-              </div>
-              {booth.images.length > 1 && (
-                <>
-                  <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target={`#carousel-${boothIdx}`}
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target={`#carousel-${boothIdx}`}
-                    data-bs-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </>
-              )}
-            </div>
-            <div class="card-body p-4">
-              <h2 class="card-title">{booth.title}</h2>
-              <p class="card-text">{booth.description}</p>
-              <div class="d-flex justify-content-center align-items-center">
-                <div class="btn-group">
-                  <a
-                    href="/contact"
-                    class="btn btn-lg btn-primary"
-                    role="button"
-                  >
-                    Check Availability
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
+      <span
+        style="display: block; height: 4px; width: 100px; background-color: #ffc107; margin: 10px auto 0; position: absolute; left: 50%; transform: translateX(-50%);"
+      ></span>
+    </h3>
+    <script src="https://static.elfsight.com/platform/platform.js" async
+    ></script>
+    <div
+      class="elfsight-app-b5b83713-7992-4155-a064-2c5666899ae5"
+      data-elfsight-app-lazy
+    >
     </div>
   </div>
-</section>
-
-<style>
-  .carousel-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .card-title {
-    font-size: 1.5rem;
-  }
-
-  .card-text {
-    margin-bottom: 1rem;
-  }
-</style>
+</div>
