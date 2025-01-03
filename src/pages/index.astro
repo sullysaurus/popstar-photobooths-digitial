@@ -3,15 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Booths from "../components/Booths.astro";
 import FormShort from "../components/FormShort.astro";
+import Guaranteed from "../components/Guaranteed.astro";
 import About from "../components/About.astro";
 import Partners from "../components/Partners.astro";
 import BestEventEver from "../components/BestEventEver.astro";
 import SearchNoFurther from "../components/SearchNoFurther.astro";
 import Faq from "../components/Faq.astro";
-import SecureDate from "../components/SecureDate.astro"
 import AppleReview from "../components/AppleReview.astro";
-import GoogleReviews from "../components/GoogleReviews.astro"
-import Gallery from "../components/Gallery.astro";
+import ReviewSlider from "../components/ReviewSlider.astro";
 ---
 
 <Layout title="Popstar Photo Booths | Raleigh | Durham | Surrounding Areas">
@@ -19,14 +18,14 @@ import Gallery from "../components/Gallery.astro";
   <main>
     <BestEventEver />
     <AppleReview/>
-    <GoogleReviews />
+    <ReviewSlider />
     <SearchNoFurther />
     <Booths />
-    <Gallery />
-    <FormShort />
     <Partners />
+    <Guaranteed />
     <About />
     <Faq />
+    <FormShort />
   </main>
 </Layout>
 
