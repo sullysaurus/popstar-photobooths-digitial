@@ -1,5 +1,5 @@
 .btn-primary {
-  background-color: #FF4D4D;
+  background-color: #FAC814;
   color: #FFFFFF; /* White text */
   border: none;
   padding: 10px 20px;
@@ -10,7 +10,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #E63946; /* Darker red on hover */
+  background-color: #FAC814; /* Darker red on hover */
 }
 
 /* Card Styles */
