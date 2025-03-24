@@ -10,7 +10,10 @@
                 <span class="hidden md:inline">Popstar Photo Booths</span>
                 <span class="inline md:hidden">Popstar Booths</span>
             </h1>
-            <button data-name="book-now-button" class="header-btn text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold w-full md:w-auto">
+            <button 
+                data-name="book-now-button" 
+                onclick="document.querySelector('[data-name=contact-form]').scrollIntoView({ behavior: 'smooth' })"
+                class="header-btn text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold w-full md:w-auto">
                 Book Now
             </button>
         </div>

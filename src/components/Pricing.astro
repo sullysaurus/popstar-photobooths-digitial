@@ -68,11 +68,13 @@ const packages = [
                             </li>
                         ))}
                     </ul>
-                    <button class={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
-                        pkg.highlighted 
-                            ? 'bg-pink-500 text-white hover:bg-pink-600' 
-                            : 'btn-primary text-white'
-                    }`}>
+                    <button 
+                        onclick="document.querySelector('[data-name=contact-form]').scrollIntoView({ behavior: 'smooth' })"
+                        class={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
+                            pkg.highlighted 
+                                ? 'bg-pink-500 text-white hover:bg-pink-600' 
+                                : 'btn-primary text-white'
+                        }`}>
                         Select Package
                     </button>
                 </div>
