@@ -1,0 +1,47 @@
+---
+const features = [
+    {
+        icon: "fa-money-bill-wave",
+        title: "Save Over $500",
+        description: "No expensive prints, staff, or supplies. Get more value with our digital-first approach at half the cost of traditional booths."
+    },
+    {
+        icon: "fa-clock",
+        title: "More Photos, Less Waiting",
+        description: "No print delays means more fun! Take unlimited photos and keep the party going without long lines."
+    },
+    {
+        icon: "fa-user-shield",
+        title: "Complete Privacy",
+        description: "Our digital booth runs automatically - no staff watching. Just you and your guests having genuine fun."
+    },
+    {
+        icon: "fa-envelope-open-text",
+        title: "Thoughtful Delivery",
+        description: "Include high-quality prints with your thank you cards. Your guests will love receiving these lasting memories in the mail."
+    }
+];
+---
+
+<section data-name="features" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">Why Choose Our Digital Booth?</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+                Experience the perfect blend of modern technology and thoughtful service. More photos, more privacy, and more value - without compromising on quality.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+                <div 
+                    data-name={`feature-card-${index}`}
+                    class="feature-card bg-white p-6 rounded-lg shadow-lg text-center transition-all duration-300"
+                >
+                    <i class={`fas ${feature.icon} text-4xl text-pink-600 mb-4`}></i>
+                    <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p class="text-gray-600">{feature.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

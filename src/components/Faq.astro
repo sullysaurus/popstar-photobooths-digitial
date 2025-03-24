@@ -1,116 +1,38 @@
 ---
-export const faqs = [
-  {
-    question: "Can we bring our own backdrop?",
-    answer: "Yes. Choose a non reflective surface if possible. Good idea to brainstorm with your stylist as well."
-  },
-  {
-    question: "Is it possible to get a tight headshot or a full body shot?",
-    answer: "Yes! The booths are fully adjustable and we can work with you to get the perfect shot."
-  },
-  {
-    question: "Do you offer drop off photo booths?",
-    answer: "Yes! The Popstar Booth is a dropoff booth. We set it up and pick it up when the event is over."
-  },
-  {
-    question: "How do we receive the photos?",
-    answer: "All of the booths come with an instant live gallery, guests can text/email/airdrop photos instantly, you also get all the photos in a Zip file within 48 hours."
-  },
-  {
-    question: "How does the custom photo overlay work?",
-    answer: "We provide a link of options for the designs, there are lots to chose from. If you need something custom, we can have our designers create it for an additional fee. Or, if you have your own designer we can provide the dimensions."
-  },
-  {
-    question: "Can you give a general overview of how the booth works?",
-    answer: "Tap to start, chose photo, gif, boomerang, or video, take the photo, text/email it to yourself, then it saves to the gallery where you can see and share all the photos/videos. If it is a print booth it will print out your photo as well."
-  },
-  {
-    question: "Do you provide props?",
-    answer: "Yes we have a variety of premium props to chose from. We can also custom design and order props for your event."
-  },
-  {
-    question: "Do your offer unlimited prints?",
-    answer: "Yes!"
-  },
-  {
-    question: "Does your booth have gifs and boomerangs?",
-    answer: "Yes the Popstar Booth has unlimited photos, gifs, boomerangs and videos."
-  },
-  {
-    question: "Is there a travel cost?",
-    answer: "Most events have no travel cost within a reasonable distance to the traingle area. If you have a destination event let us know and we can work with you."
-  }
+const faqs = [
+    {
+        question: "How does a digital photo booth work?",
+        answer: "Our digital photo booth is fully automated and user-friendly. Guests simply approach the booth, follow the on-screen instructions, pose, and receive their photos instantly via text or email. No printing means no waiting!"
+    },
+    {
+        question: "What if my guests want physical prints?",
+        answer: "We recommend including the high-quality digital photos with your thank you cards - it's a delightful surprise that guests love! You can also print any photos you want after the event at a fraction of the cost."
+    },
+    {
+        question: "Do you provide props?",
+        answer: "We can guide you to purchase brand new props at half the cost of what most companies charge for used ones. This ensures you have fresh, clean props that you can keep after your event."
+    },
+    {
+        question: "How long does setup take?",
+        answer: "Setup typically takes 30 minutes. We arrive early to ensure everything is ready before your event begins."
+    }
 ];
-
 ---
 
-<div class="container my-5 faq-section">
-    <h2 class="mb-4 text-uppercase text-dark text-center">Frequently Asked Questions</h2>
-    <div class="accordion" id="faqAccordion">
-      {faqs.map((faq, index) => (
-        <div class="accordion-item" key={index}>
-          <h2 class="accordion-header" id={`heading${index}`}>
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target={`#collapse${index}`}
-              aria-expanded="false"
-              aria-controls={`collapse${index}`}
-            >
-              {faq.question}
-            </button>
-          </h2>
-          <div
-            id={`collapse${index}`}
-            class="accordion-collapse collapse"
-            aria-labelledby={`heading${index}`}
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              {faq.answer}
-            </div>
-          </div>
+<section data-name="faq" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto space-y-6">
+            {faqs.map((faq, index) => (
+                <div 
+                    key={index}
+                    data-name={`faq-item-${index}`}
+                    class="faq-item bg-white p-6 rounded-lg shadow-md"
+                >
+                    <h3 class="text-xl font-semibold mb-3">{faq.question}</h3>
+                    <p class="text-gray-600">{faq.answer}</p>
+                </div>
+            ))}
         </div>
-      ))}
     </div>
-  </div>
-  
-  <style>
-    .faq-section {
-      background-color: #ffffff;
-      padding: 2rem;
-    }
-  
-    .faq-section h2 {
-      color: #000000;
-    }
-  
-    .accordion-button {
-      background-color: #f8f9fa;
-      color: #000000;
-      border: none;
-    }
-  
-    .accordion-button:not(.collapsed) {
-      background-color: #e9ecef;
-    }
-  
-    .accordion-button:hover {
-      background-color: #e2e6ea;
-    }
-  
-    .accordion-body {
-      background-color: #ffffff;
-      color: #000000;
-    }
-  
-    .accordion-item {
-      border: none;
-      margin-bottom: 1rem;
-    }
-  
-    .accordion-button:focus {
-      box-shadow: none;
-    }
-  </style>
+</section>

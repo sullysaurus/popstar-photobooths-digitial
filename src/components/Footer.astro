@@ -1,136 +1,14 @@
-<footer class="text-muted py-5">
-  <div class="container footer-section">
-    <div class="text-center mb-4">
-      <img
-        src="/images/logo-white.png"
-        alt="Logo"
-        class="footer-logo mb-3"
-        style="width: 250px;"
-      />
+---
+// Astro component frontmatter (for imports, props, etc.)
+---
+
+<footer data-name="footer" class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+        <h2 data-name="footer-logo" class="text-2xl font-bold mb-4">
+            Popstar Photo Booths
+        </h2>
+        <p data-name="footer-text" class="mb-4">
+            Serving the Raleigh, NC area with premium photo booth rentals
+        </p>
     </div>
-    <div class="footer-menu">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-uppercase text-white">Social</h5>
-          <ul class="list-unstyled footer-links">
-            <li>
-              <a href="https://maps.app.goo.gl/1JcbwCb2J1Y3AiPT8" class="text-white">Google Reviews</a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/popstarphotobooths" class="text-white">Instagram</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-uppercase text-white">Services</h5>
-          <ul class="list-unstyled footer-locations text-white">
-            <li><a href="https://popstar-photo-booths.checkcherry.com/reservation/event_type" class="text-white">The Popstar Booth</a></li>
-            <li><a href="https://popstar-photo-booths.checkcherry.com/reservation/event_type" class="text-white">The Neon Booth</a></li>
-            <li><a href="https://popstar-photo-booths.checkcherry.com/reservation/event_type" class="text-white">The Classy Booth</a></li>
-            <li><a href="https://popstar-photo-booths.checkcherry.com/reservation/event_type" class="text-white">The Hollywood Booth</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 footer-buttons text-center">
-          <button type="button" class="btn btn-lg btn-primary";>
-            <a href="tel:1+9192787226" style="text-decoration: none; color: white;">Call Danny</a>
-          </button>
-          <ul class="list-unstyled footer-links">
-            <li>
-              <a href="/privacy-policy" class="text-white d-block mt-3">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/terms-and-conditions" class="text-white d-block mt-3">Terms and Conditions</a>
-            </li>
-            <li class="text-white mt-3">© 2024 Popstar Photo Booths</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
-
-<style>
-  footer {
-    background-color: #111111 !important;
-    padding: 2rem 0;
-  }
-
-  footer p {
-    margin-bottom: 0;
-  }
-
-  .footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-logo {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-
-  .footer-menu .row {
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .footer-section {
-      flex-direction: row;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .footer-logo {
-      margin-bottom: 0;
-    }
-  }
-
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .footer-links,
-  .footer-locations {
-    list-style: none;
-    padding: 0;
-  }
-
-  .footer-locations a,
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .footer-locations a:hover,
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-
-  .footer-links li,
-  .footer-locations li {
-    margin-bottom: 0.5rem;
-    color: white;
-  }
-
-  .footer-buttons .btn {
-    margin-bottom: 0.5rem;
-    width: 100%;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #dee2e6;
-    padding-top: 1rem;
-    font-size: 0.875rem;
-    color: #6c757d;
-  }
-
-  .footer-bottom a {
-    color: white;
-  }
-</style>

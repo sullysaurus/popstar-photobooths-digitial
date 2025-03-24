@@ -1,0 +1,47 @@
+---
+const steps = [
+    {
+        number: "1",
+        title: "Choose Your Date",
+        description: "Select your event date from our availability calendar"
+    },
+    {
+        number: "2",
+        title: "Select Add-ons",
+        description: "Customize with backdrops and templates"
+    },
+    {
+        number: "3",
+        title: "Party Time!",
+        description: "We'll handle delivery and setup - you enjoy the fun!"
+    }
+];
+---
+
+<section data-name="booking-steps" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 data-name="booking-title" class="text-4xl font-bold text-center mb-12">
+            How to Book
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+                <div 
+                    key={index}
+                    data-name={`step-card-${index}`}
+                    class="text-center"
+                >
+                    <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">
+                        {step.number}
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">{step.title}</h3>
+                    <p class="text-gray-600">{step.description}</p>
+                </div>
+            ))}
+        </div>
+        <div class="text-center mt-12">
+            <button data-name="final-cta" class="btn-primary text-white px-8 py-3 rounded-full font-bold text-lg">
+                Book Your Photo Booth Now
+            </button>
+        </div>
+    </div>
+</section>

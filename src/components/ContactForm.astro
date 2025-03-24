@@ -1,0 +1,34 @@
+---
+// Astro component frontmatter
+---
+
+<section data-name="contact-form" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <h2 data-name="contact-title" class="text-4xl font-bold text-center mb-8">
+            Get in Touch
+        </h2>
+        <p data-name="contact-subtitle" class="text-center text-gray-600 mb-12">
+            Ready to make your event unforgettable? Fill out the form below and we'll get back to you within 24 hours.
+        </p>
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div 
+                class="checkcherry__widget__contact-form" 
+                data-props='{
+                    "apiKey":"TCN-R4JQ-W4A",
+                    "contactFormId":12895,
+                    "iframe":false,
+                    "host":"https://popstar-photo-booths.checkcherry.com"
+                }'
+            ></div>
+        </div>
+    </div>
+</section>
+
+<script is:inline src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets"></script>
+
+<style>
+    /* Add any custom styles for the form container here */
+    :global(.checkcherry__widget__contact-form) {
+        width: 100%;
+    }
+</style>

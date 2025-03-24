@@ -1,0 +1,85 @@
+---
+const packages = [
+    {
+        name: "Single Booth Package",
+        price: 549,
+        features: [
+            "3-hour digital photo booth rental",
+            "Premium backdrop included",
+            "Custom photo overlay design",
+            "Custom start screen design",
+            "Unlimited digital photos",
+            "Instant social media sharing",
+            "High-resolution gallery access",
+            "Private, automated operation",
+            "Setup & delivery included"
+        ]
+    },
+    {
+        name: "Double Booth Package",
+        price: 949,
+        features: [
+            "Two 3-hour digital photo booths",
+            "Premium backdrops included",
+            "Custom photo overlay design",
+            "Custom start screen design",
+            "Unlimited digital photos",
+            "Instant social media sharing",
+            "High-resolution gallery access",
+            "Private, automated operation",
+            "Setup & delivery included",
+            "Perfect for large venues"
+        ],
+        highlighted: true
+    }
+];
+---
+
+<section data-name="pricing" class="py-16">
+    <div class="container mx-auto px-4">
+        <h2 data-name="pricing-title" class="text-4xl font-bold text-center mb-6">
+            Simple, All-Inclusive Pricing
+        </h2>
+        <p data-name="pricing-subtitle" class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Everything you need is included - no hidden fees or add-ons. Save over $500 compared to traditional photo booths.
+        </p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {packages.map((pkg, index) => (
+                <div 
+                    key={index}
+                    data-name={`pricing-card-${index}`}
+                    class={`pricing-card bg-white p-8 rounded-xl shadow-lg ${pkg.highlighted ? 'border-2 border-pink-500 relative' : ''}`}
+                >
+                    {pkg.highlighted && (
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            Best Value
+                        </div>
+                    )}
+                    <h3 class="text-2xl font-bold mb-4">{pkg.name}</h3>
+                    <div class="text-4xl font-bold mb-2">
+                        ${pkg.price}
+                    </div>
+                    <p class="text-gray-600 mb-6">All-inclusive package</p>
+                    <ul class="space-y-3 mb-8">
+                        {pkg.features.map((feature, idx) => (
+                            <li key={idx} class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+                    <button class={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
+                        pkg.highlighted 
+                            ? 'bg-pink-500 text-white hover:bg-pink-600' 
+                            : 'btn-primary text-white'
+                    }`}>
+                        Select Package
+                    </button>
+                </div>
+            ))}
+        </div>
+        <p class="text-center text-gray-500 mt-8">
+            Need more than 3 hours? Contact us for custom duration pricing.
+        </p>
+    </div>
+</section>

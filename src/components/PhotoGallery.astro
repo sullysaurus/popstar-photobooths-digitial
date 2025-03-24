@@ -1,0 +1,33 @@
+---
+const photos = [
+    { url: "/images/1.jpeg", alt: "Wedding photo booth" },
+    { url: "/images/2.jpeg", alt: "Party celebration" },
+    { url: "/images/3.jpeg", alt: "Corporate event" },
+    { url: "/images/4.jpeg", alt: "Birthday party" },
+    { url: "/images/5.jpeg", alt: "Graduation party" },
+    { url: "/images/6.jpeg", alt: "Special event" }
+];
+---
+
+<section data-name="photo-gallery" class="py-16">
+    <div class="container mx-auto px-4">
+        <h2 data-name="gallery-title" class="text-4xl font-bold text-center mb-12">
+            Memories Made Here
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {photos.map((photo, index) => (
+                <div 
+                    key={index}
+                    data-name={`gallery-item-${index}`}
+                    class="aspect-square overflow-hidden rounded-lg shadow-lg"
+                >
+                    <img 
+                        src={photo.url} 
+                        alt={photo.alt}
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
