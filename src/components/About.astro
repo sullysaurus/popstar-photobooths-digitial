@@ -1,0 +1,50 @@
+---
+// Astro component frontmatter
+---
+
+<section data-name="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Meet The Owner</h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <p class="mb-4">
+                            Popstar Photo Booths was founded by Danny Sullivan. With a diverse background as a special education teacher, software developer, professional baseball player, and professional wedding photographer, Danny brings a unique blend of creativity, technical expertise, and attention to detail. His passion for creating unforgettable experiences is the foundation of Popstar Photo Booths, ensuring your event is elevated to the next level. Trust Danny to add a personalized and professional touch to your occasion. For an event that truly stands out, contact Popstar Photo Booths today!
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2">
+                    <div class="relative">
+                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-xl">
+                            <img 
+                                src="images/danny.jpeg" 
+                                alt="Owner's Name - Photo Booth Expert" 
+                                class="object-cover w-full h-full"
+                            />
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full opacity-50 blur-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .aspect-w-4 {
+        position: relative;
+        padding-bottom: 125%; /* 5:4 Aspect Ratio */
+    }
+    
+    .aspect-w-4 > * {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style> 
