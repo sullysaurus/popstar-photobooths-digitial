@@ -23,25 +23,68 @@ const features = [
 ];
 ---
 
-<section data-name="features" class="py-16 bg-gray-50">
+<section data-name="features" class="py-16 bg-gradient-to-b from-gray-900 to-black text-white">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4">Why Choose Our Digital Booth?</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">
-                Experience the perfect blend of modern technology and thoughtful service. More photos, more privacy, and more value - without compromising on quality.
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Why Choose Us?</h2>
+            <p class="text-gray-300 max-w-3xl mx-auto">
+                Professional quality meets modern convenience. No more waiting for prints or dealing with lost photos.
             </p>
         </div>
-        <div class="grid md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+                {
+                    icon: "fa-bolt",
+                    title: "Instant Delivery",
+                    description: "Photos sent directly to your phone within seconds. No waiting, no hassle."
+                },
+                {
+                    icon: "fa-camera",
+                    title: "Pro-Grade Equipment",
+                    description: "DSLR camera and studio lighting for magazine-quality photos every time."
+                },
+                {
+                    icon: "fa-image",
+                    title: "Unlimited Photos",
+                    description: "Take as many photos as you want. No extra charges, ever."
+                },
+                {
+                    icon: "fa-mobile-alt",
+                    title: "Digital Gallery",
+                    description: "Access all your event photos in one beautiful online gallery."
+                },
+                {
+                    icon: "fa-paint-brush",
+                    title: "Custom Design",
+                    description: "Personalized templates and start screen to match your event theme."
+                },
+                {
+                    icon: "fa-leaf",
+                    title: "Eco-Friendly",
+                    description: "100% digital means zero waste and no chemical processing."
+                }
+            ].map((feature, index) => (
                 <div 
                     data-name={`feature-card-${index}`}
-                    class="feature-card bg-white p-6 rounded-lg shadow-lg text-center transition-all duration-300"
+                    class="feature-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-pink-500 transition-all duration-300"
                 >
-                    <i class={`fas ${feature.icon} text-4xl text-pink-600 mb-4`}></i>
-                    <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p class="text-gray-600">{feature.description}</p>
+                    <div class="bg-gradient-to-br from-pink-500 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class={`fas ${feature.icon} text-xl text-white`}></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <p class="text-gray-400">{feature.description}</p>
                 </div>
             ))}
         </div>
     </div>
 </section>
+
+<style>
+    .feature-card {
+        transform: translateY(0);
+    }
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3);
+    }
+</style>
