@@ -2,13 +2,40 @@
 // Astro component frontmatter (for imports, props, etc.)
 ---
 
-<footer data-name="footer" class="bg-gray-900 text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-        <h2 data-name="footer-logo" class="text-2xl font-bold mb-4">
-            Popstar Photo Booths
-        </h2>
-        <p data-name="footer-text" class="mb-4">
-            Serving the Raleigh, NC area with premium photo booth rentals
-        </p>
+<footer class="bg-gradient-to-r from-black via-purple-900 to-black py-8">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-white text-center md:text-left">
+                <p class="text-lg mb-2">Popstar Photo Booths</p>
+                <a href="tel:9192787226" class="text-white/80 hover:text-white transition-colors">
+                    (919) 278-7226
+                </a>
+            </div>
+            
+            <div class="flex gap-6 items-center">
+                <a 
+                    href="https://maps.app.goo.gl/4mPKnUapkqLiiP9h6" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="text-white/80 hover:text-white transition-colors"
+                >
+                    <i class="fab fa-google text-2xl"></i>
+                    <span class="sr-only">Google</span>
+                </a>
+                <a 
+                    href="https://www.instagram.com/popstarphotobooths" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="text-white/80 hover:text-white transition-colors"
+                >
+                    <i class="fab fa-instagram text-2xl"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+            
+            <div class="text-white/60 text-sm">
+                © {new Date().getFullYear()} Popstar Photo Booths. All rights reserved.
+            </div>
+        </div>
     </div>
 </footer>
