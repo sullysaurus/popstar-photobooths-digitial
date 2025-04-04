@@ -76,6 +76,43 @@
     </div>
 </section>
 
+<!-- Add this modal HTML just before the closing </section> tag -->
+<div id="bookingModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 text-center relative">
+        <button 
+            onclick="closeModal()"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <img 
+            src="/images/thanks.gif" 
+            alt="Exciting Photo Booth Moment" 
+            class="w-full rounded-xl mb-4"
+        />
+        
+        <h3 class="text-2xl font-bold mb-2">Exciting News! 🎉</h3>
+        <p class="text-gray-600 mb-4">
+            Keep your phone handy! You'll receive a call from:
+            <br />
+            <span class="font-semibold text-black">(919) 278-7226</span>
+            <br />
+            Answer to receive <span class="text-yellow-500 font-bold">$100 OFF</span> your package!
+        </p>
+        
+        <button 
+            onclick="closeModal()"
+            class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition-all duration-300"
+        >
+            Got it!
+        </button>
+    </div>
+</div>
+
+<!-- Update the script section -->
 <script>
     function scrollToForm(e) {
         e.preventDefault();
@@ -86,10 +123,22 @@
                 block: 'center'
             });
             
+            // Show the modal after a short delay
             setTimeout(() => {
-                const firstInput = form.querySelector('input');
-                if (firstInput) firstInput.focus();
+                const modal = document.querySelector('#bookingModal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    // Add fade-in animation
+                    modal.classList.add('animate-fadeIn');
+                }
             }, 800);
+        }
+    }
+
+    function closeModal() {
+        const modal = document.querySelector('#bookingModal');
+        if (modal) {
+            modal.classList.add('hidden');
         }
     }
 </script>
@@ -161,5 +210,10 @@
     a:focus-visible {
         outline: 2px solid #FCD34D;
         outline-offset: 2px;
+    }
+
+    /* Close button hover effect */
+    .modal-close:hover {
+        transform: scale(1.1);
     }
 </style>
