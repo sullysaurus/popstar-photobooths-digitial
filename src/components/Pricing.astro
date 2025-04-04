@@ -1,87 +1,100 @@
 ---
 const packages = [
     {
-        name: "Single Booth Package",
-        price: 549,
+        name: "The Party Booth",
+        tagline: "Digital-First Experience",
         features: [
-            "All day digital photo booth rental",
-            "Premium backdrop included",
+            "Professional DSLR camera setup",
+            "Studio-quality lighting system",
+            "Modern backdrop included",
             "Custom photo overlay design",
             "Custom start screen design",
-            "Unlimited digital photos",
-            "Instant social media sharing",
-            "High-resolution gallery access",
-            "Private, automated operation",
+            "Instant text message delivery",
+            "Private online gallery",
+            "Social media sharing",
             "Setup & delivery included"
         ]
     },
     {
-        name: "Double Booth Package",
-        price: 949,
+        name: "The Popstar Booth",
+        tagline: "Our Most Popular Package",
         features: [
-            "Two all day digital photo booths",
-            "Premium backdrops included",
-            "Custom photo overlay design",
-            "Custom start screen design",
-            "Unlimited digital photos",
-            "Instant social media sharing",
-            "High-resolution gallery access",
-            "Private, automated operation",
-            "Setup & delivery included",
-            "Perfect for large venues"
+            "Everything in The Party Booth",
+            "✨ Unlimited 4x6 or 2x6 Prints",
+            "✨ GLAM Options",
+            "✨ AI Photo Options",
+            "✨ Premium Backdrop Collection",
+            "✨ Professional Props Package",
+            "✨ On-site Print Station",
+            "✨ Guest Book Service Available",
+            "✨ Premium Album Options",
         ],
         highlighted: true
     }
 ];
 ---
 
-<section data-name="pricing" class="py-16">
+<section data-name="pricing" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
         <h2 data-name="pricing-title" class="text-4xl font-bold text-center mb-6">
-            Simple, All-Inclusive Pricing
+            Choose Your Photo Booth Experience
         </h2>
         <p data-name="pricing-subtitle" class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Everything you need is included - no hidden fees or add-ons. Save over $500 compared to traditional photo booths.
+            We're not your regular run-of-the-mill photo booth; think of us more like the ultimate party wingman, capturing professional studio-quality photography!
         </p>
+        
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {packages.map((pkg, index) => (
                 <div 
                     key={index}
                     data-name={`pricing-card-${index}`}
-                    class={`pricing-card bg-white p-8 rounded-xl shadow-lg ${pkg.highlighted ? 'border-2 border-pink-500 relative' : ''}`}
+                    class={`bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${pkg.highlighted ? 'border-2 border-yellow-400 relative' : ''}`}
                 >
                     {pkg.highlighted && (
-                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                            Best Value
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-6 py-1 rounded-full text-sm font-bold">
+                            Most Popular
                         </div>
                     )}
-                    <h3 class="text-2xl font-bold mb-4">{pkg.name}</h3>
-                    <div class="text-4xl font-bold mb-2">
-                        ${pkg.price}
-                    </div>
-                    <p class="text-gray-600 mb-6">All-inclusive package</p>
-                    <ul class="space-y-3 mb-8">
+                    
+                    <h3 class="text-2xl font-bold mb-2">{pkg.name}</h3>
+                    <p class="text-gray-600 mb-6">{pkg.tagline}</p>
+                    
+                    <ul class="space-y-4 mb-8">
                         {pkg.features.map((feature, idx) => (
-                            <li key={idx} class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                {feature}
+                            <li key={idx} class="flex items-start gap-3">
+                                <i class={`fas fa-check mt-1 ${pkg.highlighted ? 'text-yellow-400' : 'text-gray-400'}`}></i>
+                                <span class={feature.startsWith('✨') ? 'font-medium' : 'text-gray-600'}>
+                                    {feature.replace('✨ ', '')}
+                                </span>
                             </li>
                         ))}
                     </ul>
-                    <button 
-                        onclick="document.querySelector('[data-name=contact-form]').scrollIntoView({ behavior: 'smooth' })"
-                        class={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
+                    
+                    <a 
+                        href="#book-now"
+                        onclick="scrollToForm(event)"
+                        class={`w-full py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 group ${
                             pkg.highlighted 
-                                ? 'bg-pink-500 text-white hover:bg-pink-600' 
-                                : 'btn-primary text-white'
-                        }`}>
-                        Select Package
-                    </button>
+                                ? 'bg-yellow-400 text-black hover:bg-yellow-300 hover:scale-105' 
+                                : 'bg-gray-100 text-black hover:bg-gray-200 hover:scale-105'
+                        }`}
+                    >
+                        Check Availability
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
+                            viewBox="0 0 20 20" 
+                            fill="currentColor"
+                        >
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
             ))}
         </div>
-        <p class="text-center text-gray-500 mt-8">
-           Use the booth all day between 8am and 10pm. Need something different? Contact us!
+        
+        <p class="text-center text-gray-500 mt-12">
+            Need something different? We offer custom packages for corporate events and special occasions!
         </p>
     </div>
 </section>

@@ -1,80 +1,78 @@
 ---
 const features = [
     {
-        icon: "fa-money-bill-wave",
-        title: "Save Over $500",
-        description: "No expensive prints, staff, or supplies. Get more value with our digital-first approach at half the cost of traditional booths."
+        icon: "fa-print",
+        title: "Unlimited Prints",
+        description: "Everyone gets a print! Whether you love classic 2x6 strips or premium 4x6 prints, there's no limit to the memories you can take home."
     },
     {
-        icon: "fa-clock",
-        title: "More Photos, Less Waiting",
-        description: "No print delays means more fun! Take unlimited photos and keep the party going without long lines."
+        icon: "fa-image",
+        title: "Chic Backdrops",
+        description: "Modern, elegant backdrops included in every package. We can even create custom designs to match your event theme perfectly."
     },
     {
-        icon: "fa-user-shield",
-        title: "Complete Privacy",
-        description: "Our digital booth runs automatically - no staff watching. Just you and your guests having genuine fun."
+        icon: "fa-wand-magic-sparkles",
+        title: "Unique Props",
+        description: "Not your average props! We take props very seriously (but also very un-seriously) to ensure amazing photos every time."
     },
     {
-        icon: "fa-envelope-open-text",
-        title: "Thoughtful Delivery",
-        description: "Include high-quality prints with your thank you cards. Your guests will love receiving these lasting memories in the mail."
+        icon: "fa-star",
+        title: "Amazing Service",
+        description: "Don't take our word for it - check our perfect 5-star rating on Google with over 50 glowing reviews!"
+    },
+    {
+        icon: "fa-photo-film",
+        title: "Private Gallery",
+        description: "Access all your event photos in a private online gallery the very next day. Every single photo, not just the prints!"
+    },
+    {
+        icon: "fa-mobile-screen",
+        title: "Instant Sharing",
+        description: "Photos sent directly to your phone within seconds. Share your memories instantly on social media!"
     }
 ];
 ---
 
-<section data-name="features" class="py-16 bg-gradient-to-b from-gray-900 to-black text-white">
+<section data-name="features" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Why Choose Us?</h2>
-            <p class="text-gray-300 max-w-3xl mx-auto">
-                Professional quality meets modern convenience. No more waiting for prints or dealing with lost photos.
+            <h2 class="text-4xl font-bold mb-4">The Ultimate Photo Booth Experience</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+                We create professional photos that look really good & an experience that your guests will remember!
             </p>
         </div>
+        
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-                {
-                    icon: "fa-dollar",
-                    title: "Save Over $500",
-                    description: "No expensive prints, staff, or supplies. Get more value with our digital-first approach at half the cost of traditional booths."
-                },
-                {
-                    icon: "fa-camera",
-                    title: "Pro-Grade Equipment",
-                    description: "Pro camera and studio lighting for magazine-quality photos every time."
-                },
-                {
-                    icon: "fa-image",
-                    title: "More Photos, Less Waiting",
-                    description: "No print delays means more fun! Take unlimited photos and keep the party going without long lines."
-                },
-                {
-                    icon: "fa-user-shield",
-                    title: "Complete Privacy",
-                    description: "Our digital booth runs automatically - no staff watching. Just you and your guests having genuine fun."
-                },
-                {
-                    icon: "fa-paint-brush",
-                    title: "Custom Design",
-                    description: "Personalized templates and start screen to match your event theme."
-                },
-                {
-                    icon: "fa-leaf",
-                    title: "Eco-Friendly",
-                    description: "100% digital means zero waste!"
-                }
-            ].map((feature, index) => (
+            {features.map((feature, index) => (
                 <div 
                     data-name={`feature-card-${index}`}
-                    class="feature-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-pink-500 transition-all duration-300"
+                    class="feature-card bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
                 >
-                    <div class="bg-gradient-to-br from-pink-500 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                        <i class={`fas ${feature.icon} text-xl text-white`}></i>
+                    <div class="bg-yellow-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <i class={`fas ${feature.icon} text-xl text-black`}></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
-                    <p class="text-gray-400">{feature.description}</p>
+                    <p class="text-gray-600">{feature.description}</p>
                 </div>
             ))}
+        </div>
+
+        <div class="text-center mt-12">
+            <a 
+                href="#book-now" 
+                class="inline-flex items-center gap-2 bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 hover:scale-105 transition-all duration-300 group"
+                onclick="scrollToForm(event)"
+            >
+                Book Your Photo Booth
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
+                    viewBox="0 0 20 20" 
+                    fill="currentColor"
+                >
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
         </div>
     </div>
 </section>
@@ -84,7 +82,6 @@ const features = [
         transform: translateY(0);
     }
     .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3);
+        transform: translateY(-4px);
     }
 </style>

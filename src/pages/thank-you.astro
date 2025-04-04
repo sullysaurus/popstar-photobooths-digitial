@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Thank You | Popstar Photo Booths">
+    <div class="min-h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 pt-32 md:pt-40">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 logo-font">
+                Thank You!
+            </h1>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 md:p-12 max-w-2xl mx-auto">
+                <p class="text-xl md:text-2xl mb-8">
+                    We've received your message and will get back to you within 24 hours.
+                </p>
+                <p class="text-lg md:text-xl mb-12">
+                    In the meantime, feel free to check out our photo gallery or learn more about our services.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a 
+                        href="/" 
+                        class="header-btn text-white px-8 py-3 rounded-full text-lg font-semibold inline-block"
+                    >
+                        Return Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .header-btn {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+</style>

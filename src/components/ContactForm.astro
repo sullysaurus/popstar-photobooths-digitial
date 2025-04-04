@@ -2,33 +2,60 @@
 // Astro component frontmatter
 ---
 
-<section data-name="contact-form" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4 max-w-3xl">
-        <h2 data-name="contact-title" class="text-4xl font-bold text-center mb-8">
-            Get in Touch
-        </h2>
-        <p data-name="contact-subtitle" class="text-center text-gray-600 mb-12">
-            Ready to make your event unforgettable?
-        </p>
-        <div class="bg-white p-8 rounded-xl shadow-lg">
-            <div 
-                class="checkcherry__widget__contact-form" 
-                data-props='{
-                    "apiKey":"TCN-R4JQ-W4A",
-                    "contactFormId":12895,
-                    "iframe":false,
-                    "host":"https://popstar-photo-booths.checkcherry.com"
-                }'
-            ></div>
+<section id="book-now" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Let's Create Some Memories</h2>
+                <p class="text-gray-600">
+                    Popular wedding dates in 2025 are booking quickly! Check your date's availability.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-8">
+                <!-- CheckCherry Form -->
+                <script 
+                    src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets" 
+                    type="text/javascript" 
+                    charset="utf-8"
+                ></script>
+                <div 
+                    class="checkcherry__widget__contact-form" 
+                    data-props='{
+                        "apiKey":"TCN-R4JQ-W4A",
+                        "contactFormId":12895,
+                        "iframe":false,
+                        "host":"https://popstar-photo-booths.checkcherry.com"
+                    }'
+                ></div>
+            </div>
+
+            <div class="mt-8 text-center text-gray-500 flex items-center justify-center gap-2">
+                <i class="fas fa-shield-alt"></i>
+                <span>Your information is secure and encrypted</span>
+            </div>
         </div>
     </div>
 </section>
 
-<script is:inline src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets"></script>
-
 <style>
-    /* Add any custom styles for the form container here */
+    /* Custom styles for CheckCherry form elements */
     :global(.checkcherry__widget__contact-form) {
-        width: 100%;
+        --cc-primary-color: #facc15 !important; /* yellow-400 */
+        --cc-font-family: inherit !important;
+    }
+
+    :global(.checkcherry__widget__contact-form input),
+    :global(.checkcherry__widget__contact-form select),
+    :global(.checkcherry__widget__contact-form textarea) {
+        @apply rounded-lg border-gray-200 focus:border-yellow-400 focus:ring focus:ring-yellow-200 focus:ring-opacity-50 !important;
+    }
+
+    :global(.checkcherry__widget__contact-form button[type="submit"]) {
+        @apply bg-yellow-400 text-black rounded-full px-8 py-3 font-semibold hover:bg-yellow-300 transition-colors !important;
+    }
+
+    :global(.checkcherry__widget__contact-form label) {
+        @apply text-gray-700 font-medium !important;
     }
 </style>

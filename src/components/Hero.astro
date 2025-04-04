@@ -2,72 +2,164 @@
 // Astro component frontmatter
 ---
 
-<section data-name="hero" class="hero-gradient pt-32 pb-16 md:pt-40 md:pb-24">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
-                <!-- Pricing Content -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8">
-                    <h1 data-name="hero-title" class="text-4xl md:text-6xl font-bold mb-6 text-white logo-font">
-                        All-Day Digital Photo Booth for Only $549
-                    </h1>
-                    <div class="text-2xl md:text-4xl font-bold text-white mb-4">
-                        <span class="ml-4">$549</span>
-                    </div>
-                    <p class="text-lg md:text-xl mb-4 text-white">Full Day Coverage (8AM to 10PM)</p>
-                    <div class="text-md md:text-lg mb-6 space-y-2 text-white">
-                        <p>📸 Professional DSLR Camera Setup</p>
-                        <p>⚡ Studio-Quality Lighting System</p>
-                        <p>✨ Professional Backdrop Included</p>
-                        <p>🎨 Custom Photo Templates</p>
-                        <p>💫 Branded Start Screen</p>
-                        <p>🖼️ Print-Ready High-Resolution Photos</p>
-                    </div>
-                    <button 
-                        data-name="cta-button" 
-                        onclick="document.querySelector('[data-name=contact-form]').scrollIntoView({ behavior: 'smooth' })"
-                        class="bg-white text-pink-600 px-8 md:px-10 py-4 rounded-full font-bold text-lg md:text-xl hover:bg-opacity-90 transition-all duration-300 shadow-lg w-full md:w-auto">
-                        Book Your Photo Booth Now
-                    </button>
-                </div>
+<section class="relative min-h-screen flex flex-col">
+    <!-- Decorative Background Pattern -->
+    <div class="absolute inset-0 z-0 bg-black">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+    </div>
 
-                <!-- Desktop Image -->
-                <div class="hidden md:block">
-                    <div class="relative h-full">
-                        <div class="bg-white/10 backdrop-blur-sm rounded-xl h-full">
-                            <div class="h-full rounded-lg overflow-hidden">
-                                <img 
-                                    src="images/boxing-day.jpg" 
-                                    alt="Digital Photo Booth Setup" 
-                                    class="object-cover w-full h-full"
-                                />
-                            </div>
+    <!-- Main Background Image -->
+    <div class="absolute inset-0 z-1">
+        <picture>
+            <source
+                media="(max-width: 768px)"
+                srcset="/images/hero-bg-mobile.jpg"
+            />
+            <img 
+                src="/images/hero-bg.jpg" 
+                alt="Photo Booth Fun" 
+                class="w-full h-full object-cover"
+            />
+        </picture>
+        <!-- Subtle gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/20"></div>
+    </div>
+
+    <!-- Top Logo -->
+    <div class="relative z-10 w-full flex justify-end p-6 animate-fade-in">
+        <a href="/" class="w-40 md:w-48 opacity-90 hover:opacity-100 transition-opacity duration-300">
+            <img 
+                src="/images/logo.png" 
+                alt="Popstar Photo Booths" 
+                class="w-full h-auto"
+            />
+        </a>
+    </div>
+
+    <!-- Centered Content -->
+    <div class="relative z-10 flex-grow flex items-end animate-fade-up">
+        <div class="w-full bg-black/20 backdrop-blur-sm">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <!-- Left side -->
+                    <div class="text-center md:text-left">
+                        <h1 class="text-2xl md:text-3xl text-white font-light mb-2">
+                            RALEIGH'S PREMIER PHOTO BOOTH
+                        </h1>
+                        <div class="flex items-center justify-center md:justify-start gap-2">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="text-white/90 text-sm">30+ Five Star Reviews</span>
                         </div>
-                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full opacity-50 blur-2xl"></div>
                     </div>
+
+                    <!-- Right side -->
+                    <a 
+                        href="#book-now"
+                        class="bg-yellow-400 text-black px-8 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:bg-yellow-300 hover:scale-105 transition-all duration-300 group scroll-smooth"
+                        onclick="scrollToForm(event)"
+                    >
+                        Check Availability
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
+                            viewBox="0 0 20 20" 
+                            fill="currentColor"
+                        >
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<script>
+    function scrollToForm(e) {
+        e.preventDefault();
+        const form = document.querySelector('#book-now');
+        if (form) {
+            form.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            setTimeout(() => {
+                const firstInput = form.querySelector('input');
+                if (firstInput) firstInput.focus();
+            }, 800);
+        }
+    }
+</script>
+
 <style>
-    .hero-gradient {
-        background: linear-gradient(to right, #ec4899, #9333ea, #ec4899);
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .aspect-w-16 {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
-    
-    .aspect-w-16 > * {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+
+    .animate-fade-up {
+        animation: fadeUp 0.8s ease-out forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    @media (max-width: 768px) {
+        .min-h-screen {
+            min-height: 100svh;
+        }
+    }
+
+    /* Optional: Add a smooth transition for the blur effect */
+    .backdrop-blur-sm {
+        transition: backdrop-filter 0.3s ease;
+    }
+
+    /* Subtle animation for the background pattern */
+    @keyframes subtleFloat {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .pattern-bg {
+        animation: subtleFloat 20s ease-in-out infinite;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Optional: Add focus styles for better accessibility */
+    a:focus-visible {
+        outline: 2px solid #FCD34D;
+        outline-offset: 2px;
     }
 </style>
