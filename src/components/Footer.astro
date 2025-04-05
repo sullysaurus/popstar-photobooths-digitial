@@ -2,40 +2,109 @@
 // Astro component frontmatter (for imports, props, etc.)
 ---
 
-<footer class="bg-gradient-to-r from-black via-purple-900 to-black py-8">
+<footer class="bg-black pt-16 pb-8">
     <div class="container mx-auto px-4 md:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-white text-center md:text-left">
-                <p class="text-lg mb-2">Popstar Photo Booths</p>
-                <a href="tel:9192787226" class="text-white/80 hover:text-white transition-colors">
-                    (919) 278-7226
-                </a>
+        <!-- Top Section -->
+        <div class="grid md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-white/10">
+            <!-- Logo & Contact -->
+            <div class="text-white">
+                <img 
+                    src="/images/logo.png" 
+                    alt="Popstar Photo Booths" 
+                    class="w-48 mb-6 brightness-0 invert"
+                />
+                <p class="text-white/70 mb-4">
+                    Creating unforgettable memories at events across North Carolina.
+                </p>
+                <div class="space-y-2">
+                    <a href="tel:9192787226" class="text-white/80 hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i>
+                        (919) 278-7226
+                    </a>
+                    <a href="mailto:hello@popstarphotobooths.com" class="text-white/80 hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fas fa-envelope"></i>
+                        danny@popstarphotobooths.com
+                    </a>
+                </div>
             </div>
-            
-            <div class="flex gap-6 items-center">
+
+            <!-- Quick Links -->
+            <div class="text-white">
+                <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#pricing" class="text-white/70 hover:text-white transition-colors">
+                            Pricing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#gallery" class="text-white/70 hover:text-white transition-colors">
+                            Gallery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#book-now" class="text-white/70 hover:text-white transition-colors">
+                            Book Now
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#testimonials" class="text-white/70 hover:text-white transition-colors">
+                            Testimonials
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Service Areas -->
+            <div class="text-white">
+                <h3 class="text-lg font-semibold mb-6">Service Areas</h3>
+                <div class="grid grid-cols-2 gap-3 text-white/70">
+                    <span>Raleigh</span>
+                    <span>Durham</span>
+                    <span>Chapel Hill</span>
+                    <span>Cary</span>
+                    <span>Wake Forest</span>
+                    <span>Apex</span>
+                    <span>Morrisville</span>
+                    <span>Holly Springs</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex gap-6 items-center order-2 md:order-1">
                 <a 
                     href="https://maps.app.goo.gl/4mPKnUapkqLiiP9h6" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="text-white/80 hover:text-white transition-colors"
+                    class="text-white/80 hover:text-white transition-colors group"
                 >
-                    <i class="fab fa-google text-2xl"></i>
+                    <i class="fab fa-google text-2xl group-hover:scale-110 transition-transform"></i>
                     <span class="sr-only">Google</span>
                 </a>
                 <a 
                     href="https://www.instagram.com/popstarphotobooths" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="text-white/80 hover:text-white transition-colors"
+                    class="text-white/80 hover:text-white transition-colors group"
                 >
-                    <i class="fab fa-instagram text-2xl"></i>
+                    <i class="fab fa-instagram text-2xl group-hover:scale-110 transition-transform"></i>
                     <span class="sr-only">Instagram</span>
                 </a>
             </div>
             
-            <div class="text-white/60 text-sm">
+            <div class="text-white/60 text-sm order-1 md:order-2">
                 © {new Date().getFullYear()} Popstar Photo Booths. All rights reserved.
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    /* Optional hover effect for service area items */
+    .grid span:hover {
+        color: white;
+        cursor: default;
+    }
+</style>

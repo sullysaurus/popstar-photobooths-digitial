@@ -47,12 +47,12 @@ body {
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, #FF6EFF 0%, #FF00FF 100%);
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
     transition: transform 0.3s ease-in-out;
   }
   
   .btn-primary:hover {
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
   }
   
   .header-btn {
