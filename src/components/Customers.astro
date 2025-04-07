@@ -21,12 +21,12 @@ const logos = [
             <div class="flex gap-16 logo-scroll">
                 {[...logos, ...logos].map((logo, index) => (
                     <div 
-                        class="shrink-0 w-40 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        class="shrink-0 w-40 h-24 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
                     >
                         <img 
                             src={logo.url} 
                             alt={logo.alt}
-                            class="h-12 w-auto object-contain brightness-0 invert"
+                            class="max-h-12 max-w-[120px] w-auto h-auto object-contain brightness-0 invert"
                         />
                     </div>
                 ))}
