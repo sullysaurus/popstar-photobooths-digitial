@@ -1,3 +1,55 @@
-<!-- Elfsight Logo Showcase | Logo Showcase -->
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-00bcc166-aa9a-4d2e-b6ca-32ee355ecdbb" data-elfsight-app-lazy></div>
+---
+const logos = [
+    { url: "images/logos/apple.png", alt: "logo" },
+    { url: "images/logos/briercreek.png", alt: "logo" },
+    { url: "images/logos/cam.png", alt: "logo" },
+    { url: "images/logos/deloitte.png", alt: "logo" },
+    { url: "images/logos/foundation.png", alt: "logo" },
+    { url: "images/logos/loop.png", alt: "logo" },
+    { url: "images/logos/recity.png", alt: "logo" },
+    { url: "images/logos/sofar.png", alt: "logo" },
+    { url: "images/logos/tfs.png", alt: "logo" },
+    { url: "images/logos/traine.png", alt: "logo" },
+    { url: "images/logos/wines.png", alt: "logo" },
+    { url: "images/logos/workhub.png", alt: "logo" }
+];
+---
+
+<div class="bg-black py-16">
+    <div class="max-w-[100vw] mx-auto">
+        <div class="overflow-hidden">
+            <div class="flex gap-16 logo-scroll">
+                {[...logos, ...logos].map((logo, index) => (
+                    <div 
+                        class="shrink-0 w-40 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    >
+                        <img 
+                            src={logo.url} 
+                            alt={logo.alt}
+                            class="h-12 w-auto object-contain brightness-0 invert"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .logo-scroll {
+        animation: logoScroll 30s linear infinite;
+    }
+
+    @keyframes logoScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .logo-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>
