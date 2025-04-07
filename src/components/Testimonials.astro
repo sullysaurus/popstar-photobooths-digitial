@@ -18,7 +18,7 @@ const testimonials = [
 ];
 ---
 
-<section id="testimonials" class="relative min-h-[120vh] flex items-center">
+<section id="testimonials" class="relative min-h-[120vh] flex items-center overflow-x-hidden">
     {/* Background Video */}
     <div class="absolute inset-0 w-full h-full">
         <video 
@@ -35,8 +35,8 @@ const testimonials = [
 
     <div class="relative z-10 w-full">
         <div class="container mx-auto px-4">
-            <div class="max-w-xl ml-8 md:ml-16 lg:ml-32">
-                <h2 class="text-6xl font-light mb-6 text-white leading-tight">
+            <div class="max-w-xl ml-4 md:ml-16 lg:ml-32">
+                <h2 class="text-4xl md:text-6xl font-light mb-6 text-white leading-tight">
                     Our Clients 
                     <span class="block font-bold italic text-yellow-400">Love Us</span>
                 </h2>
@@ -145,14 +145,21 @@ const testimonials = [
         fadeEffect: {
             crossFade: true
         },
+        speed: 600,
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: 4000,
             disableOnInteraction: false,
         },
         navigation: {
             nextEl: '.testimonial-next',
             prevEl: '.testimonial-prev',
         },
+        observer: true,
+        observeParents: true,
+        watchOverflow: true,
+        touchRatio: 1,
+        touchAngle: 45,
+        grabCursor: true,
     });
 </script>
