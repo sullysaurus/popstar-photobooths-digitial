@@ -4,26 +4,17 @@ const photos = [
     { url: "/images/gallery2.jpg", alt: "Photo" },
     { url: "/images/gallery3.jpg", alt: "Photo" },
     { url: "/images/gallery4.jpg", alt: "Photo" },
-    { url: "/images/gallery6.jpg", alt: "Photo" },
-    { url: "/images/gallery7.jpg", alt: "Photo" },
-    { url: "/images/gallery8.jpg", alt: "Photo" },
-    { url: "/images/gallery9.jpg", alt: "Photo" },
-    { url: "/images/gallery10.jpg", alt: "Photo" },
-    { url: "/images/gallery11.jpg", alt: "Photo" }
+    { url: "/images/gallery5.jpg", alt: "Photo" },
+    { url: "/images/gallery6.jpg", alt: "Photo" }
 ];
 ---
 
-<section id="gallery" class="min-h-screen relative overflow-hidden flex items-center py-24">
+<section id="gallery" class="min-h-screen relative overflow-hidden flex items-center py-24 bg-black">
     <!-- Starry background -->
-    <div class="absolute inset-0 bg-black">
+    <div class="absolute inset-0">
         <div class="stars"></div>
         <div class="stars2"></div>
         <div class="stars3"></div>
-    </div>
-    
-    <!-- Dreamy spotlight effect -->
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-radial-gradient opacity-30"></div>
     </div>
 
     <div class="container mx-auto px-4 relative">
@@ -44,7 +35,7 @@ const photos = [
                         <img 
                             src={photo.url} 
                             alt={photo.alt}
-                            class="w-full h-full object-cover rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.1)] 
+                            class="w-full h-full object-cover rounded-3xl shadow-[0_0_30px_rgba(0,0,0,0.3)] 
                                    transform transition-all duration-500 group-hover:scale-105"
                         />
                     </div>
@@ -55,16 +46,12 @@ const photos = [
 </section>
 
 <style>
-    .bg-radial-gradient {
-        background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%);
-    }
-
     .gallery-scroll-container {
         mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     }
 
     .gallery-scroll {
-        animation: galleryScroll 40s linear infinite;
+        animation: galleryScroll 60s linear infinite;
     }
 
     @keyframes galleryScroll {
