@@ -33,55 +33,53 @@ const features = [
 ];
 ---
 
-<section data-name="features" class="py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">The Ultimate Photo Booth Experience</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">
-                We create professional photos that look really good & an experience that your guests will remember!
-            </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-                <div 
-                    data-name={`feature-card-${index}`}
-                    class="feature-card bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
-                >
-                    <div class="bg-yellow-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
-                        <i class={`fas ${feature.icon} text-xl text-black`}></i>
+<section data-name="features">
+
+    <!-- Black banner at bottom -->
+    <div class="relative bg-black/90 backdrop-blur-sm py-8 border-t border-white/10">
+        <div class="features-ticker overflow-hidden">
+            <div class="flex gap-12 animate-ticker">
+                {[...features, ...features].map((feature, index) => (
+                    <div 
+                        data-name={`feature-${index}`}
+                        class="feature-item shrink-0 flex items-center gap-6"
+                    >
+                        <i class={`fas ${feature.icon} text-2xl text-white/90`}></i>
+                        <span class="text-xl text-white/90 font-light uppercase tracking-wider whitespace-nowrap">{feature.title}</span>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
-                    <p class="text-gray-600">{feature.description}</p>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
 
-        <div class="text-center mt-12">
-            <a 
-                href="#book-now" 
-                class="inline-flex items-center gap-2 bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 hover:scale-105 transition-all duration-300 group"
-                onclick="scrollToForm(event)"
-            >
-                Book Your Photo Booth
-                <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
-                    viewBox="0 0 20 20" 
-                    fill="currentColor"
-                >
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </div>
-    </div>
 </section>
 
 <style>
-    .feature-card {
-        transform: translateY(0);
+    .features-ticker {
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
-    .feature-card:hover {
-        transform: translateY(-4px);
+
+    .animate-ticker {
+        animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .features-ticker:hover .animate-ticker {
+        animation-play-state: paused;
+    }
+
+    .feature-item {
+        transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: scale(1.05);
     }
 </style>

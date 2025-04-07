@@ -2,35 +2,194 @@
 // Astro component frontmatter
 ---
 
-<section data-name="about" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+<section data-name="about" class="min-h-screen relative overflow-hidden flex items-center py-24 bg-black">
+    <!-- Galaxy background -->
+    <div class="absolute inset-0">
+        <div class="stars-small"></div>
+        <div class="stars-medium"></div>
+        <div class="stars-large"></div>
+        <div class="shooting-stars"></div>
+    </div>
+    
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-rose-900/20"></div>
+
+    <div class="container mx-auto px-4 relative">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Meet The Owner</h2>
-                    <div class="prose prose-lg text-gray-600">
-                        <p class="mb-4">
-                            Popstar Photo Booths was founded by Danny Sullivan. With a diverse background as a special education teacher, software developer, professional baseball player, and professional wedding photographer, Danny brings a unique blend of creativity, technical expertise, and attention to detail. His passion for creating unforgettable experiences is the foundation of Popstar Photo Booths, ensuring your event is elevated to the next level. Trust Danny to add a personalized and professional touch to your occasion. For an event that truly stands out, contact Popstar Photo Booths today!
+                <div class="order-2 md:order-1 text-white/90">
+                    <h2 class="text-5xl md:text-6xl font-light mb-8 tracking-wide">The Vision</h2>
+                    <div class="prose prose-lg prose-invert">
+                        <p class="text-xl text-white/80 leading-relaxed">
+                            Danny Sullivan brings a unique perspective to Popstar Photo Booths, drawing from his diverse background as a special education teacher, software developer, and professional baseball player. This unconventional path has shaped our innovative approach to event photography.
+                        </p>
+                        <p class="text-xl text-white/80 leading-relaxed mt-6">
+                            With experience as both a wedding photographer and tech innovator, Danny has crafted a photo booth experience that combines professional-grade imagery with cutting-edge technology, creating an elevated experience for your special moments.
                         </p>
                     </div>
                 </div>
                 
                 <div class="order-1 md:order-2">
-                    <div class="relative">
-                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-50"></div>
+                        <div class="relative aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)]">
                             <img 
                                 src="images/danny.jpeg" 
-                                alt="Owner's Name - Photo Booth Expert" 
-                                class="object-cover w-full h-full"
+                                alt="Danny Sullivan - Founder of Popstar Photo Booths" 
+                                class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
-                        <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full opacity-50 blur-2xl"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Star animations */
+    .stars-small,
+    .stars-medium,
+    .stars-large {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .stars-small {
+        box-shadow: 0 0 1px #fff,
+                    0 0 2px #fff,
+                    0 0 3px #fff;
+        animation: starTwinkle 1s infinite;
+    }
+
+    .stars-medium {
+        box-shadow: 0 0 2px #fff,
+                    0 0 4px #fff,
+                    0 0 6px #fff;
+        animation: starTwinkle 2s infinite;
+    }
+
+    .stars-large {
+        box-shadow: 0 0 3px #fff,
+                    0 0 6px #fff,
+                    0 0 9px #fff;
+        animation: starTwinkle 3s infinite;
+    }
+
+    .shooting-stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .shooting-stars::before,
+    .shooting-stars::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background: linear-gradient(90deg, #fff, transparent);
+        animation: shootingStar 3s linear infinite;
+    }
+
+    .shooting-stars::after {
+        animation-delay: 1.5s;
+    }
+
+    @keyframes starTwinkle {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    @keyframes shootingStar {
+        0% {
+            transform: translateX(-100%) translateY(100%) rotate(-45deg);
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(200%) translateY(-200%) rotate(-45deg);
+            opacity: 0;
+        }
+    }
+
+    /* Generate multiple star layers */
+    .stars-small::before,
+    .stars-medium::before,
+    .stars-large::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: white;
+        box-shadow: 
+            10vw 10vh #fff,
+            20vw 20vh #fff,
+            30vw 30vh #fff,
+            40vw 40vh #fff,
+            50vw 50vh #fff,
+            60vw 60vh #fff,
+            70vw 70vh #fff,
+            80vw 80vh #fff,
+            90vw 90vh #fff,
+            15vw 25vh #fff,
+            25vw 35vh #fff,
+            35vw 45vh #fff,
+            45vw 55vh #fff,
+            55vw 65vh #fff,
+            65vw 75vh #fff,
+            75vw 85vh #fff,
+            85vw 95vh #fff;
+        animation: starFloat 100s linear infinite;
+    }
+
+    @keyframes starFloat {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Enhance image hover effect */
+    .group:hover .absolute {
+        opacity: 0.7;
+        filter: blur(25px);
+    }
+</style>
+
+<script>
+    // Create glamorous glitter effect
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.glitter-container');
+        const glitterCount = 100;
+
+        for (let i = 0; i < glitterCount; i++) {
+            const glitter = document.createElement('div');
+            
+            // Random size for variety
+            const size = Math.random() * 4 + 2;
+            
+            glitter.className = 'absolute bg-white rounded-full';
+            glitter.style.width = `${size}px`;
+            glitter.style.height = `${size}px`;
+            
+            // Random initial position
+            glitter.style.left = `${Math.random() * 100}%`;
+            glitter.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation duration and delay
+            const duration = 3 + Math.random() * 4;
+            const delay = Math.random() * 2;
+            
+            glitter.style.animation = `glitter ${duration}s ease-in-out ${delay}s infinite`;
+            glitter.style.opacity = '0';
+            
+            container.appendChild(glitter);
+        }
+    });
+</script>
 
 <style>
     .aspect-w-4 {

@@ -10,21 +10,19 @@
         </div>
     </div>
 
-    <!-- Main Background Image -->
+    <!-- Main Video Background -->
     <div class="absolute inset-0 z-1">
-        <picture>
-            <source
-                media="(max-width: 768px)"
-                srcset="/images/hero-mobile.jpg"
-            />
-            <img 
-                src="/images/hero.jpg" 
-                alt="Photo Booth Fun" 
-                class="w-full h-full object-cover"
-            />
-        </picture>
+        <video 
+            class="w-full h-full object-cover"
+            autoplay 
+            loop 
+            muted 
+            playsinline
+        >
+            <source src="videos/testimonials-bg.mp4" type="video/mp4">
+        </video>
         <!-- Subtle gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"></div>
     </div>
 
     <!-- Top Logo -->

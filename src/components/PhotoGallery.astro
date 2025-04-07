@@ -1,33 +1,123 @@
 ---
 const photos = [
     { url: "/images/gallery1.jpeg", alt: "Photo" },
-    { url: "/images/gallery2.jpeg", alt: "Photo" },
+    { url: "/images/gallery2.jpg", alt: "Photo" },
     { url: "/images/gallery3.jpg", alt: "Photo" },
-    { url: "/images/gallery4.jpeg", alt: "Photo" },
+    { url: "/images/gallery4.jpg", alt: "Photo" },
     { url: "/images/gallery5.jpg", alt: "Photo" },
-    { url: "/images/gallery6.jpg", alt: "Photo" }
+    { url: "/images/gallery6.jpg", alt: "Photo" },
+    { url: "/images/gallery7.jpg", alt: "Photo" },
+    { url: "/images/gallery8.jpg", alt: "Photo" },
+    { url: "/images/gallery9.jpg", alt: "Photo" },
+    { url: "/images/gallery10.jpg", alt: "Photo" },
+    { url: "/images/gallery11.jpg", alt: "Photo" }
 ];
 ---
 
-<section id="gallery" class="py-16">
-    <div class="container mx-auto px-4">
-        <h2 data-name="gallery-title" class="text-4xl font-bold text-center mb-12">
-            Memories Made Here
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {photos.map((photo, index) => (
-                <div 
-                    key={index}
-                    data-name={`gallery-item-${index}`}
-                    class="aspect-square overflow-hidden rounded-lg shadow-lg"
-                >
-                    <img 
-                        src={photo.url} 
-                        alt={photo.alt}
-                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                    />
-                </div>
-            ))}
+<section id="gallery" class="min-h-screen relative overflow-hidden flex items-center py-24">
+    <!-- Starry background -->
+    <div class="absolute inset-0 bg-black">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+    
+    <!-- Dreamy spotlight effect -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-radial-gradient opacity-30"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative">
+        <div class="text-center mb-20">
+            <h2 class="text-7xl font-light mb-6 text-white/90 tracking-wide">Moments in Motion</h2>
+            <p class="text-2xl text-white/70 font-light max-w-3xl mx-auto">
+                Studio-quality photography meets cutting-edge technology, creating memories that look as incredible as they feel
+            </p>
+        </div>
+
+        <div class="gallery-scroll-container overflow-hidden">
+            <div class="flex gap-12 gallery-scroll">
+                {[...photos, ...photos].map((photo, index) => (
+                    <div 
+                        data-name={`gallery-item-${index}`}
+                        class="gallery-item shrink-0 w-[800px] aspect-[16/9] relative group"
+                    >
+                        <img 
+                            src={photo.url} 
+                            alt={photo.alt}
+                            class="w-full h-full object-cover rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.1)] 
+                                   transform transition-all duration-500 group-hover:scale-105"
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    .bg-radial-gradient {
+        background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%);
+    }
+
+    .gallery-scroll-container {
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .gallery-scroll {
+        animation: galleryScroll 40s linear infinite;
+    }
+
+    @keyframes galleryScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-800px * 6 - 12rem * 5)); }
+    }
+
+    .gallery-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    /* Starry background styles */
+    .stars, .stars2, .stars3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: transparent url(/images/stars.png) repeat top center;
+    }
+
+    .stars {
+        animation: stars 50s linear infinite;
+        z-index: 0;
+    }
+
+    .stars2 {
+        animation: stars2 75s linear infinite;
+        z-index: 1;
+    }
+
+    .stars3 {
+        animation: stars3 100s linear infinite;
+        z-index: 2;
+    }
+
+    @keyframes stars {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+    }
+
+    @keyframes stars2 {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+    }
+
+    @keyframes stars3 {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+    }
+</style>
+

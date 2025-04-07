@@ -2,17 +2,27 @@
 // Astro component frontmatter
 ---
 
-<section id="book-now" class="py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
+<section id="book-now" class="min-h-screen relative overflow-hidden flex items-center py-24 bg-white">
+    <!-- Dark star parallax background -->
+    <div class="absolute inset-0">
+        <div class="parallax-stars-1"></div>
+        <div class="parallax-stars-2"></div>
+        <div class="parallax-stars-3"></div>
+    </div>
+    
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-transparent to-rose-100/30"></div>
+
+    <div class="container mx-auto px-4 relative">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Let's Create Some Memories</h2>
-                <p class="text-gray-600">
-                    Popular wedding dates in 2025 are booking quickly! Check your date's availability.
+                <h2 class="text-5xl font-light mb-4 text-black/90 tracking-wide">Book Your Experience</h2>
+                <p class="text-xl text-black/70">
+                    Popular dates are booking quickly! Check your date's availability.
                 </p>
             </div>
 
-            <div class="bg-white rounded-xl shadow-sm p-8">
+            <div class="bg-black/95 backdrop-blur-xl rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.1)] p-8">
                 <!-- CheckCherry Form -->
                 <script 
                     src="https://popstar-photo-booths.checkcherry.com/api/checkcherry_widgets" 
@@ -30,7 +40,7 @@
                 ></div>
             </div>
 
-            <div class="mt-8 text-center text-gray-500 flex items-center justify-center gap-2">
+            <div class="mt-8 text-center text-black/50 flex items-center justify-center gap-2">
                 <i class="fas fa-shield-alt"></i>
                 <span>Your information is secure and encrypted</span>
             </div>
@@ -39,23 +49,95 @@
 </section>
 
 <style>
+    /* Parallax star layers */
+    .parallax-stars-1,
+    .parallax-stars-2,
+    .parallax-stars-3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .parallax-stars-1::before,
+    .parallax-stars-2::before,
+    .parallax-stars-3::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: rgba(0, 0, 0, 0.3);
+        box-shadow: 
+            10vw 10vh rgba(0, 0, 0, 0.2),
+            20vw 20vh rgba(0, 0, 0, 0.3),
+            30vw 30vh rgba(0, 0, 0, 0.2),
+            40vw 40vh rgba(0, 0, 0, 0.3),
+            50vw 50vh rgba(0, 0, 0, 0.2),
+            60vw 60vh rgba(0, 0, 0, 0.3),
+            70vw 70vh rgba(0, 0, 0, 0.2),
+            80vw 80vh rgba(0, 0, 0, 0.3),
+            90vw 90vh rgba(0, 0, 0, 0.2),
+            15vw 25vh rgba(0, 0, 0, 0.3),
+            25vw 35vh rgba(0, 0, 0, 0.2),
+            35vw 45vh rgba(0, 0, 0, 0.3),
+            45vw 55vh rgba(0, 0, 0, 0.2),
+            55vw 65vh rgba(0, 0, 0, 0.3),
+            65vw 75vh rgba(0, 0, 0, 0.2),
+            75vw 85vh rgba(0, 0, 0, 0.3),
+            85vw 95vh rgba(0, 0, 0, 0.2);
+    }
+
+    .parallax-stars-1 {
+        animation: parallaxMove1 60s infinite linear;
+    }
+
+    .parallax-stars-2 {
+        animation: parallaxMove2 45s infinite linear;
+    }
+
+    .parallax-stars-3 {
+        animation: parallaxMove3 30s infinite linear;
+    }
+
+    @keyframes parallaxMove1 {
+        from { transform: translateY(0); }
+        to { transform: translateY(-1000px); }
+    }
+
+    @keyframes parallaxMove2 {
+        from { transform: translateY(0) rotate(45deg); }
+        to { transform: translateY(-1000px) rotate(45deg); }
+    }
+
+    @keyframes parallaxMove3 {
+        from { transform: translateY(0) rotate(-45deg); }
+        to { transform: translateY(-1000px) rotate(-45deg); }
+    }
+
     /* Custom styles for CheckCherry form elements */
     :global(.checkcherry__widget__contact-form) {
-        --cc-primary-color: #facc15 !important; /* yellow-400 */
+        --cc-primary-color: #facc15 !important;
         --cc-font-family: inherit !important;
     }
 
     :global(.checkcherry__widget__contact-form input),
     :global(.checkcherry__widget__contact-form select),
     :global(.checkcherry__widget__contact-form textarea) {
-        @apply rounded-lg border-gray-200 focus:border-yellow-400 focus:ring focus:ring-yellow-200 focus:ring-opacity-50 !important;
+        @apply bg-white/10 backdrop-blur-sm border-white/10 text-white rounded-lg 
+               focus:border-yellow-400 focus:ring focus:ring-yellow-400/20 !important;
+    }
+
+    :global(.checkcherry__widget__contact-form input::placeholder),
+    :global(.checkcherry__widget__contact-form textarea::placeholder) {
+        @apply text-white/50 !important;
     }
 
     :global(.checkcherry__widget__contact-form button[type="submit"]) {
-        @apply bg-yellow-400 text-black rounded-full px-8 py-3 font-semibold hover:bg-yellow-300 transition-colors !important;
+        @apply bg-yellow-400 text-black rounded-full px-8 py-3 font-semibold 
+               hover:bg-yellow-300 transition-all duration-300 hover:scale-105 !important;
     }
 
     :global(.checkcherry__widget__contact-form label) {
-        @apply text-gray-700 font-medium !important;
+        @apply text-white/70 font-light !important;
     }
 </style>

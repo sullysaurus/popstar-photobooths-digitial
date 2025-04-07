@@ -18,81 +18,141 @@ const testimonials = [
 ];
 ---
 
-<section id="testimonials" class="py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">
-                Happy Clients
-            </h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
-                Don't just take our word for it - see what our clients have to say about their Popstar Photo Booth experience!
-            </p>
-        </div>
+<section id="testimonials" class="relative min-h-[120vh] flex items-center">
+    {/* Background Video */}
+    <div class="absolute inset-0 w-full h-full">
+        <video 
+            class="absolute inset-0 w-full h-full object-cover"
+            autoplay 
+            loop 
+            muted 
+            playsinline
+        >
+            <source src="videos/features-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+    </div>
 
-        <!-- Featured Testimonials -->
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-            {testimonials.map((testimonial, index) => (
-                <div 
-                    key={index}
-                    class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
-                >
-                    <div class="text-yellow-400 mb-6">
+    <div class="relative z-10 w-full">
+        <div class="container mx-auto px-4">
+            <div class="max-w-xl ml-8 md:ml-16 lg:ml-32">
+                <h2 class="text-6xl font-light mb-6 text-white leading-tight">
+                    Our Clients 
+                    <span class="block font-bold italic text-yellow-400">Love Us</span>
+                </h2>
+                
+                {/* Rating Display */}
+                <div class="flex items-center gap-3 mb-12">
+                    <div class="text-yellow-400 flex gap-1">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <blockquote class="text-gray-600 mb-6">
-                        "{testimonial.quote}"
-                    </blockquote>
-                    <div class="flex items-center gap-3">
-                        <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-                        <div>
-                            <p class="font-semibold">{testimonial.name}</p>
-                            <p class="text-sm text-gray-500">{testimonial.event}</p>
-                        </div>
+                    <span class="text-white/80 text-sm">|</span>
+                    <span class="text-white/80 text-sm">5.0 Rating on Google</span>
+                </div>
+
+                {/* Testimonial Slider */}
+                <div class="testimonial-slider overflow-hidden">
+                    <div class="swiper-wrapper">
+                        {testimonials.map((testimonial, index) => (
+                            <div class="swiper-slide">
+                                <blockquote class="text-2xl font-light text-white/90 mb-8 leading-relaxed">
+                                    "{testimonial.quote}"
+                                </blockquote>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-[1px] bg-yellow-400"></div>
+                                    <div>
+                                        <p class="font-medium text-white">{testimonial.name}</p>
+                                        <p class="text-sm text-white/60">{testimonial.event}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    {/* Custom Navigation */}
+                    <div class="flex items-center gap-4 mt-12">
+                        <button class="testimonial-prev w-12 h-12 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="testimonial-next w-12 h-12 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
-            ))}
-        </div>
 
-        <!-- Google Reviews Widget -->
-        <div class="max-w-6xl mx-auto">
-            <!-- Elfsight Widget -->
-            <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div 
-                class="elfsight-app-195d11b9-5a7c-406e-aeb6-0bc3cae6ea19" 
-                data-elfsight-app-lazy
-            ></div>
-        </div>
+                {/* Stats */}
+                <div class="flex gap-12 mt-16">
+                    <div>
+                        <div class="text-4xl font-bold text-yellow-400">500+</div>
+                        <div class="text-white/60 text-sm">Events</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-yellow-400">50k+</div>
+                        <div class="text-white/60 text-sm">Photos</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-yellow-400">100%</div>
+                        <div class="text-white/60 text-sm">Satisfaction</div>
+                    </div>
+                </div>
 
-        <!-- Call to Action -->
-        <div class="text-center mt-16">
-            <a 
-                href="#book-now" 
-                class="inline-flex items-center gap-2 bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 hover:scale-105 transition-all duration-300 group"
-                onclick="scrollToForm(event)"
-            >
-                Book Your Photo Booth
-                <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
-                    viewBox="0 0 20 20" 
-                    fill="currentColor"
+                {/* CTA Button */}
+                <a 
+                    href="#book-now" 
+                    class="inline-flex items-center gap-3 mt-12 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full border border-white/20 hover:bg-yellow-400 hover:text-black hover:border-transparent transition-all duration-300 group"
+                    onclick="scrollToForm(event)"
                 >
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </a>
+                    Book Your Experience
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="h-5 w-5 group-hover:translate-x-0.5 transition-transform" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                    >
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-    /* Add any custom styles for the Elfsight widget here */
-    :global(.elfsight-app-195d11b9-5a7c-406e-aeb6-0bc3cae6ea19) {
-        /* Example styles - adjust as needed */
-        border-radius: 1rem;
-        overflow: hidden;
+    .testimonial-slider {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Autoplay, Navigation, EffectFade } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/effect-fade';
+
+    new Swiper('.testimonial-slider', {
+        modules: [Autoplay, Navigation, EffectFade],
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.testimonial-next',
+            prevEl: '.testimonial-prev',
+        },
+    });
+</script>
