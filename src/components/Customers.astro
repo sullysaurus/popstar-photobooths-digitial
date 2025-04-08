@@ -18,15 +18,15 @@ const logos = [
 <div class="bg-black py-16">
     <div class="max-w-[100vw] mx-auto">
         <div class="overflow-hidden">
-            <div class="flex gap-16 logo-scroll">
+            <div class="flex gap-8 md:gap-16 logo-scroll">
                 {[...logos, ...logos].map((logo, index) => (
                     <div 
-                        class="shrink-0 w-40 h-24 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        class="shrink-0 w-32 md:w-40 h-20 md:h-24 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
                     >
                         <img 
                             src={logo.url} 
                             alt={logo.alt}
-                            class="max-h-12 max-w-[120px] w-auto h-auto object-contain brightness-0 invert"
+                            class="max-h-10 md:max-h-12 max-w-[100px] md:max-w-[120px] w-auto h-auto object-contain brightness-0 invert"
                         />
                     </div>
                 ))}
@@ -38,6 +38,12 @@ const logos = [
 <style>
     .logo-scroll {
         animation: logoScroll 10s linear infinite;
+    }
+
+    @media (max-width: 768px) {
+        .logo-scroll {
+            animation: logoScroll 3.3s linear infinite;
+        }
     }
 
     @keyframes logoScroll {
