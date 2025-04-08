@@ -27,8 +27,15 @@ const testimonials = [
             loop 
             muted 
             playsinline
+            poster="/images/testimonials-fallback.png"
         >
-            <source src="videos/girls-bg.mp4" type="video/mp4" />
+            <source src="/videos/testimonials-bg.mp4" type="video/mp4" />
+            <!-- Fallback for browsers that don't support video -->
+            <img 
+                src="/images/testimonials-fallback.png" 
+                alt="Popstar Photo Booth Experience" 
+                class="absolute inset-0 w-full h-full object-cover"
+            />
         </video>
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
     </div>

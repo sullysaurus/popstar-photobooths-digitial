@@ -38,14 +38,22 @@ const packages = [
     <!-- Video background -->
     <div class="absolute inset-0 w-full h-full">
         <video 
-            class="object-cover w-full h-full"
+            class="absolute inset-0 w-full h-full object-cover"
             autoplay 
             loop 
             muted 
             playsinline
+            poster="/images/pricing-fallback.png"
         >
-            <source src="videos/experience-bg.mp4" type="video/mp4">
+            <source src="/videos/pricing-bg.mp4" type="video/mp4" />
+            <!-- Fallback for browsers that don't support video -->
+            <img 
+                src="/images/pricing-fallback.png" 
+                alt="Popstar Photo Booth Experience" 
+                class="absolute inset-0 w-full h-full object-cover"
+            />
         </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
     </div>
 
     <!-- Overlay -->

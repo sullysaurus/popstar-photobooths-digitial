@@ -3,23 +3,30 @@
 ---
 
 <section id="book-now" class="min-h-screen relative flex flex-col md:flex-row">
-    <!-- Video Background - Now visible on mobile -->
-    <div class="w-full md:w-1/2 relative overflow-hidden min-h-[40vh] md:min-h-screen">
+    <!-- Video Half -->
+    <div class="hidden md:block w-1/2 relative overflow-hidden">
         <video 
             class="absolute inset-0 w-full h-full object-cover"
             autoplay 
             loop 
             muted 
             playsinline
+            poster="/images/contact-fallback.png"
         >
-            <source src="videos/guys-bg.mp4" type="video/mp4">
+            <source src="/videos/contact-bg.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            <img 
+                src="/images/contact-fallback.png" 
+                alt="Popstar Photo Booth Experience" 
+                class="absolute inset-0 w-full h-full object-cover"
+            />
         </video>
-        <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 to-black/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-black/60"></div>
         
-        <!-- Video side content -->
-        <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white">
-            <h3 class="text-2xl md:text-3xl font-light mb-2">Create Your</h3>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Popstar Moment</h2>
+        <!-- Optional: Video side content -->
+        <div class="absolute bottom-0 left-0 p-12 text-white">
+            <h3 class="text-3xl font-light mb-2">Create Your</h3>
+            <h2 class="text-5xl font-bold mb-4">Popstar Moment</h2>
         </div>
     </div>
 

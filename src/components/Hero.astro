@@ -11,18 +11,24 @@
     </div>
 
     <!-- Main Video Background -->
-    <div class="absolute inset-0 z-1">
+    <div class="absolute inset-0 w-full h-full">
         <video 
-            class="w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover"
             autoplay 
             loop 
             muted 
             playsinline
+            poster="/images/hero-fallback.png"
         >
-            <source src="videos/header-bg.mp4" type="video/mp4">
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
+            <!-- Fallback for browsers that don't support video -->
+            <img 
+                src="/images/hero-fallback.png" 
+                alt="Popstar Photo Booth Experience" 
+                class="absolute inset-0 w-full h-full object-cover"
+            />
         </video>
-        <!-- Subtle gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
     </div>
 
     <!-- Top Logo -->
