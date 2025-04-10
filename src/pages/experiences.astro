@@ -171,7 +171,7 @@ const addOns = {
         </div>
         
         <!-- Main content with padding for sticky footer -->
-        <div class="relative z-10 pt-40 pb-[300px] md:pb-[200px]">
+        <div class="relative z-10 pt-40 pb-[400px] md:pb-[300px]">
             <div class="container mx-auto px-6 max-w-6xl">
                 <!-- Header -->
                 <div class="text-center mb-32">
@@ -443,33 +443,33 @@ const addOns = {
         </div>
 
         <!-- Update the bottom summary section -->
-        <div class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-t border-white/10 max-h-[300px] md:max-h-[200px] overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 py-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Cart Items -->
-                    <div class="overflow-y-auto max-h-[200px] md:max-h-[120px] pr-4 custom-scrollbar">
-                        <h3 class="text-xl font-bold text-white mb-4 sticky top-0 bg-black/90 backdrop-blur-lg py-2">Your Package</h3>
-                        <div class="space-y-3">
+        <div class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-t border-white/10 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-4">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Cart Items - Takes up more space -->
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-4">Your Package</h3>
+                        <div class="space-y-4">
                             <!-- Base Package (always shown) -->
-                            <div class="flex items-center justify-between text-white/70 py-2">
+                            <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10">
                                 <div class="flex items-center gap-3">
                                     <div class="w-5"></div>
-                                    <span>Base Package</span>
+                                    <span class="text-white">Base Package</span>
                                 </div>
                                 <span class="font-medium">$549</span>
                             </div>
                             
                             <!-- Dynamic cart items -->
-                            <div id="cartItems" class="space-y-3">
+                            <div id="cartItems" class="space-y-4 max-h-[200px] overflow-y-auto custom-scrollbar pr-4">
                                 <!-- Items will be inserted here by JavaScript -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Order Summary -->
-                    <div class="flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-bold text-white mb-4">Summary</h3>
+                    <!-- Order Summary - Fixed width -->
+                    <div class="md:w-[300px] shrink-0 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-4">Summary</h3>
+                        <div class="space-y-3 mb-4">
                             <div class="flex justify-between text-white/70">
                                 <span>Base Package</span>
                                 <span>$549</span>
@@ -477,15 +477,15 @@ const addOns = {
                             <div id="summaryAddons" class="space-y-2">
                                 <!-- Summary items will be inserted here -->
                             </div>
-                            <div class="border-t border-white/10 mt-4 pt-4">
-                                <div class="flex justify-between text-white">
-                                    <span class="font-medium">Total</span>
-                                    <span class="text-2xl font-bold">$<span id="totalPrice">549</span></span>
-                                </div>
-                            </div>
                         </div>
-                        <div class="text-white/50 text-sm mt-4">
-                            Includes setup, delivery, and on-site support
+                        <div class="border-t border-white/10 pt-4 mt-auto">
+                            <div class="flex justify-between items-baseline text-white mb-2">
+                                <span class="font-medium">Total</span>
+                                <span class="text-3xl font-bold">$<span id="totalPrice">549</span></span>
+                            </div>
+                            <div class="text-white/50 text-sm">
+                                Includes setup, delivery, and on-site support
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -956,17 +956,20 @@ const addOns = {
             // Add selected backdrop if any
             if (selectedBackdrop) {
                 cartHTML += `
-                    <div class="flex items-center justify-between text-white/70 py-2 border-t border-white/10">
-                        <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
+                        <div class="flex items-center gap-3 flex-grow">
                             <button 
                                 class="text-red-500 hover:text-red-400 transition-colors duration-200 w-5 h-5 flex items-center justify-center"
                                 onclick="removeItem('backdrop')"
                             >
                                 ✕
                             </button>
-                            <span>${selectedBackdrop.name}</span>
+                            <div>
+                                <div class="text-white">${selectedBackdrop.name}</div>
+                                <div class="text-sm text-white/50">Premium Backdrop</div>
+                            </div>
                         </div>
-                        <span>$${selectedBackdrop.price}</span>
+                        <span class="font-medium text-white">$${selectedBackdrop.price}</span>
                     </div>
                 `;
                 summaryHTML += `
@@ -980,17 +983,20 @@ const addOns = {
             // Add selected print format if any
             if (selectedPrintFormat) {
                 cartHTML += `
-                    <div class="flex items-center justify-between text-white/70 py-2 border-t border-white/10">
-                        <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
+                        <div class="flex items-center gap-3 flex-grow">
                             <button 
                                 class="text-red-500 hover:text-red-400 transition-colors duration-200 w-5 h-5 flex items-center justify-center"
                                 onclick="removeItem('print')"
                             >
                                 ✕
                             </button>
-                            <span>${selectedPrintFormat.name}</span>
+                            <div>
+                                <div class="text-white">${selectedPrintFormat.name}</div>
+                                <div class="text-sm text-white/50">Print Package</div>
+                            </div>
                         </div>
-                        <span>$${selectedPrintFormat.price}</span>
+                        <span class="font-medium text-white">$${selectedPrintFormat.price}</span>
                     </div>
                 `;
                 summaryHTML += `
@@ -1004,17 +1010,20 @@ const addOns = {
             // Add selected addons if any
             selectedAddons.forEach(addon => {
                 cartHTML += `
-                    <div class="flex items-center justify-between text-white/70 py-2 border-t border-white/10">
-                        <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
+                        <div class="flex items-center gap-3 flex-grow">
                             <button 
                                 class="text-red-500 hover:text-red-400 transition-colors duration-200 w-5 h-5 flex items-center justify-center"
                                 onclick="removeItem('addon', '${addon.type}')"
                             >
                                 ✕
                             </button>
-                            <span>${addon.name}</span>
+                            <div>
+                                <div class="text-white">${addon.name}</div>
+                                <div class="text-sm text-white/50">Add-on</div>
+                            </div>
                         </div>
-                        <span>$${addon.price}</span>
+                        <span class="font-medium text-white">$${addon.price}</span>
                     </div>
                 `;
                 summaryHTML += `
