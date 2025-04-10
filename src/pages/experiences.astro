@@ -442,50 +442,69 @@ const addOns = {
             </div>
         </div>
 
-        <!-- Update the bottom summary section -->
-        <div class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-t border-white/10 z-50">
-            <div class="max-w-7xl mx-auto px-4 py-4">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <!-- Cart Items - Takes up more space -->
-                    <div class="flex-grow">
-                        <h3 class="text-xl font-bold text-white mb-4">Your Package</h3>
-                        <div class="space-y-4">
-                            <!-- Base Package (always shown) -->
-                            <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-5"></div>
-                                    <span class="text-white">Base Package</span>
+        <!-- Remove the bottom fixed cart and update the main content padding -->
+        <div class="pb-8"> <!-- Reduced padding since we no longer have the bottom cart -->
+            <!-- Your existing content -->
+        </div>
+
+        <!-- Keep only the cart toggle button and sliding panel -->
+        <button 
+            id="cartToggle"
+            class="fixed top-4 right-4 z-50 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300 rounded-full p-3 text-white border border-white/10"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span id="cartItemCount" class="absolute -top-1 -right-1 bg-white text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+
+        <div 
+            id="cartPanel" 
+            class="fixed top-0 right-0 w-full md:w-[480px] bg-black/90 backdrop-blur-lg border-l border-white/10 z-40 transform translate-x-full transition-transform duration-300 h-screen"
+        >
+            <div class="h-full flex flex-col">
+                <div class="flex items-center justify-between p-4 border-b border-white/10">
+                    <h2 class="text-xl font-bold text-white">Your Cart</h2>
+                    <button id="closeCart" class="text-white/70 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex-1 overflow-y-auto p-4">
+                    <div class="space-y-4">
+                        <!-- Base Package -->
+                        <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5"></div>
+                                <div>
+                                    <div class="text-white">Base Package</div>
+                                    <div class="text-sm text-white/50">4 Hours of Coverage</div>
                                 </div>
-                                <span class="font-medium">$549</span>
                             </div>
-                            
-                            <!-- Dynamic cart items -->
-                            <div id="cartItems" class="space-y-4 max-h-[200px] overflow-y-auto custom-scrollbar pr-4">
-                                <!-- Items will be inserted here by JavaScript -->
-                            </div>
+                            <span class="font-medium text-white">$549</span>
+                        </div>
+                        
+                        <div id="cartItems" class="space-y-4">
+                            <!-- Items will be inserted here by JavaScript -->
                         </div>
                     </div>
+                </div>
 
-                    <!-- Order Summary - Fixed width -->
-                    <div class="md:w-[300px] shrink-0 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-4">Summary</h3>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex justify-between text-white/70">
-                                <span>Base Package</span>
-                                <span>$549</span>
-                            </div>
-                            <div id="summaryAddons" class="space-y-2">
-                                <!-- Summary items will be inserted here -->
-                            </div>
+                <!-- Order Summary -->
+                <div class="border-t border-white/10 p-4 bg-black/50">
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-white/70">
+                            <span>Subtotal</span>
+                            <span>$<span id="subtotalPrice">549</span></span>
                         </div>
-                        <div class="border-t border-white/10 pt-4 mt-auto">
-                            <div class="flex justify-between items-baseline text-white mb-2">
-                                <span class="font-medium">Total</span>
-                                <span class="text-3xl font-bold">$<span id="totalPrice">549</span></span>
-                            </div>
-                            <div class="text-white/50 text-sm">
-                                Includes setup, delivery, and on-site support
-                            </div>
+                        <div class="flex justify-between items-baseline text-white">
+                            <span class="font-medium">Total</span>
+                            <span class="text-3xl font-bold">$<span id="totalPrice">549</span></span>
+                        </div>
+                        <div class="text-white/50 text-sm">
+                            Includes setup, delivery, and on-site support
                         </div>
                     </div>
                 </div>
@@ -605,255 +624,105 @@ const addOns = {
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background-color: rgba(255, 255, 255, 0.3);
     }
+
+    #cartPanel {
+        height: 100vh;
+        max-height: 100vh;
+    }
+
+    .translate-x-full {
+        transform: translateX(100%);
+    }
 </style>
 
 <script>
-    // Initialize the calculator
-    let totalPrice = 549;
-    const selectedAddons = new Map();
-    const selectedItems = ["Base Package"];
-
-    function updateDisplay() {
-        document.getElementById('totalPrice').textContent = totalPrice;
-        document.getElementById('selectedItems').textContent = selectedItems.join(', ');
-    }
-
-    // Add click handlers to all add-on buttons
-    document.querySelectorAll('[data-addon-id]').forEach(button => {
-        button.addEventListener('click', () => {
-            const addonId = button.dataset.addonId;
-            const addon = [...addOns.essential, ...addOns.extras].find(a => a.id === addonId);
-            
-            if (selectedAddons.has(addon.name)) {
-                selectedAddons.delete(addon.name);
-                totalPrice -= addon.price;
-                selectedItems.splice(selectedItems.indexOf(addon.name), 1);
-                button.textContent = 'Add to Package';
-                button.classList.remove('bg-red-500', 'text-white');
-                button.classList.add('bg-black/50', 'text-white');
-            } else {
-                selectedAddons.set(addon.name, addon.price);
-                totalPrice += addon.price;
-                selectedItems.push(addon.name);
-                button.textContent = 'Remove';
-                button.classList.remove('bg-black/50', 'text-white');
-                button.classList.add('bg-red-500', 'text-white');
-            }
-            
-            updateDisplay();
-        });
-    });
-
-    import Swiper from 'swiper';
-    import { Navigation, Pagination, EffectFade } from 'swiper/modules';
-
-    // Only initialize Standard Backdrops Slider
-    const standardBackdrops = new Swiper('.standardBackdrops', {
-        modules: [Navigation, Pagination],
-        slidesPerView: 3,
-        spaceBetween: 30,
-        loop: true,
-        centeredSlides: false,
-        pagination: {
-            el: '.standardBackdrops .swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.standardBackdrops .swiper-button-next',
-            prevEl: '.standardBackdrops .swiper-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 30
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            }
-        }
-    });
-
-    // Backdrop Selection Logic
-    let selectedBackdrop = null;
-    let backdropPrice = 0;
-
-    function updateTotalPrice() {
-        const basePrice = 549;
-        const addonsTotal = Array.from(selectedAddons.values()).reduce((sum, price) => sum + price, 0);
-        totalPrice = basePrice + addonsTotal + backdropPrice;
-        document.getElementById('totalPrice').textContent = totalPrice;
-    }
-
-    function updateSelectedItems() {
-        const items = ["Base Package"];
-        if (selectedBackdrop) {
-            items.push(selectedBackdrop.name);
-        }
-        selectedAddons.forEach((price, name) => items.push(name));
-        document.getElementById('selectedItems').textContent = items.join(', ');
-    }
-
-    // Function to handle backdrop selection
-    function selectBackdrop(element) {
-        const backdropId = element.dataset.backdropId;
-        const backdropType = element.dataset.backdropType;
-        const backdropPrice = element.dataset.backdropPrice;
-        const backdropName = element.dataset.backdropName;
-
-        // Remove previous selection styling
-        document.querySelectorAll('.backdrop-selection-indicator').forEach(indicator => {
-            indicator.classList.add('hidden');
-        });
-        document.querySelectorAll('.select-backdrop-btn').forEach(btn => {
-            btn.textContent = 'Select Backdrop';
-            btn.classList.remove('bg-white', 'text-black');
-            btn.classList.add('bg-black', 'text-white');
-        });
-
-        // If selecting the same backdrop, deselect it
-        if (selectedBackdrop && selectedBackdrop.id === backdropId) {
-            selectedBackdrop = null;
-        } else {
-            // Update selection
-            selectedBackdrop = {
-                id: backdropId,
-                type: backdropType,
-                price: backdropPrice,
-                name: backdropName
-            };
-
-            // Update selection styling
-            const card = element.closest('[data-backdrop-id]');
-            const indicator = card.querySelector('.backdrop-selection-indicator');
-            const button = card.querySelector('.select-backdrop-btn');
-            
-            indicator.classList.remove('hidden');
-            button.textContent = 'Selected';
-            button.classList.remove('bg-black', 'text-white');
-            button.classList.add('bg-white', 'text-black', 'border', 'border-black');
-        }
-
-        // Update display
-        updateTotalPrice();
-        updateSelectedItems();
-    }
-
-    // Add click handlers to all backdrop selection buttons
-    document.querySelectorAll('.select-backdrop-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            selectBackdrop(button);
-        });
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
+        const BASE_PRICE = 549;
+        let selectedBackdrop = null;
         let selectedPrintFormat = null;
-        const basePrice = 549;
+        let selectedAddons = [];
 
-        function updateTotal() {
-            const backdropPrice = window.selectedBackdrop ? parseInt(window.selectedBackdrop.price) : 0;
-            const printPrice = selectedPrintFormat ? parseInt(selectedPrintFormat.price) : 0;
-            const total = basePrice + backdropPrice + printPrice;
-            document.getElementById('totalPrice').textContent = total;
+        // Cart UI Controls
+        const cartPanel = document.getElementById('cartPanel');
+        const cartToggle = document.getElementById('cartToggle');
+        const closeCart = document.getElementById('closeCart');
+        
+        function toggleCart() {
+            cartPanel.classList.toggle('translate-x-full');
         }
+        
+        cartToggle.addEventListener('click', toggleCart);
+        closeCart.addEventListener('click', toggleCart);
 
-        function updateSelectedItems() {
-            const items = ['Base Package'];
-            if (window.selectedBackdrop) {
-                items.push(window.selectedBackdrop.name);
-            }
-            if (selectedPrintFormat) {
-                items.push(selectedPrintFormat.name);
-            }
-            document.getElementById('selectedItems').textContent = items.join(', ');
-        }
-
-        // Simplified print selection handler
-        document.querySelector('.select-print-btn').addEventListener('click', (e) => {
+        // Print Package Selection
+        document.querySelector('.select-print-btn')?.addEventListener('click', (e) => {
             e.preventDefault();
-            const button = e.target;
+            const button = e.currentTarget;
             
-            if (selectedPrintFormat) {
+            if (e.target.classList.contains('remove-x')) {
+                updateButtonState(button, false);
                 selectedPrintFormat = null;
-                button.textContent = 'Add Print Package';
-                button.classList.remove('bg-white/20');
-                button.classList.add('bg-white/10');
-            } else {
+            } else if (!selectedPrintFormat) {
+                updateButtonState(button, true);
                 selectedPrintFormat = {
                     type: button.dataset.printType,
                     price: button.dataset.printPrice,
                     name: button.dataset.printName
                 };
-                button.textContent = 'Package Added';
-                button.classList.remove('bg-white/10');
-                button.classList.add('bg-white/20');
             }
-
-            updateTotal();
-            updateSelectedItems();
+            
+            updateCart();
         });
 
-        // Add selected add-ons array
-        let selectedAddons = [];
-
-        // Update total calculation to include add-ons
-        function updateTotal() {
-            const backdropPrice = window.selectedBackdrop ? parseInt(window.selectedBackdrop.price) : 0;
-            const printPrice = selectedPrintFormat ? parseInt(selectedPrintFormat.price) : 0;
-            const addonsPrice = selectedAddons.reduce((total, addon) => total + parseInt(addon.price), 0);
-            const total = basePrice + backdropPrice + printPrice + addonsPrice;
-            document.getElementById('totalPrice').textContent = total;
-        }
-
-        // Update selected items to include add-ons
-        function updateSelectedItems() {
-            const items = ['Base Package'];
-            if (window.selectedBackdrop) {
-                items.push(window.selectedBackdrop.name);
-            }
-            if (selectedPrintFormat) {
-                items.push(selectedPrintFormat.name);
-            }
-            selectedAddons.forEach(addon => {
-                items.push(addon.name);
-            });
-            document.getElementById('selectedItems').textContent = items.join(', ');
-        }
-
-        // Add add-on selection handlers
-        document.querySelectorAll('.select-addon-btn').forEach(button => {
+        // Backdrop Selection
+        document.querySelectorAll('.select-backdrop-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                const addonType = button.dataset.addonType;
-                const addonPrice = button.dataset.addonPrice;
-                const addonName = button.dataset.addonName;
-
-                // Toggle selection
-                const existingIndex = selectedAddons.findIndex(addon => addon.type === addonType);
-                if (existingIndex > -1) {
-                    selectedAddons.splice(existingIndex, 1);
-                    button.textContent = 'Add Option';
-                    button.classList.remove('bg-white/20');
-                    button.classList.add('bg-white/10');
-                } else {
-                    selectedAddons.push({
-                        type: addonType,
-                        price: addonPrice,
-                        name: addonName
+                if (e.target.classList.contains('remove-x')) {
+                    updateButtonState(button, false);
+                    selectedBackdrop = null;
+                } else if (!selectedBackdrop || selectedBackdrop.id !== button.dataset.backdropId) {
+                    // Reset all backdrop buttons first
+                    document.querySelectorAll('.select-backdrop-btn').forEach(btn => {
+                        updateButtonState(btn, false);
                     });
-                    button.textContent = 'Added';
-                    button.classList.remove('bg-white/10');
-                    button.classList.add('bg-white/20');
+                    
+                    updateButtonState(button, true);
+                    selectedBackdrop = {
+                        id: button.dataset.backdropId,
+                        type: button.dataset.backdropType,
+                        price: button.dataset.backdropPrice,
+                        name: button.dataset.backdropName
+                    };
                 }
+                
+                updateCart();
+            });
+        });
 
-                updateTotal();
-                updateSelectedItems();
+        // Add-on Selection
+        document.querySelectorAll('.select-addon-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const addonType = button.dataset.addonType;
+                
+                if (e.target.classList.contains('remove-x')) {
+                    updateButtonState(button, false);
+                    selectedAddons = selectedAddons.filter(addon => addon.type !== addonType);
+                } else {
+                    const existingIndex = selectedAddons.findIndex(addon => addon.type === addonType);
+                    if (existingIndex === -1) {
+                        updateButtonState(button, true);
+                        selectedAddons.push({
+                            type: addonType,
+                            price: button.dataset.addonPrice,
+                            name: button.dataset.addonName
+                        });
+                    }
+                }
+                
+                updateCart();
             });
         });
 
@@ -865,96 +734,26 @@ const addOns = {
                 buttonText.textContent = 'Added';
                 button.classList.remove('bg-white/10');
                 button.classList.add('bg-white/20');
-                removeX.classList.remove('hidden');
+                removeX?.classList.remove('hidden');
             } else {
                 buttonText.textContent = button.classList.contains('select-print-btn') ? 'Add Print Package' : 
                                        button.classList.contains('select-backdrop-btn') ? 'Add Upgrade' : 
                                        'Add Option';
                 button.classList.remove('bg-white/20');
                 button.classList.add('bg-white/10');
-                removeX.classList.add('hidden');
+                removeX?.classList.add('hidden');
             }
         }
 
-        // Update print selection handler
-        document.querySelector('.select-print-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            const button = e.currentTarget;
-            
-            if (e.target.classList.contains('remove-x')) {
-                selectedPrintFormat = null;
-            } else if (!selectedPrintFormat) {
-                selectedPrintFormat = {
-                    type: button.dataset.printType,
-                    price: button.dataset.printPrice,
-                    name: button.dataset.printName
-                };
-            }
-
-            updateButtonState(button, selectedPrintFormat !== null);
-            updateTotal();
-            updateSelectedItems();
-        });
-
-        // Update backdrop selection handler
-        document.querySelectorAll('.select-backdrop-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                if (e.target.classList.contains('remove-x')) {
-                    selectedBackdrop = null;
-                } else if (!selectedBackdrop || selectedBackdrop.id !== button.dataset.backdropId) {
-                    selectedBackdrop = {
-                        id: button.dataset.backdropId,
-                        type: button.dataset.backdropType,
-                        price: button.dataset.backdropPrice,
-                        name: button.dataset.backdropName
-                    };
-                }
-
-                // Reset all backdrop buttons
-                document.querySelectorAll('.select-backdrop-btn').forEach(btn => {
-                    updateButtonState(btn, btn === button && selectedBackdrop !== null);
-                });
-
-                updateTotal();
-                updateSelectedItems();
-            });
-        });
-
-        // Update addon selection handler
-        document.querySelectorAll('.select-addon-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const addonType = button.dataset.addonType;
-                
-                if (e.target.classList.contains('remove-x')) {
-                    selectedAddons = selectedAddons.filter(addon => addon.type !== addonType);
-                } else {
-                    const existingIndex = selectedAddons.findIndex(addon => addon.type === addonType);
-                    if (existingIndex === -1) {
-                        selectedAddons.push({
-                            type: addonType,
-                            price: button.dataset.addonPrice,
-                            name: button.dataset.addonName
-                        });
-                    }
-                }
-
-                updateButtonState(button, selectedAddons.some(addon => addon.type === addonType));
-                updateTotal();
-                updateSelectedItems();
-            });
-        });
-
         function updateCart() {
             const cartContainer = document.getElementById('cartItems');
-            const summaryContainer = document.getElementById('summaryAddons');
             let cartHTML = '';
-            let summaryHTML = '';
+            let subtotal = BASE_PRICE;
 
             // Add selected backdrop if any
             if (selectedBackdrop) {
+                const price = parseInt(selectedBackdrop.price) || 0;
+                subtotal += price;
                 cartHTML += `
                     <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
                         <div class="flex items-center gap-3 flex-grow">
@@ -969,19 +768,15 @@ const addOns = {
                                 <div class="text-sm text-white/50">Premium Backdrop</div>
                             </div>
                         </div>
-                        <span class="font-medium text-white">$${selectedBackdrop.price}</span>
-                    </div>
-                `;
-                summaryHTML += `
-                    <div class="flex justify-between text-white/70">
-                        <span>${selectedBackdrop.name}</span>
-                        <span>$${selectedBackdrop.price}</span>
+                        <span class="font-medium text-white">$${price}</span>
                     </div>
                 `;
             }
 
             // Add selected print format if any
             if (selectedPrintFormat) {
+                const price = parseInt(selectedPrintFormat.price) || 0;
+                subtotal += price;
                 cartHTML += `
                     <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
                         <div class="flex items-center gap-3 flex-grow">
@@ -996,19 +791,15 @@ const addOns = {
                                 <div class="text-sm text-white/50">Print Package</div>
                             </div>
                         </div>
-                        <span class="font-medium text-white">$${selectedPrintFormat.price}</span>
-                    </div>
-                `;
-                summaryHTML += `
-                    <div class="flex justify-between text-white/70">
-                        <span>${selectedPrintFormat.name}</span>
-                        <span>$${selectedPrintFormat.price}</span>
+                        <span class="font-medium text-white">$${price}</span>
                     </div>
                 `;
             }
 
             // Add selected addons if any
             selectedAddons.forEach(addon => {
+                const price = parseInt(addon.price) || 0;
+                subtotal += price;
                 cartHTML += `
                     <div class="flex items-center justify-between text-white/70 py-3 border-b border-white/10 group">
                         <div class="flex items-center gap-3 flex-grow">
@@ -1023,20 +814,22 @@ const addOns = {
                                 <div class="text-sm text-white/50">Add-on</div>
                             </div>
                         </div>
-                        <span class="font-medium text-white">$${addon.price}</span>
-                    </div>
-                `;
-                summaryHTML += `
-                    <div class="flex justify-between text-white/70">
-                        <span>${addon.name}</span>
-                        <span>$${addon.price}</span>
+                        <span class="font-medium text-white">$${price}</span>
                     </div>
                 `;
             });
 
             cartContainer.innerHTML = cartHTML;
-            summaryContainer.innerHTML = summaryHTML;
-            updateTotal();
+            
+            // Update subtotal and total
+            document.getElementById('subtotalPrice').textContent = subtotal;
+            document.getElementById('totalPrice').textContent = subtotal;
+
+            // Update cart count
+            const count = (selectedBackdrop ? 1 : 0) + 
+                         (selectedPrintFormat ? 1 : 0) + 
+                         selectedAddons.length;
+            document.getElementById('cartItemCount').textContent = count;
         }
 
         // Make removeItem function available globally
@@ -1063,7 +856,6 @@ const addOns = {
             }
             
             updateCart();
-            updateTotal();
         };
     });
 </script>
