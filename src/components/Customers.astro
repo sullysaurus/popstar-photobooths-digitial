@@ -15,20 +15,21 @@ const logos = [
 ];
 ---
 
-<div class="bg-black py-16">
-    <div class="max-w-[100vw] mx-auto">
-        <div class="overflow-hidden">
-            <div class="flex gap-8 md:gap-16 logo-scroll">
-                {[...logos, ...logos].map((logo, index) => (
-                    <div 
-                        class="shrink-0 w-32 md:w-40 h-20 md:h-24 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
-                    >
-                        <img 
-                            src={logo.url} 
-                            alt={logo.alt}
-                            class="max-h-10 md:max-h-12 max-w-[100px] md:max-w-[120px] w-auto h-auto object-contain brightness-0 invert"
-                        />
-                    </div>
+<div class="py-16 border-t border-b border-white/10 bg-black">
+    <div class="max-w-7xl mx-auto">
+        <h3 class="text-xl text-white text-center mb-12 px-4">Trusted by Industry Leaders</h3>
+        <div class="logo-scroll">
+            <div class="logo-track">
+                {[...Array(4)].map(() => (
+                    logos.map(logo => (
+                        <div class="logo-slide">
+                            <img 
+                                src={logo.url} 
+                                alt={logo.alt}
+                                class="h-12 w-auto object-contain brightness-0 invert opacity-100 hover:opacity-60 transition-all duration-300"
+                            />
+                        </div>
+                    ))
                 ))}
             </div>
         </div>
@@ -37,16 +38,23 @@ const logos = [
 
 <style>
     .logo-scroll {
-        animation: logoScroll 10s linear infinite;
+        width: 100%;
+        overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-        .logo-scroll {
-            animation: logoScroll 3.3s linear infinite;
-        }
+    .logo-track {
+        display: flex;
+        gap: 48px;
+        animation: scroll 40s linear infinite;
+        width: max-content;
+        padding: 0 24px;
     }
 
-    @keyframes logoScroll {
+    .logo-slide {
+        flex: 0 0 auto;
+    }
+
+    @keyframes scroll {
         0% {
             transform: translateX(-50%);
         }
@@ -55,7 +63,9 @@ const logos = [
         }
     }
 
-    .logo-scroll:hover {
-        animation-play-state: paused;
+    @media (max-width: 768px) {
+        .logo-track {
+            gap: 32px;
+        }
     }
 </style> 
