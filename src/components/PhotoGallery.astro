@@ -26,16 +26,17 @@ const photos = [
         </div>
 
         <div class="gallery-scroll-container overflow-hidden">
-            <div class="flex gap-12 gallery-scroll">
+            <div class="flex gap-6 md:gap-12 gallery-scroll">
                 {[...photos, ...photos].map((photo, index) => (
                     <div 
                         data-name={`gallery-item-${index}`}
-                        class="gallery-item shrink-0 w-[800px] aspect-[16/9] relative group"
+                        class="gallery-item shrink-0 w-[280px] md:w-[800px] aspect-[3/2] relative group"
                     >
                         <img 
                             src={photo.url} 
                             alt={photo.alt}
-                            class="w-full h-full object-cover rounded-3xl shadow-[0_0_30px_rgba(0,0,0,0.3)] 
+                            class="w-full h-full object-cover object-center rounded-xl md:rounded-3xl 
+                                   shadow-[0_0_30px_rgba(0,0,0,0.3)] 
                                    transform transition-all duration-500 group-hover:scale-105"
                         />
                     </div>
@@ -53,7 +54,18 @@ const photos = [
 
     @keyframes galleryScroll {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-800px * 6 - 12rem * 5)); }
+        100% { 
+            transform: translateX(calc(-800px * 6 - 12rem * 5)); 
+        }
+    }
+
+    @media (max-width: 768px) {
+        @keyframes galleryScroll {
+            0% { transform: translateX(0); }
+            100% { 
+                transform: translateX(calc(-280px * 6 - 1.5rem * 5)); 
+            }
+        }
     }
 
     .gallery-scroll:hover {
