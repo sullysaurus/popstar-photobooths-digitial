@@ -26,7 +26,12 @@ const logos = [
                             <img 
                                 src={logo.url} 
                                 alt={logo.alt}
-                                class="h-12 w-auto object-contain brightness-0 invert opacity-100 hover:opacity-60 transition-all duration-300"
+                                loading="lazy"
+                                decoding="async"
+                                width="120"
+                                height="60"
+                                class="h-12 w-auto object-contain brightness-0 invert opacity-0 transition-opacity duration-300"
+                                onload="this.style.opacity='1'"
                             />
                         </div>
                     ))
@@ -40,6 +45,8 @@ const logos = [
     .logo-scroll {
         width: 100%;
         overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
 
     .logo-track {
@@ -48,24 +55,39 @@ const logos = [
         animation: scroll 40s linear infinite;
         width: max-content;
         padding: 0 24px;
+        will-change: transform;
     }
 
     .logo-slide {
         flex: 0 0 auto;
+        min-width: 120px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @keyframes scroll {
         0% {
-            transform: translateX(-50%);
+            transform: translateX(0);
         }
         100% {
-            transform: translateX(0);
+            transform: translateX(calc(-120px * 12 - 48px * 11));
         }
     }
 
     @media (max-width: 768px) {
         .logo-track {
             gap: 32px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-120px * 12 - 32px * 11));
+            }
         }
     }
 </style> 
