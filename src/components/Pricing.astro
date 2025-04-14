@@ -25,7 +25,8 @@ const packages = [
             "✨ Premium Backdrop Collection",
             "✨ Instant Digital Gallery & Sharing",
             "✨ Professional Attendant"
-        ]
+        ],
+        mostPopular: true
     },
     {
         name: "The VIP Booth",
@@ -39,7 +40,8 @@ const packages = [
             "✨ Instant Digital Gallery & Sharing",
             "✨ Professional Attendant"
         ],
-        highlighted: true
+        highlighted: true,
+        fancy: true
     }
 ];
 ---
@@ -87,6 +89,16 @@ const packages = [
                     {pkg.bestDeal && (
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full font-bold text-sm z-10">
                             Best Deal in Raleigh
+                        </div>
+                    )}
+                    {pkg.mostPopular && (
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-4 py-1 rounded-full font-bold text-sm z-10">
+                            Most Popular
+                        </div>
+                    )}
+                    {pkg.fancy && (
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full font-bold text-sm z-10">
+                            Oh You Fancy?
                         </div>
                     )}
                     <div class="relative h-[200px] md:h-[250px] rounded-t-2xl overflow-hidden">
